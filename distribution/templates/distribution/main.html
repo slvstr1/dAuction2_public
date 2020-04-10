@@ -1,0 +1,69 @@
+{% load staticfiles %}
+{% block main_content %}
+<style>
+
+</style>
+
+<link href="/staticfiles/bootstrap/css/bootstrap.css" rel="stylesheet">
+<script scr="/staticfiles/bootstrap/js/bootstrap.js"></script>
+<script src="/staticfiles/js/react.min.js"></script>
+<script src="/staticfiles/js/react-dom.min.js"></script>
+<script src="/staticfiles/js/browser.js"></script>
+<script src="/staticfiles/js/jquery-2.1.4.js"></script>
+<script src="/staticfiles/js/plotly-latest.min.js"></script>
+<script src="/staticfiles/bootstrap/js/react-bootstrap.js"></script>
+<script src="/staticfiles/js/gaussian.js"></script>
+<script  type="text/babel" src="/staticfiles/js/distrib_elements/distrib_table.js"></script>
+<script  type="text/babel" src="/staticfiles/js/distrib_elements/plot_p.js"></script>
+<script  type="text/babel" src="/staticfiles/js/distrib_elements/plot_q.js"></script>
+<script  type="text/babel" src="/staticfiles/js/distribution_interface.js"></script>
+<script  type="text/babel" src="/staticfiles/js/timer.js"></script>
+<script>
+     function zoom() {
+        var zoomlevel = "100%";
+        var width = screen.width;
+        var height = screen.height;
+        // lab square
+        if (width == 1280 && height == 1024) {
+             var zoomlevel = "90%";
+        }
+        else if (width == 1920 && height == 1080) {
+             var zoomlevel = "85%";
+        }
+        // lab wide
+        else if (width == 1680 && height == 1050) {
+            var zoomlevel = "95%";
+        }
+        document.body.style.zoom = zoomlevel;
+        console.log(width, height, zoomlevel)
+
+    };
+    $(document).ready(function () {
+        console.log("ready!");
+        zoom();
+    });
+
+</script>
+<div class="whitefont">
+    {% if auction.show_ids %}
+        <strong>{{ user.username}}</strong>, player_id <strong>{{ player.id }}</strong>, <strong>{{ player.group }}</strong>, role <strong>{{ player.role }}</strong>
+    {% endif %}
+</div>
+</div>
+
+<title>Distribution</title>
+{# load react distrib app and put it in this container #}
+<div class="row">
+    <div class="col-xs-6">
+        <div id="Distrib_app"></div>
+    </div>
+</div>
+    {% include 'instructions/ids_in_hidden_fields.html' %}
+{% include 'instructions/refreshCheck.html' %}
+
+<script>
+
+
+</script>
+{% endblock %}
+<script src="/staticfiles/js/back_disable.js"></script>

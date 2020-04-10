@@ -1,0 +1,8 @@
+{
+        "database": "dauction2",
+
+        "user": "dauction",
+        "host": "localhost",
+        "port": "5432",
+        "passw": "dauction"
+        }

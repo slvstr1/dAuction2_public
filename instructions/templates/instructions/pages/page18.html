@@ -1,0 +1,59 @@
+<div class="row container-fluid">
+
+
+    <div class="col-xs-6">
+        <h3>Figure 10: Transactions overview for a specific example</h3>
+        <img src="/staticfiles/images/instructions_fig_06.png"
+             alt="If you do not see the picture, please alert the experimenter" height="200" width="700">
+        <br><br><br><br><br><br>
+        <h2>Figure 11: Profit Overview for a specific example</h2>
+        <div id="table18"></div>
+    </div>
+
+
+    <div class="col-xs-6">
+        <h2>Transactions Overview</h2>
+
+        <h3>
+            At the top, to the right of the Production Cost, is the Transaction Overview. In this overview, each line
+            represents a transaction, <b>with the top line showing the most recent transaction</b>. The transactions are
+            numbered (#) and the higher the number, the more recent the transaction. Sales, with a red (or, in print,
+            dark gray) background,
+            always have a positive number of Units and purchases, with a blue (or, in print, light gray) background, a
+            negative number.
+
+            {% if auction.itype == auction.FULL_INSTR %}
+                <br><br>
+                Thus, the Trading account of the Producer in the example in Figure 9 (on the previous pages) would look
+                as in Figure 10. You can see that the Producer, with the last transaction, earned a Total of 40 ECU by selling 10 Units for a Price per Unit of 4
+                ECU, and, with the transaction before that, spend a Total of 24 ECU by buying 8 Units for a Price per Unit of 3 ECU, and so on.
+            {% endif %}
+        </h3>
+
+        <br>
+        <h1>Profit Overview</h1>
+
+        <h3>
+            Under the Transaction Overview is the Profit Overview. It shows the Total Cost, the Total Trading Revenues,
+            and the PROFIT.{% if treatment.require_units_demanded_on_PR %} If a Producer received penalties, they will also be shown here.{% endif %}
+            <br><br>
+            The Total Cost is thus the total production cost of the Units Sold. The Total Trading Revenues is the total
+            earnings (if positive) or total costs (if negative) from trading (selling and buying). The PROFIT is then
+            equal to the Total Trading Revenues minus the Total Cost{% if treatment.require_units_demanded_on_PR %}and, if there are any, minus the penalties{% endif %}.
+            <br><br>
+            For the Producer in the example, the Profit Overview looks as in Figure 11
+
+            {% if auction.itype == auction.FULL_INSTR %}
+                <br><br>
+                Note that the Profit Overview follows the previous example. The Retailer incurred Total Cost by using
+                the 7 Units that were sold in Figure 9.e (Total Cost is {{ voucher_calc }} ECU) and obtained Total
+                Trading Revenues from
+                the payments for Units when trading. The Total Trading Revenue of 19 can be obtained by adding the
+                totals in the Transaction Overview in Figure 9 (40 - 24 - 4 + 7 = 19 ECU). Please inspect Figure 10 to
+                verify that.
+            {% endif %}
+        </h3>
+    </div>
+
+</div>
+<script type="text/babel" src="/staticfiles/js/f18.js"></script>

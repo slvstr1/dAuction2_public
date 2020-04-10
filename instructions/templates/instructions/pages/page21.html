@@ -1,0 +1,37 @@
+<div class="row container-fluid">
+    <div class="col-xs-6">
+        <div id="table21"></div>
+    </div>
+    <br>
+    <div class="col-xs-6">
+        <h3>
+            As soon as the Retailer buys Units, the bought Units are marked with an "X" in the column “<span
+                style="background-color: #c6effb ">Bought</span>”. Figure 14 gives an example to show how the selling
+            and buying of Units is accounted and visualized on your screen.
+            <br><br><br>
+            <strong>Figure 14.a: The Retailer has not bought anything yet</strong><br>
+            At the start of a round, if the Retailer hasn’t bought anything yet, none of the Units
+            has been marked with an "X" in the column <span style="background-color: #c6effb ">Bought</span>.
+            <br><br><br>
+            <strong>Figure 14.b: The Retailer has bought 7 Units</strong><br>
+            When the Retailer in Figure 14.a buys, for example, 7 Units, the Retailer buys the first seven Units without
+            an "X" , which are in this example the Units 1 to 7. These Units are then marked with an "X" in the column
+            <span style="background-color: #c6effb ">Bought</span> to indicate that they have been bought. The column
+            now looks as in Figure 14.b.
+            <br><br>
+            The retailer has at this point total earnings equal to 7 x {{ treatment.retail_price }} ECU =
+            <strong>{% widthratio treatment.retail_price 1 7 %} ECU</strong>.
+            <br><br>
+            If the Retailer would now like to buy one more Unit, his/her earnings increase by the amount of the
+            Earn(ings)
+            per Unit of the first Unit without "X", which is in this example Unit 8 with Earn(ings) per Unit of
+            <strong>{{ treatment.retail_price }} ECU</strong>.
+            <br><br><br>
+            Please make sure that you understand this. {% if auction.itype == auction.SUMMARY_INSTR %}
+            If you do not, raise your hand.
+        {% endif %}
+        </h3>
+    </div>
+</div>
+<script type="text/babel" src="/staticfiles/js/f21.js"></script>
+

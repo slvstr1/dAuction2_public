@@ -1,0 +1,52 @@
+# These functions are mature in the sense that I think they function well and probably wont change
+# or correct them
+
+import logging
+from functools import reduce
+from dAuction2.models import Offer, Player, Voucher
+
+
+logger = logging.getLogger(__name__)
+
+
+
+def copy_offer(c, p, first):
+    # creates a copy of the offer (real copy, not a damn second pointer to the same object).
+    # This one will contain the remaining units
+    # I think there is a standard Python command for this, but I somehow didnt manage to get it done
+    raise Exception ("copy_offer called in fmtobedel")
+    logger.debug("BEGIN copy_offer(c,p, first): (%s,%s,%s)" % (c, p, first))
+    c2 = Offer(player=p, parentId=c.id)
+    c2.priceOriginal = c.priceOriginal
+    # c2.timeCreated = c.timeCreated
+    # c2.unitsOriginal = c.unitsOriginal
+    c2.offer_tiepe = c.offer_tiepe
+    # c2.unitsInherited = c.unitsAvailable - first.unitsCleared
+    c2.unitsAvailable = c.unitsAvailable - first.unitsCleared
+    # logger.debug("c2.unitsAvailable: %s c2.unitsInherited: %s" % (c2.unitsAvailable, c2.unitsInherited))
+    # c2.unitsCleared=0
+    c2.updated = True
+    c2.save()
+    logger.debug("END copy_offer(c,p, first): (%s,%s,%s)" % (c, p, first))
+    return c2
+
+
+# def setproducts(c, p, first, first_player):
+#     # calculates the revenue for a sale or total cost for a buy
+#     # the revenue is then added to the Trading Revenue (the income from trading for a player)
+#     raise Exception("setproducts called in fmtobedel!!!")
+#     logger.debug("call setproducts")
+#     logger.debug("c.offer_tiepe: %s " % c.offer_tiepe)
+#     if c.offer_tiepe == Offer.SELL:  # thus player p is selling and thus first is a buying offer
+#         c.product = first.priceCleared * first.unitsCleared
+#         first.product = -1 * first.priceCleared * first.unitsCleared
+#     else:
+#         c.product = -1 * first.priceCleared * first.unitsCleared
+#         first.product = first.priceCleared * first.unitsCleared
+#     p.trading_result += c.product
+#     first_player.trading_result += first.product
+#     c.save()
+#     first.save()
+#     p.save()
+#     first_player.save()
+#     logger.debug("END setproducts(c,p,first,first_player): (%s,%s,%s,%s)" % (c, p, first, first_player))

@@ -1,0 +1,1 @@
+INSERT INTO public."dAuction2_timer" (id, running, waiting_page, end_time, seconds_left, short_running, short_end_time, short_seconds_left) VALUES (1, true, false, 1509646866, 3, false, 1509646846, 999);

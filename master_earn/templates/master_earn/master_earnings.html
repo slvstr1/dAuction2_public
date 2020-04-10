@@ -1,0 +1,121 @@
+{% load templatetags %}
+{% load humanize %}
+
+{#<div id="master_overview" class="container">#}
+
+    <input type="hidden" id="myVar" name="variable" value="{{ auction.time_refresh_data }}">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="row">
+                {% if master_man.payment_sheet %}
+                    {% include 'master_earn/master_earnings_overview.html' %}
+
+                {% else %}
+                    {% include 'master_earn/master_earnings_payment_sheet.html' %}
+
+                {% endif  %}
+
+            </div>
+
+        </div>
+    </div>
+    <div style="display: none" id="Player_table"></div>
+{#</div>#}
+
+
+
+{% if auction.pagerefresh_toggle %}
+    <meta http-equiv="refresh" content="10">
+{% endif %}
+{% load staticfiles %}
+
+
+<!--<script type="text/javascript">-->
+    <!--$('.submitForm').click(function (e) {-->
+        <!--e.preventDefault();-->
+        <!--answerid = $(this).attr("name");-->
+        <!--{#    alert(answerid);#}-->
+        <!--var frm = $("#master_set_state");-->
+        <!--{#    alert(frm);#}-->
+        <!--frm = frm.serializeArray()-->
+        <!--{#    alert(frm);#}-->
+        <!--frm = frm.concat([{name: answerid, value: "True_Ajax"}]);-->
+        <!--{#    alert(frm);#}-->
+        <!--$.ajax({-->
+            <!--method: 'post',-->
+            <!--url: "{% url 'master-set_state' %}",-->
+            <!--data: frm,-->
+            <!--{#        success: alert("yes")#}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+    <!--$('.submitForm2').click(function (e) {-->
+        <!--e.preventDefault();-->
+        <!--answerid = $(this).attr("name");-->
+        <!--{#    alert(answerid);#}-->
+        <!--var frm = $("#master_set_state2");-->
+        <!--{#    alert(frm);#}-->
+        <!--frm = frm.serializeArray()-->
+        <!--{#    alert(frm);#}-->
+        <!--frm = frm.concat([{name: answerid, value: "True_Ajax"}]);-->
+        <!--{#    alert(frm);#}-->
+        <!--$.ajax({-->
+            <!--method: 'post',-->
+            <!--url: "{% url 'master-set_state' %}",-->
+            <!--data: frm,-->
+            <!--{#        success: alert("yes")#}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+    <!--$('.submitFormA').click(function (e) {-->
+        <!--e.preventDefault();-->
+        <!--answerid = $(this).attr("name");-->
+        <!--{#    alert(answerid);#}-->
+        <!--var frm = $("#master_parameters_setA");-->
+        <!--{#    alert(frm);#}-->
+        <!--frm = frm.serializeArray()-->
+        <!--{#    alert(frm);#}-->
+        <!--{#    frm= frm.concat([{name: answerid, value: "True_Ajax"}]);#}-->
+        <!--{#    alert(frm);#}-->
+        <!--$.ajax({-->
+            <!--method: 'post',-->
+            <!--url: "{% url 'master-parameters_set' %}",-->
+            <!--data: frm,-->
+            <!--{#        success: alert("yes")#}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+    <!--$('.submitFormB').click(function (e) {-->
+        <!--e.preventDefault();-->
+        <!--answerid = $(this).attr("name");-->
+        <!--var frm = $("#master_parameters_setB");-->
+        <!--frm = frm.serializeArray()-->
+        <!--$.ajax({-->
+            <!--method: 'post',-->
+            <!--url: "{% url 'master-parameters_set' %}",-->
+            <!--data: frm,-->
+            <!--{#        success: alert("yes")#}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+    <!--$('.submitFormC').click(function (e) {-->
+        <!--e.preventDefault();-->
+        <!--answerid = $(this).attr("name");-->
+        <!--var frm = $("#master_parameters_setC");-->
+        <!--frm = frm.serializeArray()-->
+        <!--$.ajax({-->
+            <!--method: 'post',-->
+            <!--url: "{% url 'master-parameters_set' %}",-->
+            <!--data: frm,-->
+            <!--{#        success: alert("yes")#}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->

@@ -1,0 +1,17 @@
+<style>
+    div.hide_me {
+        visibility: hidden;
+        position: absolute;
+  left: -999em;
+    }
+</style>
+<div class="hide_me" id="auction_id">{{ auction.id }}</div>
+<div class="hide_me" id="user_id">{{ user.id }}</div>
+<div class="hide_me" id="player_id">{{ player.id }}</div>
+{#<div class="hide_me" id="player_role">{{ player.role }}</div>#}
+{% if group.id %}
+    <div class="hide_me" id="group_id">{{ group.id }}</div>
+{% else %}
+    <div class="hide_me" id="group_id">{{ group_id }}</div>
+{% endif %}
+<div class="hide_me" id="refresh_time">{{ auction.time_refresh_data }}</div>

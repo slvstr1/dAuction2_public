@@ -1,0 +1,57 @@
+<div class="row container-fluid">
+    <div class="row container-fluid">
+        <h2>Transactions Overview</h2>
+        <div class="col-xs-6">
+            <h2>Figure 15: Transactions overview for a specific example</h2>
+            <img src="/staticfiles/images/instructions_fig_11.png"
+                 alt="If you do not see the picture, please alert the experimenter" class="img-responsive"
+                 style="min-height:200px;min-width:600px">
+            <br>
+        </div>
+        <div class="col-xs-6">
+            <h3>
+                At the top, to the right of the Earnings Overview, is the Transaction Overview. In this overview, each
+                line
+                represents a transaction, with the topline showing the most recent transaction. The transactions are
+                numbered (#) and the higher the number, the more recent the transaction. Sales, with a red (or, in
+                print, dark gray) background, always have a positive number of Units and purchases, with a blue (or, in
+                print, light gray) background, a negative number.
+                <br><br>
+                Thus, the Transaction Overview of the Retailer in the example in Figure 14 would look as in Figure 15
+                and it
+                can be seen that the Retailer, with the last transaction, spend a Total of 40 ECU by buying 10 Units for a Price per Unit of 4 ECU, and, with the transaction before that, earned a Total of 24 ECU by selling 8 Units for a Price per Unit of 3 ECU, and so on.
+            </h3>
+        </div>
+    </div>
+    <div class="row container-fluid">
+        <h2>Figure 16: Profit Overview for a specific example</h2>
+        <div class="col-md-6 container-fluid">
+            <div id="table25"></div>
+        </div>
+        <div class="col-xs-6">
+            <h3>
+                Under the Transaction Overview is the Profit Overview. It shows the Total Earnings, the Total Trading
+                Revenues, and the PROFIT. If a {% if treatment.require_units_demanded_on_PR %}participant{% else %}Retailer{% endif %} received penalties, they will also be shown here. For the
+                Retailer in the example, the Profit Overview looks as in Figure 16
+                <br><br>
+
+                The Total Earnings is thus the total Earnings resulting from the Units Bought. The Total Trading
+                Revenues is
+                the total earnings (if positive) or total costs (if negative) from trading (selling and buying). The
+                PROFIT
+                is then equal to the Total Earnings plus the Total Trading Revenues and, if there are any, minus the
+                penalties.
+                <br><br>
+                Note that the Profit Overview follows the previous example. The Retailer incurred Total Earnings from
+                the 7
+                Units that were bought in Figure 14.e (Total Earn(ings) are 7 x {{ treatment.retail_price }}
+                = {% widthratio treatment.retail_price 1 7 %}) and obtained the Total Trading Revenues
+                from the payments for Units when trading. The Total Trading Revenue of -19 ECU can be obtained by adding
+                the
+                totals in the Transaction Overview in Figure 15 (-40 + 24 + 4 – 7 = -19 ECU).Please inspect Figure 15 to
+                verify that.
+            </h3>
+        </div>
+    </div>
+    <script type="text/babel" src="/staticfiles/js/f25.js"></script>
+</div>

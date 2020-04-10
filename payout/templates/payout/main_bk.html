@@ -1,0 +1,24 @@
+{% extends "payout/base.html" %}{% load staticfiles %}
+{% block title %}PAYOUT!!{% endblock %}
+
+{% block main_content %}
+  <div class="container">
+
+      <div class="starter-template">
+
+<br><br><br>
+          <h3>
+
+      {% if master_man.show_receipt_message %}
+        Get the payment slip that lies on top of the computer and write down your player number <strong>{{ user.username }}</strong> in the right corner, your full name, you birth number (or passport number if you are not Czech or Slovak).</h3>
+      <h3>For a quick processing, fill out your earning on the payment slip and already sign the payment slip now. Bring with you the payment slip, the instructions and the pen.</h3>
+          {% else %}
+          {% endif %}
+      {% if after_message %}
+      <h3>{{ after_message }}</h3>
+      {% endif %}
+      </div>
+
+    </div><!-- /.container -->
+{#    <br>#}
+{% endblock %}

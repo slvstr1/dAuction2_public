@@ -1,0 +1,10 @@
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (1, 1, true, 1, false, false, '2017-11-02 18:34:11.147450', 282325, 1);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (2, 2, true, 1, false, true, '2017-11-02 18:41:05.250391', 282325, 1);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (3, 1, true, 1, false, false, '2017-11-02 18:44:41.260256', 282325, 2);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (4, 2, true, 1, false, true, '2017-11-02 18:48:44.150884', 282325, 2);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (5, 1, true, 1, false, false, '2017-11-02 18:54:03.872108', 282325, 3);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (6, 2, true, 1, false, true, '2017-11-02 18:58:05.072663', 282325, 3);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (7, 1, true, 1, false, false, '2017-11-02 19:03:48.906102', 282325, 4);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (8, 2, true, 1, false, true, '2017-11-02 19:08:35.099611', 282325, 4);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (9, 1, true, 1, false, false, '2017-11-02 19:12:38.279103', 282325, 5);
+INSERT INTO public."dAuction2_phase" (id, idd, waiting_page, active_state, question_page, "end", created, auction_id, period_id) VALUES (10, 2, true, 1, false, true, '2017-11-02 19:16:41.200590', 282325, 5);

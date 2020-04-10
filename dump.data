@@ -1,0 +1,3083 @@
+[
+{
+   "model": "dAuction2.user",
+   "pk": 1,
+   "fields": {
+      "password": "plain$$u01",
+      "last_login": "2016-11-25T21:53:10.783Z",
+      "is_superuser": false,
+      "username": "u01",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.450Z",
+      "state": 2,
+      "pagerefresh_now": true,
+      "logged_in": true,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "10.0.2.2",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 2,
+   "fields": {
+      "password": "plain$$u02",
+      "last_login": "2016-11-25T21:53:03.201Z",
+      "is_superuser": false,
+      "username": "u02",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.476Z",
+      "state": 2,
+      "pagerefresh_now": true,
+      "logged_in": true,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "10.0.2.2",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 3,
+   "fields": {
+      "password": "plain$$u03",
+      "last_login": "2016-11-18T14:51:51.459Z",
+      "is_superuser": false,
+      "username": "u03",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.502Z",
+      "state": 1,
+      "pagerefresh_now": true,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 4,
+   "fields": {
+      "password": "plain$$u04",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u04",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.527Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 5,
+   "fields": {
+      "password": "plain$$u05",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u05",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.566Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 6,
+   "fields": {
+      "password": "plain$$u06",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u06",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.603Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 7,
+   "fields": {
+      "password": "plain$$u07",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u07",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.639Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 8,
+   "fields": {
+      "password": "plain$$u08",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u08",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.667Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 9,
+   "fields": {
+      "password": "plain$$u09",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u09",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.695Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 10,
+   "fields": {
+      "password": "plain$$u10",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u10",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.722Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 11,
+   "fields": {
+      "password": "plain$$u11",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u11",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.755Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 12,
+   "fields": {
+      "password": "plain$$u12",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u12",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.783Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 13,
+   "fields": {
+      "password": "plain$$u13",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u13",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.810Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 14,
+   "fields": {
+      "password": "plain$$u14",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u14",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.837Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 15,
+   "fields": {
+      "password": "plain$$u15",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u15",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.863Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 16,
+   "fields": {
+      "password": "plain$$u16",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u16",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.890Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 17,
+   "fields": {
+      "password": "plain$$u17",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u17",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.917Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 18,
+   "fields": {
+      "password": "plain$$u18",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u18",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.944Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 19,
+   "fields": {
+      "password": "plain$$u19",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u19",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.970Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 20,
+   "fields": {
+      "password": "plain$$u20",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u20",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.996Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 21,
+   "fields": {
+      "password": "plain$$u21",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u21",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.020Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 22,
+   "fields": {
+      "password": "plain$$u22",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u22",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.046Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 23,
+   "fields": {
+      "password": "plain$$u23",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u23",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.080Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 24,
+   "fields": {
+      "password": "plain$$u24",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u24",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.133Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 25,
+   "fields": {
+      "password": "plain$$u25",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u25",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.180Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 26,
+   "fields": {
+      "password": "plain$$u26",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u26",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.219Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 27,
+   "fields": {
+      "password": "plain$$u27",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u27",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.249Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 28,
+   "fields": {
+      "password": "plain$$u28",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u28",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.276Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 29,
+   "fields": {
+      "password": "plain$$u29",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u29",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.309Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 30,
+   "fields": {
+      "password": "plain$$u30",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u30",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.334Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 31,
+   "fields": {
+      "password": "plain$$u31",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u31",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.361Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 32,
+   "fields": {
+      "password": "plain$$u32",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u32",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.388Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 33,
+   "fields": {
+      "password": "plain$$u33",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u33",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.420Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 34,
+   "fields": {
+      "password": "plain$$u34",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u34",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.449Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 35,
+   "fields": {
+      "password": "plain$$u35",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u35",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.479Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 36,
+   "fields": {
+      "password": "plain$$u36",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u36",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.506Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 37,
+   "fields": {
+      "password": "plain$$u37",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u37",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.531Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 38,
+   "fields": {
+      "password": "plain$$u38",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u38",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.557Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 39,
+   "fields": {
+      "password": "plain$$u39",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u39",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.582Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 40,
+   "fields": {
+      "password": "plain$$u40",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "u40",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:23.614Z",
+      "state": 1,
+      "pagerefresh_now": false,
+      "logged_in": false,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.user",
+   "pk": 99,
+   "fields": {
+      "password": "plain$$admin",
+      "last_login": "2016-11-18T11:17:36.268Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2016-11-18T11:17:22.395Z",
+      "state": 1,
+      "pagerefresh_now": true,
+      "logged_in": true,
+      "has_player": false,
+      "fail": false,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "ip": "",
+      "groups": [],
+      "user_permissions": []
+   }
+},
+{
+   "model": "dAuction2.auction",
+   "pk": 1,
+   "fields": {
+      "created": "2016-11-18T11:17:21.551Z",
+      "updated": "2016-11-26T09:34:54.600Z",
+      "test_players": false,
+      "make_instruction_pdf": false,
+      "invalidate_cache": false,
+      "users_created": true,
+      "auction_created": true,
+      "active": true,
+      "allow_multiple_offers": true,
+      "test_mode": false,
+      "app_testing_started": false,
+      "group_arrangements": 1,
+      "view": 3,
+      "file_name": "data_1",
+      "testing_totalquestions": 0,
+      "show_ids": false,
+      "testing_questions_defined": false,
+      "testing_player_questions_defined": false,
+      "treatment": "Tr_1",
+      "retail_price": 96,
+      "d_draws_needed": 50,
+      "demand_avg": 58.4954128440367,
+      "price_avg": 79.9724770642202,
+      "PR_per_group": 4,
+      "RE_per_group": 4,
+      "total_groups": 1,
+      "groups_assignment_alternate": true,
+      "convexity_parameter": 4,
+      "a": 0.017777777777,
+      "F": 0.0,
+      "mu": 60.0,
+      "sigma": 20.0,
+      "short_maximum": 15,
+      "voucher_number": 35,
+      "demand_curtailment_warning": false,
+      "players_endowed": false,
+      "players_all_logged": true,
+      "total_periods": 10,
+      "time_for_question_page": 5,
+      "time_for_forward": 120,
+      "time_for_forward_waiting_after": 10,
+      "time_for_spot": 120,
+      "time_for_spot_waiting_after": 10,
+      "instruction_totalPages": 30,
+      "app_instructions": false,
+      "app_distribution": false,
+      "app_testing": false,
+      "app_forward_and_spot": true,
+      "app_questionnaire": false,
+      "all_ready": false,
+      "app_payout": false,
+      "app_training": false,
+      "app_simulation": false,
+      "max_vouchers": 35,
+      "players_one_logged": true,
+      "logging_requirement_overruled": true,
+      "first_period": false,
+      "auction_started": true,
+      "auction_finished": false,
+      "instructions_started": false,
+      "instructions_finished": false,
+      "distribution_auction_created": true,
+      "end": false,
+      "time_refresh_check": 10000,
+      "time_refresh_data": 1400,
+      "stop": false,
+      "allow_automatic_login": true,
+      "spot_initialized": false,
+      "pagerefresh_toggle": false,
+      "empty_fields_in_export": false
+   }
+},
+{
+   "model": "dAuction2.auction",
+   "pk": 2,
+   "fields": {
+      "created": "2016-11-25T23:08:48.428Z",
+      "updated": "2016-11-26T08:21:10.476Z",
+      "test_players": false,
+      "make_instruction_pdf": false,
+      "invalidate_cache": false,
+      "users_created": false,
+      "auction_created": true,
+      "active": false,
+      "allow_multiple_offers": false,
+      "test_mode": false,
+      "app_testing_started": false,
+      "group_arrangements": 1,
+      "view": 3,
+      "file_name": "data_2",
+      "testing_totalquestions": 0,
+      "show_ids": false,
+      "testing_questions_defined": false,
+      "testing_player_questions_defined": false,
+      "treatment": "Tr_1",
+      "retail_price": 96,
+      "d_draws_needed": 50,
+      "demand_avg": -1.0,
+      "price_avg": -1.0,
+      "PR_per_group": 4,
+      "RE_per_group": 4,
+      "total_groups": 1,
+      "groups_assignment_alternate": true,
+      "convexity_parameter": 4,
+      "a": 0.017777777777,
+      "F": 0.0,
+      "mu": 60.0,
+      "sigma": 20.0,
+      "short_maximum": 15,
+      "voucher_number": 35,
+      "demand_curtailment_warning": false,
+      "players_endowed": false,
+      "players_all_logged": true,
+      "total_periods": 10,
+      "time_for_question_page": 5,
+      "time_for_forward": 120,
+      "time_for_forward_waiting_after": 10,
+      "time_for_spot": 120,
+      "time_for_spot_waiting_after": 10,
+      "instruction_totalPages": 30,
+      "app_instructions": false,
+      "app_distribution": false,
+      "app_testing": false,
+      "app_forward_and_spot": false,
+      "app_questionnaire": false,
+      "all_ready": false,
+      "app_payout": false,
+      "app_training": false,
+      "app_simulation": false,
+      "max_vouchers": 35,
+      "players_one_logged": true,
+      "logging_requirement_overruled": true,
+      "first_period": true,
+      "auction_started": false,
+      "auction_finished": false,
+      "instructions_started": false,
+      "instructions_finished": false,
+      "distribution_auction_created": false,
+      "end": false,
+      "time_refresh_check": 10000,
+      "time_refresh_data": 1000,
+      "stop": false,
+      "allow_automatic_login": true,
+      "spot_initialized": false,
+      "pagerefresh_toggle": false,
+      "empty_fields_in_export": false
+   }
+},
+{
+   "model": "dAuction2.group",
+   "pk": 8,
+   "fields": {
+      "auction": 1,
+      "idd": 1
+   }
+},
+{
+   "model": "dAuction2.group",
+   "pk": 10,
+   "fields": {
+      "auction": 2,
+      "idd": 1
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 61,
+   "fields": {
+      "auction": 1,
+      "idd": 1,
+      "total_demand": 103
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 62,
+   "fields": {
+      "auction": 1,
+      "idd": 2,
+      "total_demand": 60
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 63,
+   "fields": {
+      "auction": 1,
+      "idd": 3,
+      "total_demand": 58
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 64,
+   "fields": {
+      "auction": 1,
+      "idd": 4,
+      "total_demand": 35
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 65,
+   "fields": {
+      "auction": 1,
+      "idd": 5,
+      "total_demand": 102
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 66,
+   "fields": {
+      "auction": 1,
+      "idd": 6,
+      "total_demand": 67
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 67,
+   "fields": {
+      "auction": 1,
+      "idd": 7,
+      "total_demand": 89
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 68,
+   "fields": {
+      "auction": 1,
+      "idd": 8,
+      "total_demand": 93
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 69,
+   "fields": {
+      "auction": 1,
+      "idd": 9,
+      "total_demand": 59
+   }
+},
+{
+   "model": "dAuction2.period",
+   "pk": 70,
+   "fields": {
+      "auction": 1,
+      "idd": 10,
+      "total_demand": 49
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 105,
+   "fields": {
+      "app": 4,
+      "state": 2,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 0,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "instructions/pages/page01.html",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 1,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": true,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 106,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 7,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 107,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 1,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 108,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 1,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 109,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 6,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 110,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 6,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 111,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 3,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 112,
+   "fields": {
+      "app": 4,
+      "state": 2,
+      "user": null,
+      "auction": 1,
+      "group": 8,
+      "period": 1,
+      "page": 0,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "instructions/pages/page01.html",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 4,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": true,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 129,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 130,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 131,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 132,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 133,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 134,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 135,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 0,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.player",
+   "pk": 136,
+   "fields": {
+      "app": 0,
+      "state": 1,
+      "user": null,
+      "auction": 2,
+      "group": 10,
+      "period": 1,
+      "page": 1,
+      "test_page": 1,
+      "instructions_finished": false,
+      "testing_finished": false,
+      "testing_trials": 0,
+      "testing_errors": 0,
+      "testing_correct": 0,
+      "pageurl": "",
+      "draw_id": 0,
+      "last_refresh_date": "2002-12-04T00:00:00Z",
+      "last_alive": -1,
+      "role": 1,
+      "money": 0,
+      "payout_money": 0,
+      "pay_period": 0,
+      "trading_result": 0,
+      "total_cost": 0,
+      "total_values": 0,
+      "profit": 0,
+      "player_ready": false,
+      "first_name": "",
+      "last_name": "",
+      "male": true,
+      "age": 0,
+      "difficult_rating": 0,
+      "interesting_rating": 0,
+      "income_monthly_CZK": 0,
+      "comments": "",
+      "do_better_what": ""
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 692,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page01.html",
+      "idd": 1
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 693,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page02.html",
+      "idd": 2
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 694,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page03.html",
+      "idd": 3
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 695,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page04.html",
+      "idd": 4
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 696,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page05.html",
+      "idd": 5
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 697,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page06.html",
+      "idd": 6
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 698,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page07.html",
+      "idd": 7
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 699,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page08.html",
+      "idd": 8
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 700,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page09.html",
+      "idd": 9
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 701,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page10.html",
+      "idd": 10
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 702,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page11.html",
+      "idd": 11
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 703,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page12.html",
+      "idd": 12
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 704,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page13.html",
+      "idd": 13
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 705,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page14.html",
+      "idd": 14
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 706,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page15.html",
+      "idd": 15
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 707,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page16.html",
+      "idd": 16
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 708,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page17.html",
+      "idd": 17
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 709,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page18.html",
+      "idd": 18
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 710,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page19.html",
+      "idd": 19
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 711,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page20.html",
+      "idd": 20
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 712,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page21.html",
+      "idd": 21
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 713,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page22.html",
+      "idd": 22
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 714,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page23.html",
+      "idd": 23
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 715,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page24.html",
+      "idd": 24
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 716,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page25.html",
+      "idd": 25
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 717,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page26.html",
+      "idd": 26
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 718,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page27.html",
+      "idd": 27
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 719,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page28.html",
+      "idd": 28
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 720,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page29.html",
+      "idd": 29
+   }
+},
+{
+   "model": "dAuction2.page",
+   "pk": 721,
+   "fields": {
+      "auction": 2,
+      "url": "instructions/pages/page30.html",
+      "idd": 30
+   }
+},
+{
+   "model": "dAuction2.player_stats",
+   "pk": 722,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "period": 61,
+      "role": 0,
+      "group": 8,
+      "player_demand": 0,
+      "trading_result": 0,
+      "total_cost": 0.0,
+      "total_values": 0.0,
+      "profit": 0.0,
+      "penalty": 0.0,
+      "penalty_perunit": 0.0,
+      "question": 1,
+      "price_perfect_expectation": -1,
+      "required_units_expectation": -1,
+      "price_real_expectation": -1,
+      "units_missing": -1,
+      "vouchers_used": 0,
+      "vouchers_negative": 0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 281,
+   "fields": {
+      "auction": 1,
+      "idd": 1,
+      "value_cum": 0.0,
+      "value": 0.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 282,
+   "fields": {
+      "auction": 1,
+      "idd": 2,
+      "value_cum": 0.0,
+      "value": 0.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 283,
+   "fields": {
+      "auction": 1,
+      "idd": 3,
+      "value_cum": 0.1,
+      "value": 0.1
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 284,
+   "fields": {
+      "auction": 1,
+      "idd": 4,
+      "value_cum": 0.4,
+      "value": 0.3
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 285,
+   "fields": {
+      "auction": 1,
+      "idd": 5,
+      "value_cum": 1.1,
+      "value": 0.7
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 286,
+   "fields": {
+      "auction": 1,
+      "idd": 6,
+      "value_cum": 2.8,
+      "value": 1.7
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 287,
+   "fields": {
+      "auction": 1,
+      "idd": 7,
+      "value_cum": 5.8,
+      "value": 3.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 288,
+   "fields": {
+      "auction": 1,
+      "idd": 8,
+      "value_cum": 10.7,
+      "value": 4.9
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 289,
+   "fields": {
+      "auction": 1,
+      "idd": 9,
+      "value_cum": 18.2,
+      "value": 7.5
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 290,
+   "fields": {
+      "auction": 1,
+      "idd": 10,
+      "value_cum": 29.2,
+      "value": 11.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 291,
+   "fields": {
+      "auction": 1,
+      "idd": 11,
+      "value_cum": 44.0,
+      "value": 14.8
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 292,
+   "fields": {
+      "auction": 1,
+      "idd": 12,
+      "value_cum": 65.0,
+      "value": 21.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 293,
+   "fields": {
+      "auction": 1,
+      "idd": 13,
+      "value_cum": 92.0,
+      "value": 27.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 294,
+   "fields": {
+      "auction": 1,
+      "idd": 14,
+      "value_cum": 127.0,
+      "value": 35.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 295,
+   "fields": {
+      "auction": 1,
+      "idd": 15,
+      "value_cum": 171.0,
+      "value": 44.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 296,
+   "fields": {
+      "auction": 1,
+      "idd": 16,
+      "value_cum": 225.0,
+      "value": 54.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 297,
+   "fields": {
+      "auction": 1,
+      "idd": 17,
+      "value_cum": 291.0,
+      "value": 66.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 298,
+   "fields": {
+      "auction": 1,
+      "idd": 18,
+      "value_cum": 371.0,
+      "value": 80.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 299,
+   "fields": {
+      "auction": 1,
+      "idd": 19,
+      "value_cum": 465.0,
+      "value": 94.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 300,
+   "fields": {
+      "auction": 1,
+      "idd": 20,
+      "value_cum": 580.0,
+      "value": 115.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 301,
+   "fields": {
+      "auction": 1,
+      "idd": 21,
+      "value_cum": 710.0,
+      "value": 130.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 302,
+   "fields": {
+      "auction": 1,
+      "idd": 22,
+      "value_cum": 865.0,
+      "value": 155.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 303,
+   "fields": {
+      "auction": 1,
+      "idd": 23,
+      "value_cum": 1040.0,
+      "value": 175.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 304,
+   "fields": {
+      "auction": 1,
+      "idd": 24,
+      "value_cum": 1245.0,
+      "value": 205.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 305,
+   "fields": {
+      "auction": 1,
+      "idd": 25,
+      "value_cum": 1475.0,
+      "value": 230.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 306,
+   "fields": {
+      "auction": 1,
+      "idd": 26,
+      "value_cum": 1735.0,
+      "value": 260.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 307,
+   "fields": {
+      "auction": 1,
+      "idd": 27,
+      "value_cum": 2030.0,
+      "value": 295.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 308,
+   "fields": {
+      "auction": 1,
+      "idd": 28,
+      "value_cum": 2360.0,
+      "value": 330.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 309,
+   "fields": {
+      "auction": 1,
+      "idd": 29,
+      "value_cum": 2730.0,
+      "value": 370.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 310,
+   "fields": {
+      "auction": 1,
+      "idd": 30,
+      "value_cum": 3145.0,
+      "value": 415.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 311,
+   "fields": {
+      "auction": 1,
+      "idd": 31,
+      "value_cum": 3600.0,
+      "value": 455.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 312,
+   "fields": {
+      "auction": 1,
+      "idd": 32,
+      "value_cum": 4100.0,
+      "value": 500.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 313,
+   "fields": {
+      "auction": 1,
+      "idd": 33,
+      "value_cum": 4660.0,
+      "value": 560.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 314,
+   "fields": {
+      "auction": 1,
+      "idd": 34,
+      "value_cum": 5270.0,
+      "value": 610.0
+   }
+},
+{
+   "model": "dAuction2.voucher",
+   "pk": 315,
+   "fields": {
+      "auction": 1,
+      "idd": 35,
+      "value_cum": 5940.0,
+      "value": 670.0
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 59,
+   "fields": {
+      "auction": 1,
+      "period": 61,
+      "idd": 1,
+      "waiting_page": false,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 60,
+   "fields": {
+      "auction": 1,
+      "period": 61,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 61,
+   "fields": {
+      "auction": 1,
+      "period": 62,
+      "idd": 1,
+      "waiting_page": false,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 62,
+   "fields": {
+      "auction": 1,
+      "period": 62,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 63,
+   "fields": {
+      "auction": 1,
+      "period": 63,
+      "idd": 1,
+      "waiting_page": false,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 64,
+   "fields": {
+      "auction": 1,
+      "period": 63,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 65,
+   "fields": {
+      "auction": 1,
+      "period": 64,
+      "idd": 1,
+      "waiting_page": false,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 66,
+   "fields": {
+      "auction": 1,
+      "period": 64,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 67,
+   "fields": {
+      "auction": 1,
+      "period": 65,
+      "idd": 1,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 68,
+   "fields": {
+      "auction": 1,
+      "period": 65,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 69,
+   "fields": {
+      "auction": 1,
+      "period": 66,
+      "idd": 1,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 70,
+   "fields": {
+      "auction": 1,
+      "period": 66,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 71,
+   "fields": {
+      "auction": 1,
+      "period": 67,
+      "idd": 1,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 72,
+   "fields": {
+      "auction": 1,
+      "period": 67,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 73,
+   "fields": {
+      "auction": 1,
+      "period": 68,
+      "idd": 1,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 74,
+   "fields": {
+      "auction": 1,
+      "period": 68,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 75,
+   "fields": {
+      "auction": 1,
+      "period": 69,
+      "idd": 1,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 76,
+   "fields": {
+      "auction": 1,
+      "period": 69,
+      "idd": 2,
+      "waiting_page": true,
+      "question_page": false,
+      "nothing": true,
+      "end": true
+   }
+},
+{
+   "model": "dAuction2.phase",
+   "pk": 77,
+   "fields": {
+      "auction": 1,
+      "period": 70,
+      "idd": 1,
+      "waiting_page": false,
+      "question_page": false,
+      "nothing": false,
+      "end": false
+   }
+},
+{
+   "model": "dAuction2.timer",
+   "pk": 1,
+   "fields": {
+      "end": false,
+      "running": false,
+      "waiting_page": false,
+      "end_time": 1479847335,
+      "seconds_left": 7
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 298,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:27:10.887Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 1,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 1,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 299,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:27:18.556Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 2,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 2,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 300,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:27:22.260Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 3,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 3,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 301,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:27:40.734Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 4,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 4,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 302,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:27:45.422Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 5,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 5,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 303,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:27:49.860Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 6,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 6,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 304,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:28:02.993Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 7,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 7,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 305,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:28:06.067Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 8,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 8,
+      "product": 0
+   }
+},
+{
+   "model": "dAuction2.offer",
+   "pk": 306,
+   "fields": {
+      "auction": 1,
+      "player": 105,
+      "role": 0,
+      "phase": 77,
+      "group": 8,
+      "created": "2016-11-22T20:28:10.921Z",
+      "timeCleared": null,
+      "offer_tiepe": 0,
+      "cleared": false,
+      "updated": false,
+      "unitsAvailable": 9,
+      "unitsCleared": 0,
+      "unitsOriginal": -1,
+      "priceCleared": 0,
+      "priceOriginal": 9,
+      "product": 0
+   }
+}
+]

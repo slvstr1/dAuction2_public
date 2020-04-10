@@ -1,0 +1,51 @@
+{% load templatetags %}
+<div class="row container-fluid">
+    <h1>7. Determination of the UNITS DEMANDED for Retailers</h1>
+
+    <div class="col-xs-6">
+{#        <h3>Figure 22: Distribution MARKET UNITS DEMANDED and PRICES</h3>#}
+{#        <img src="/staticfiles/images/instructions_fig_18.png"#}
+{#             alt="If you do not see the picture, please alert the experimenter" class="img-responsive">#}
+
+
+        <h3>Figure 22: Distribution MARKET UNITS DEMANDED and PRICES</h3>
+        <img src="{{ src_file18 }}" alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+{#             {{ src_file18 }}#}
+{#        instructions_fig_18_0_20_100#}
+    </div>
+
+    <div class="col-xs-6">
+        <h3>
+            As mentioned before, the number of UNITS DEMANDED for the Retailer is determined by randomly drawing first
+            <strong>the MARKET UNITS DEMANDED as an integer number between {{ treatment.uniform_min }}
+                and {{ treatment.uniform_max }}</strong> with each number having the same probability of being chosen.
+            <strong>The MARKET UNITS DEMANDED has thus an average of {% widthratio treatment.demand_avg_theory 1 1 %} and
+                has a standard deviation of approximately {{ treatment.demand_sd_theory|floatformat }}</strong>.</h3>
+
+        <h3><span style="background-color: greenyellow"><strong>For your information, we also calculated the expected price in the market if Producers are charging marginal costs: this is equal to {{ treatment.price_avg_theory|floatformat }} ECU.</strong></span>
+        </h3>
+
+        <h3>
+            To help you understand how we could come to {{ treatment.price_avg_theory |floatformat }} as the expected
+            price, we will show you the screen “Distribution MARKET UNITS DEMANDED and PRICES” with a graphical display
+            of the distribution. The screen looks like Figure 22.
+            <br><br>
+            On the right, under the label “GRAPHICAL DISPLAYS”, you see on top “Numerical simulation of the distribution of MARKET UNITS DEMANDED”. The distribution is basically a histogram of the relative frequency of each outcome when the
+            number of MARKET UNITS DEMANDED are drawn 200.000 times at random. You can see that <strong>the average of
+            the MARKET UNITS DEMANDED is equal to {{ treatment.demand_avg_theory |floatformat }}</strong>.
+            <br><br>
+            Below you can see the “Distribution of lowest possible price”. For each value of MARKET UNITS DEMANDED, we
+            calculate what is the cost of the last Unit if we spread the production of the MARKET UNITS DEMANDED as
+            equally as possible over all Producers.
+            <br><br>
+            This is the lowest possible price for which a Producer could sell his or her production without making a
+            loss on the sale of the last Unit. Notice that this would be the equilibrium price for Units if competition
+            were perfect.
+
+            <strong>Below the graph we indicate the average over all possible prices and this is equal, as mentioned
+                before, to {{ treatment.price_avg_theory |floatformat }} ECU.</strong>
+        </h3>
+    </div>
+
+
+</div>

@@ -1,0 +1,132 @@
+
+RESTART nginx
+sudo systemctl restart app.service nginx.service
+
+
+Added, by upgrading our Fedora to v27.
+
+Needs some work on our side:
+
+install the VirtualBox 5.2.6
+install the Vagrant 2.0.2
+if using Windows, upgrade PowerShell to v5+ https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell
+Then recreate Vagrant and all should work. Post any issues. Already works in the lab.
+
+# should run from /home/vagrant/venv/bin/python
+# run manage.py loaddata deployment/db_users10.json
+# run manage.py loaddata deployment/db_users40.json
+
+# Extended User model
+# Minus is that you cannot just use User.objects.filter... etc, but always in the file in the beginning must write:
+# from django.contrib.auth import get_user_model
+# User = get_user_model()
+
+# about MEMCACHED: http://www.liquidweb.com/kb/how-to-install-memcached-on-fedora-23/
+
+#
+
+
+Inclusion of js files in testing now works in the following way:
+Explanation of some recent changes:
+
+In functions.py, question has attribute "js", if "js"=="y", testing includes static/js/{{question.idd}}.js file, that includes js content present on page (see first pages with plots for q and p)
+If there is no "js" attribute set, it tries to load image, if there is no image, it just renders the answers
+There are two empy divs on the page, "content1" and "content2", that can be filled with any content using js (this can make tables/pictures dynamic)
+Static files are now moved from dAuction2/static to folders of respective apps (instruction pics to instructions/static etc.). Way to include them to the page remains the same, they are just now in more logical and easy to find places. This was needed to make space for a lot of js files now present in testing and possibly in the instructions.
+
+Testing was redesigned using bootstrap and cleaned up a little.
+
+Inclusion of js files in testing now works in the following way:
+
+In functions.py, question has attribute "js", if "js"=="y", testing includes static/js/t{{question.idd}}.js file, that includes js content present on page (see first pages with plots for q and p)
+If there is not js==y, it tries to load image, if there is no image, it just renders the answers
+There are four empy divs on the page, "content1-4", that can be filled with any content using js (this can make tables/pictures dynamic). Content1-2 serves for normal picture, Content3-4 for picture displayed after right answers.
+There are still problems with overflow, will fix.
+
+
+
+
+Connect to Tenda591
+In browser: go to http://192.168.0.1/ (is written on the back of the router)
+get into admin. Password= 12345 (I am not sure) or 12345678
+
+start PyCharm
+Run Tenda
+
+
+
+[11:24:47] Honza Vávra: the IP of the router should be 192.168.110.1. if router/ is not working
+[11:25:25] Silvester VanKoten: ok, that works :)
+[11:25:39] Honza Vávra: name is admin
+[11:25:45] Silvester VanKoten: password?
+[11:25:46] Honza Vávra: pass is 12neo3
+[11:26:01] Silvester VanKoten: ok, im in
+[11:26:11] Silvester VanKoten: lot of options :)
+[11:26:25] Honza Vávra: yes..... IT guys dream... :D
+[11:27:20] Honza Vávra: now, you can somewhere (I dont remember where, somewhere in DHCP) set permanent IP adress to your computer using MAC adress your network interface
+[11:27:45] Honza Vávra: but this is optional, only problem is that it can change when you recconect during the experiment
+[11:29:06] Honza Vávra: or, you can set a name in the DNS to the IP of your computer (typing exp/ will redirect them to 192.168.110.10 for example)
+[11:29:47] Honza Vávra: there should be "and" instead of or... you can do both steps for maximum value :D
+[11:30:07] Silvester VanKoten: I guess the above you have to show me one day IRL
+[11:30:46] Silvester VanKoten: He automatically generates a password for a wifi network?
+[11:31:01] Honza Vávra: when you know the IP of your computer, just run PyCharm with Vagrant and you should be able to connect from the outside using that IP
+[11:31:05] Silvester VanKoten: I just made wifi with ssid sss and it has a password
+[11:31:10] Honza Vávra: no, wifi password is on the very first screen
+[11:31:15] Honza Vávra: and it has to be set
+[11:31:34] Honza Vávra: if you made a new wifi, I have no idea
+[11:31:41] Honza Vávra: its complicated, you have to explore :D
+[11:32:39] Honza Vávra: previous pass was "12Experiment3"
+[11:32:47] Honza Vávra: current pass should be "password"
+[11:37:44] Silvester VanKoten: pretty complicated...
+[11:41:18] Silvester VanKoten: I just use your wifi then
+[11:41:30] Honza Vávra: yes. should work
+[12:18:02] Silvester VanKoten: And he should now be broadcasting on the same ip that you used in class last week, right?
+[12:18:12] Honza Vávra: no
+[12:18:22] Honza Vávra: that ip is locket to my notebook
+[12:18:26] Honza Vávra: *locked
+[12:18:41] Honza Vávra: you should have your own assigned
+[12:18:44] Silvester VanKoten: ah...
+[12:18:46] Honza Vávra: it can find it out in the router
+[12:18:50] Honza Vávra: or by typing
+[12:18:55] Honza Vávra: ipconfig /all
+[12:18:59] Honza Vávra: in the command line
+[12:19:09] Silvester VanKoten: So he is using a different ip
+[12:19:20] Honza Vávra: it should print you IPs of your computer for different network connection
+[12:19:31] Silvester VanKoten: yes
+[12:20:03] Honza Vávra: and then you connect to that IP from the network of the router
+[12:20:57] Silvester VanKoten: sweet
+[12:21:02] Silvester VanKoten: works
+[12:21:09] Silvester VanKoten: thanks! :)
+
+
+
+Figured out a way. Two approaches to create the source file:
+
+Create source DB file by:
+
+Using PyCharm dbtool to dump SQL insert tables, then join them using Python.
+Dump all data from the current DB as SQL inserts. This will create a SQL insert file from every data table.
+image
+image
+
+Use Python script merge_sql.py (currently in anl/data/02_11_2017/sql/) to join them into one big SQL insert file (script makes sure, that they will be inserted in the DB in order).
+
+SQL dump command
+Run
+pg_dump "dbname='dauction2' user='dauction' password='dauction' host='localhost'" --inserts --data-only --no-owner --no-security-labels -x > db.sql
+on SSH Vagrant -> it creates DB dump of current DB named db.sql in main Vagrant folder,
+Load the resulting file
+Then load this file of SQL inserts back to db using this console command on SSH Vagrant:
+psql "dbname='dauction2' user='dauction' password='dauction' host='localhost'" -f db.sql
+
+This has but one drawback, if you CHANGE a model (mainly remove some field, I had to change files from Wednesday with the removal of treatment.seed and auction.seed) between runs of the experiment you will have to manually correct SQL insert file to fit a new DB schema.
+
+I created file of Thursday "pilot" using method 1, you can load it and play with it. Use
+
+psql "dbname='dauction2' user='dauction' password='dauction' host='localhost'" -f anl/static/data/02_11_2017/sql/complete.sql
+
+on SSH Vagrant to import it  :smiley_cat:
+image
+
+DB command that flushes content of all used tables (useful for testing)
+TRUNCATE "dAuction2_distribution","dAuction2_timer", "dAuction2_page", "dAuction2_group", "dAuction2_period", "dAuction2_player_stats", "dAuction2_penalty", "dAuction2_player_questions", "dAuction2_question", "dAuction2_voucher", "dAuction2_voucherre", "dAuction2_player_question_options", "dAuction2_option_mc", "dAuction2_offer", "dAuction2_auction", "dAuction2_player", "dAuction2_user", "dAuction2_phase", "dAuction2_user_groups", "dAuction2_treatment", "dAuction2_user_user_permissions" CASCADE

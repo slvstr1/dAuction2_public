@@ -1,0 +1,81 @@
+{% extends "master/base.html" %}
+{% block main_content %}
+
+
+
+        <h4>
+            I am <strong>{{ user.username}}</strong> with id <strong>{{ user.id }}</strong> and my role is {{ user.player.role }}
+            {% if auction.app == Auction.INSTR %} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Instructions, Page {{ user.player.page }} {% endif %}
+
+            ---  user.player.pageurl={{ user.player.pageurl }} ---
+            auction.instruction_totalPages ={{ auction.instruction_totalPages }}
+</h4>
+        {% if not auction.app == auction.INSTR %}
+
+
+        Wait until all subjects have logged in on their computer
+    {% else %}
+        {% include user.player.pageurl %}
+
+        <br>
+        <br>
+        <br>
+
+
+
+
+        {% if user.player.state != 3 %}
+{#            user.player.FINISHED#}
+            <table>
+                <tr>
+                    <td>
+                {% if user.player.page > 1 %}
+
+                        <form action="{% url "instructions-previous_page" %}">
+                            <input class="btn btn-default" type="submit" value="PREVIOUS PAGE">
+                        </form>
+
+                {% endif %}
+                    </td>
+                {% if user.player.page < auction.instruction_totalPages %}
+                    <td>
+                        <form action="{% url "instructions-next_page" %}">
+                            <input class="btn btn-default" type="submit" value="NEXT PAGE">
+                        </form>
+                    </td>
+                    </tr>
+                {% else %}
+                    </tr>
+
+                    <tr>
+                        <td>
+                        <br>
+                            <form action="{% url "instructions-finish_instructions" %}">
+                                <input type="submit"  class="btn btn-default"value="FINISH instructions">
+                            </form>
+                        </td>
+                    </tr>
+                    {% if auction.auction_started %}
+                        <form action="{% url "instructions-join_auction" %}">
+                                <input type="submit" class="btn btn-default" value="JOIN AUCTION NOW">
+                            </form>
+                    {% endif %}
+                {% endif %}
+                </table>
+        {% else %}
+            <strong>Wait for the experiment to start</strong>
+             {% endif %}
+    {% endif %}
+
+     <!-- logout page link -->
+    <br>
+{#    <p>#}
+{#    <a href="/logout">Logout</a>#}
+{#  </p>#}
+ <footer class="footer">
+{#      <div class="container">#}
+{#          <p>he he</p>#}
+{#      </div>#}
+    </footer>
+
+{% endblock %}

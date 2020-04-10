@@ -1,0 +1,80 @@
+{% load templatetags %}
+<style>
+    td {
+        text-align: center;
+    }
+
+    #wide {
+        width: 60%;
+    }
+
+    table {
+        font-size: 20px
+    }
+
+</style>
+<div class="row container-fluid">
+    <div class="col-xs-6">
+
+        <h3>Figure 6: GRAPHICAL DISPLAYS - Numerical simulation of the distribution of MARKET UNITS DEMAND </h3>
+        <center><img src="{{ src_file02b }}" alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+        </center>
+{#        src_file: {{ src_file }}#}
+        <br><br>
+        <div id="instr_box">
+            <h3><strong>Textbox 2: Calculate UNITS DEMANDED from MARKET UNITS DEMANDED</strong>
+            </h3>
+            <h3><p>Thus if, for example, the MARKET UNITS DEMANDED is equal to
+                {% widthratio 15 1 treatment.RE_per_group %} in a particular round, then the UNITS DEMANDED is equal to 15 for each Retailer in that round (as the number of Retailers in this experiment will be equal to {{ treatment.RE_per_group }}).</p>
+
+                <p>If, for example, the MARKET UNITS DEMANDED is equal
+                to {% multiply_a_and_b_and_add_bmin1 15 treatment.RE_per_group %} in a particular round, then the UNITS
+                DEMANDED is equal to 16 for {% min1_and_wordify treatment.RE_per_group %} retailer{% plur_min1 treatment.RE_per_group %} and equal to 15 for one Retailer in that round. The remainder after a division is always assigned to Retailers at random.</p>
+            </h3>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <h3>In each group, <strong>{% wordify treatment.PR_per_group %}</strong> group members will be Producers of a
+            commodity and <strong>
+                {% wordify treatment.RE_per_group %}</strong> will be Retailers.</h3>
+        <u><h3>Retailers</h3></u>
+        <h3>
+            At the end of each round, Retailers will have to hold a number of units referred to as "<strong>UNITS
+            DEMANDED</strong>". UNITS DEMANDED is obtained by drawing first <strong>the MARKET UNITS DEMANDED at random
+            as an integer number between {{ treatment.uniform_min }} and {{ treatment.uniform_max }}</strong> with each
+            number having the same probability of being chosen. <strong>The MARKET UNITS DEMANDED thus have an average
+            of {% widthratio treatment.demand_avg_theory 1 1 %} and a standard deviation of
+            approximately {{ treatment.demand_sd_theory|floatformat }}</strong>. See Figure 6 for a numerical
+            simulation of the distribution of MARKET UNIT DEMANDS. We drew 200.000 times an integer number
+            beween {{ treatment.uniform_min }} and {{ treatment.uniform_max }} at random and plotted the results in a
+            histogram.
+            <br><br>
+            We then divide the MARKET UNITS DEMANDED by the number of Retailers ({% wordify treatment.RE_per_group %}) and
+            round it to the nearest integer to get the UNITS DEMANDED. <strong>The "UNITS DEMANDED" is thus an integer
+            number between {% widthratio treatment.uniform_min treatment.RE_per_group 1 %}
+            and {% widthratio treatment.uniform_max treatment.RE_per_group 1 %}</strong> with every number having the same
+            probability of being chosen. See Textbox 2 for an example how we calculate the UNITS DEMANDED from a drawn
+            value of the MARKET UNITS DEMANDED.
+            <br><br>
+            Thus, as the average of the MARKET UNITS DEMANDED is equal to {{ treatment.demand_avg_theory|floatformat:"0" }} and the
+            number of retailers to {{ treatment.RE_per_group }}, the average of UNITS DEMANDED for each Retailer is equal
+            to {{ treatment.demand_avg_theory|floatformat }}/{{ treatment.RE_per_group }}
+            = {{ treatment.demand_avg_theory|div:treatment.RE_per_group|floatformat}}
+
+            and the standard deviation approximately
+            to {{ treatment.demand_sd_theory|floatformat }}/{{ treatment.RE_per_group }}
+            =
+            {{ treatment.demand_sd_theory|div:treatment.RE_per_group |floatformat:"-2"}}.
+
+            <br><br>
+            <strong>
+                Retailers {% if treatment.require_units_demanded_on_PR %}and Producers{% endif %} are shown UNITS DEMANDED at the start of {{ spot_market }}.
+                {% if not treatment.only_spot %}During {{ forward_market }}, UNITS DEMANDED will be not be known.{% endif %}</strong>
+        <br><br>
+               {% if not treatment.require_units_demanded_on_PR %}
+            Producers are not shown the UNITS DEMAND in either Stage
+        {% endif %}
+        </h3>
+    </div>
+</div>

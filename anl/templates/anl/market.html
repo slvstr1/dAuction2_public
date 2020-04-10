@@ -1,0 +1,30 @@
+{% load staticfiles %}
+
+<head>
+    <title>Experiment info</title>
+</head>
+{% block main_content %}
+<script type="text/javascript">
+   window.cur_auction = "{{auction|safe}}";
+   window.cur_periods = "{{periods_ser|safe}}";
+   window.cur_offers = "{{offers_ser|safe}}";
+   window.cur_phases = "{{phases_ser|safe}}";
+</script>
+    <!-- load static files -->
+    <link href="/staticfiles/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/staticfiles/dauction/css/style.css" rel="stylesheet">
+    <script src="/staticfiles/js/react_old.js"></script>
+    <script src="/staticfiles/js/react-dom_old.js"></script>
+    <script src="/staticfiles/js/browser.js"></script>
+    <script src="/staticfiles/js/jquery-2.1.4.js"></script>
+    <script src="/staticfiles/js/plotly-latest.min.js"></script>
+    <script src="/staticfiles/bootstrap/js/react-bootstrap.js"></script>
+    <script type="text/babel" src="/staticfiles/js/jquery.csv.js"></script>
+    <script type="text/babel" src="/staticfiles/js/market.js"></script>
+
+    {% include "master/master_navbar.html" %}
+
+    <div class="container" id="market">
+        <h1> Loading interface.........</h1>
+    </div>
+   {% endblock %}

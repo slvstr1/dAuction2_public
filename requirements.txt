@@ -1,0 +1,72 @@
+#Django==2.0.4
+Django==2.0.8
+Markdown==2.6.2
+MarkupSafe==0.23
+coverage
+django-bulk-update==2.2.0
+djangorestframework==3.7.7
+gunicorn==19.7.1
+psycopg2-binary==2.7.4
+pyparsing==2.2.0
+pystache==0.5.4
+pytz==2018.3
+six==1.11.0
+sqlparse==0.2.4
+static3==0.6.1
+virtualenv==15.1.0
+serpy==0.1.1
+inflect==0.2.5
+#Cython== 0.27.2
+
+
+setproctitle
+
+django-debug-panel
+django-debug-toolbar
+num2words==0.5.5
+python-memcached==1.59
+#whitenoise-3.0-py2.py3-none-any.whl
+whitenoise==3.3.1
+
+# some experimenting
+
+#How about these?
+#backports.ssl-match-hostname==3.4.0.2
+#certifi==2015.9.6.2
+#celery==3.1.23
+#django-celery==3.1.17
+
+#django-extensions==1.5.7
+#django-picklefield==0.3.1
+#django-toolbelt==0.0.1
+#itsdangerous==0.24
+
+selenium
+# these apparently not
+#schedule
+#locustio
+#django-profiler
+#profilehooks
+#django-mathfilters
+#Pygments==2.0.2
+#python-dateutil==2.4.2
+#requests==2.7.0
+#schedule==0.4.3
+
+
+# usefull, but (very) long - turn off when testing
+#pandas==0.22.0
+#scipy
+#Numpy
+#matplotlib
+#statsmodels
+#xlrd
+#openpyxl
+#statsmodels
+#seaborn
+
+#added for pyomo test
+#python-yaml
+#python-pip
+#pylibmc
+#django-pylibmc

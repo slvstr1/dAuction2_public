@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Le styles -->
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+{#    <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">#}
+
+{#    {% if user.username == "admin" %}#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'dauction/css/style_subject.css' %}" />#}
+{#        {% else %}#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'dauction/css/style_subject.css' %}" />#}
+{#    {% endif %}#}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'dauction/css/style.css' %}" />#}
+
+    {% block styles %}{% endblock %}
+    <style>
+.whitefont {
+    /*width: 400px;*/
+    float: right;
+    /*background-color: WhiteSmoke;*/
+    color: white;
+    font-size: 90%;
+}
+</style>
+
+  </head>
+
+  {% include 'instructions/navigate_bar.html' %}
+
+{#    <div class="navbar navbar-inverse navbar-fixed-top">#}
+{#      <div class="navbar-inner">#}
+{#        <div class="container">#}
+{#           <ul class="nav navbar-nav">#}
+{#        <li><a href="#">Pay-out</a></li>#}
+{#          </ul>#}
+{#        </li>#}
+{#<div class="whitefont">#}
+{#    {% if auction.show_ids %}#}
+{#        <strong>{{ user.username}}</strong>, player_id <strong>{{ player.id }}</strong>, <strong>{{ player.group }}</strong>, role <strong>{{ player.role }}</strong>#}
+{#    {% endif %}#}
+{#</div>#}
+{#      </ul>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+  <body>
+<div style="position: absolute; top: 5%; right: 1%; left: 1%;">
+
+        {% block main_content %}
+
+    {% endblock %} </div>
+
+    <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+    {% block scripts %}{% endblock %}
+    {% block page_scripts %}{% endblock %}
+{% include 'instructions/ids_in_hidden_fields.html' %}
+  </body>
+</html>
+{% if not auction.kill_removed %}
+    {% include 'instructions/refreshCheck.html' %}
+{% endif %}
+<!--{##}-->
+<!--{#<script>#}-->
+<!--{# // define refresh function#}-->
+<!--{# function RefreshCheck() {#}-->
+<!--{#     // call to api if page should be refreshed#}-->
+<!--{#      $.get("/api/refresh/", function (result) {#}-->
+<!--{#         var refresh_condition = result.pagerefresh_now#}-->
+<!--{#         // if false, do nothing#}-->
+<!--{#         if (refresh_condition == false) {#}-->
+<!--{#             //console.log("false, no refresh!")#}-->
+<!--{#         }#}-->
+<!--{#         if (refresh_condition == true) {#}-->
+<!--{#             //console.log("true!, refresh")#}-->
+<!--{#             // set post request to change refresh variable in db#}-->
+<!--{#             $.post("/api/refresh/", {"refresh_status": "toberefreshed"})#}-->
+<!--{#             // reload the page#}-->
+<!--{#             location.reload();#}-->
+<!--{#         }#}-->
+<!--{#     })#}-->
+<!--{# }#}-->
+<!--{# // run the function when page loads#}-->
+<!--{# RefreshCheck();#}-->
+<!--{# // run the function every 2s#}-->
+<!--{# setInterval(function () {RefreshCheck()}, {{ auction.time_refresh_check }})#}-->
+<!--{#</s cript>#}-->
+<script src="/staticfiles/js/back_disable.js"></script>

@@ -1,0 +1,6 @@
+pip==10.0.1
+setuptools==38.5.2
+
+#pip
+#setuptools
+

@@ -1,0 +1,46 @@
+{% extends "payout/base.html" %}{% load staticfiles %}
+{% block title %}PAYOUT!!{% endblock %}
+
+{% block main_content %}
+  <div class="container">
+
+      <div class="starter-template">
+        <h1>Pay-out</h1>
+        <h2>Dear Participant,</h2>
+            {{ message }}
+         {% if message %}
+          <h2>{{ message }}</h2>
+          {%  elif show_payments %}
+          <h2>The period number {{ player.pay_period }} was chosen to be paid out your profits to you.
+              <br>
+              You earned ECU {{ player.payout_trade  }} in this period. .</h2>
+
+        <h2>The period number {{ player.pay_qs_period }} was chosen to be paid out your estimation of the averages. Your accuracy was {{ player.accuracy }} (0: worst score - 1: perfect score). You therefore earned ECU {{ player.payout_qs  }} for your estimation.</h2>
+
+         <h2>With the exchange rate of ECU {{ player.ECU_per_CZK }} per CZK this is worth CZK {{ player.earnings_CZK }}.</h2>
+
+
+         <h2>In addition you receive the full show-up fee of CZK {{ treatment.showupfee_fixed }} in this period
+          {% if treatment.start_capital_in_CZK %}
+              and the start capital equal to CZK {{ treatment.start_capital_in_CZK }}
+          {% endif %}
+          .</h2>
+
+
+          <h2>Rounded up to CZK 10, you will thus be paid out CZK {{ player.payout_CZK }} for your participation in the experiment.</h2>
+          {% endif %}
+<br><br><br>
+
+       {% if master_man.show_receipt_message %}
+          <h3>
+        Get the payment slip that lies on top of the computer and write down your player number <strong>{{ user.username }}</strong> in the right corner, your full name, you birth number (or passport number if you are not Czech or Slovak).</h3>
+      <h3>For a quick processing, fill out your earning on the payment slip and already sign the payment slip now. Bring with you the payment slip, the instructions and the pen.</h3>
+          {% endif %}
+      {% if after_message %}
+      <h3>{{ after_message }}</h3>
+      {% endif %}
+      </div>
+
+    </div><!-- /.container -->
+{#    <br>#}
+{% endblock %}

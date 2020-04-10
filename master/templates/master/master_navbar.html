@@ -1,0 +1,31 @@
+<div class=" row container-fluid navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-lg-6 text-center" style="margin-top: 5px">
+                        <form action="{% url "master_screen_select" %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-success" name="master_view" value="PARAMETERS">PARAMETERS</button>
+                            <button class="btn btn-success" name="master_view" value="DATA">DATA</button>
+                            <button class="btn btn-success" name="master_view" value="SHOW_EARNINGS">SHOW EARNINGS</button>
+                            <button class="btn btn-success" name="master_view" value="ANL">ANL</button>
+                            <button class="btn btn-success" name="master_view" value="SANL">SANL</button>
+
+
+                        </form>
+                    </div>
+                    {% ifequal master_man.view master_man.SHOW_EARNINGS %}
+                    <div class="col-lg-6 text-center" style="margin-top: 5px">
+                        <form id="master_payment_data_handle" action="{% url "master_payment_data_handle" %}" method="post">
+                             {% csrf_token %}
+                             <button name="boolean_toggle" value= "payment_sheet" class="btn btn-success">Toggle overview/payment_sheet</button>
+                        </form>
+                    </div>
+                    {% endifequal %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  

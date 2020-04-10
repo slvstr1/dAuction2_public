@@ -1,0 +1,215 @@
+{% load templatetags %}
+{% load humanize %}
+<script type="text/babel" src="/staticfiles/js/admin_table.js"></script>
+
+
+<div class="row">
+    <input type="hidden" id="myVar" name="variable" value="{{ auction.time_refresh_data }}">
+    <h4>I am <strong>{{ user.username }}</strong> with id <strong>{{ user.id }}</strong></h4>
+    <div class="col-lg-8">
+        <div clas="row">
+            <h4 class="alert-warning">WARNING - ONLY MANIPULATE DATA WHEN NO EXPERIMENT IS RUNNING</h4>
+
+            <h4>The data are</h4>
+
+            <form action="{% url "master_data_handler" %}" method="post">
+                {% csrf_token %}
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>pk (Auction)</th>
+                        <th>Tr</th>
+                        <th>Fname</th>
+                        <th>part<br>of E?</th>
+                        <th>partic.<br>info?</th>
+                        <th>Created</th>
+                        <th>dbsize</th>
+                        <th>#Periods</th>
+                        <th>#Groups</th>
+                        <th>Ret.<br>price</th>
+                        <th>#Players<br>PR</th>
+                        <th>#Players<br>RE</th>
+                        <th>avg<br>demand</th>
+                        <th>avg<br>price</th>
+                        <th>F</th>
+                        <th>a</th>
+                        <th>mu</th>
+                        <th>sigma</th>
+                        <th>c</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for auction_detail in auction_details %}
+                        {% if auction_detail.active %}
+                            <tr class="bg-success">
+                                {% else %}
+                            <tr>
+                        {% endif %}
+                        <td>{{ forloop.counter }}</td>
+                    <td><input type="radio" name="q" value="{{ auction_detail.pk }}"
+                            {% if auction_detail.active %}
+                               checked
+                            {% endif %}
+                               id="{{ auction_detail|intcomma}}">
+{#                        <b>{{ auction_detail.pk |intcomma }}</b>#}
+                    <b>{{ auction_detail.id|intcomma}}</b>
+                    </td>
+                    <td>{{ auction_detail.treatment.idd }}</td>
+                    <td>{{ auction_detail.file_name }}
+                    <td>{{ auction_detail.is_part_experiment}}</td>
+                    <td>{% if auction_detail.particular_info %}<i>info</i>{% else %}no{% endif %}</td>
+                    <td>{{ auction_detail.created }}</td>
+                    <td>{{ auction_detail.db_size }}</td>
+                    <td>{{ auction_detail.treatment.total_periods }}</td>
+                    <td>{{ auction_detail.treatment.total_groups }}</td>
+                    <td>{{ auction_detail.treatment.retail_price|floatformat:"-2" }}</td>
+                    <td>{{ auction_detail.treatment.PR_per_group }}</td>
+                    <td>{{ auction_detail.treatment.RE_per_group }}</td>
+                    <td>{{ auction_detail.demand_avg|floatformat:"-2" }}</td>
+                    <td>{{ auction_detail.price_avg|floatformat:"-2" }}</td>
+                    <td>{{ auction_detail.treatment.F}}</td>
+                    <td>{{ auction_detail.treatment.a|floatformat:"-5" }}</td>
+                    <td>{{ auction_detail.treatment.mu|floatformat:"-2" }}</td>
+                    <td>{{ auction_detail.treatment.sigma|floatformat:"-2" }}</td>
+                    <td>{{ auction_detail.treatment.convexity_parameter|floatformat:"-2" }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        <button name="select_auction" value="True">Select</button>
+        <button class="alert-danger" name="delete_auction" value="True">Delete (!loss!) AAA</button>
+        <input class="alert-danger" type="submit" name="db_save" value="db save ALL (!overwrite!)"/>
+        </form>
+        </div>
+
+        <div id="player_table"></div>
+        <br/>
+        {% if auction.empty_fields_in_export %}
+            <p class="btn-danger">Last saving operation had empty cells</p>
+        {% else %}
+            <p class="btn-success">Last saving operation had no empty cells</p>
+        {% endif %}
+     <div class="row" style="margin-left: 10px">
+        <form id="master_parameters_setA"
+                              action="{% url "master_data_handler" %}"
+                              method="post">
+                            {% csrf_token %}
+                            <table>
+                                {{ auction.id }}
+                                {{ dataForm.as_table }}
+                            </table>
+                            <input class="submit_dataForm" type="submit", name="submit_dataForm", value="save part.info"/>
+                        </form>
+     </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="row" style="margin-left: 10px">
+            <div class="col-lg-4">
+                {#                <form action="{% url "master-parameters_set" %}" method="post">#}
+                {#                    {% csrf_token %}#}
+                {#                    <table>#}
+                {#                        {{ form.as_table }}#}
+                {#                    </table>#}
+                {#                    <input type="submit" value="Submit" />#}
+                {#                </form>#}
+                <br>
+
+            </div>
+            <div class="col-lg-4">
+            </div>
+{#            <div class="col-lg-4">#}
+{##}
+{#            </div>#}
+{##}
+            <form id="" action="{% url "master_data_handler" %}" method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" class="submitForm2" name="session_new"
+                       value="New Auction"></input>
+            </form>
+{#            <br/>#}
+            <br/>
+
+            {% if auction.players_one_logged and auction.distribution_auction_created %}
+                <form action="{% url "master_data_handler" %}" method="post">
+                    {% csrf_token %}
+                    <table>
+                        {{ form_export.as_table }}
+                    </table>
+{#                    <input class='warning' type="submit" name="excel_csv_active" value="Export data active db as csv"/>#}
+                    Export collapsed data to excel of:<br>
+                   <ul>
+                    <li><button name="excel_csv_active">Active db</button></li>
+
+                    <li><button class='btn-warning' name="excel_csv_all">All dbs in mem</button></li>
+                   </ul>
+{#                    <input type="submit" name="excel_csv_all" value="Export data all db in memory as csv"/>#}
+{#                    <input class="alert-danger" type="submit" name="db_save" value="db save selected auction (!overwrite!)"/>#}
+
+                    {% else %}
+                    <p class="bg-warning"><strong>NO EXPORT POSSIBLE</strong>.
+                        Auction data is lacking players or distribution</p>
+                </form>
+            {% endif %}
+
+            <br>
+            <li><a href="/admin">View admin page</a></li>
+            <!-- logout page link -->
+            <p><a href="/logout">Logout</a></p>
+        <br>
+{#            *******************************************************#}
+{#            Existing db's:<br>#}
+{#            <ul>#}
+{#                {% for files in listdir %}#}
+{#                    <li>{{ files }}</li>#}
+{##}
+                    {#        {{ auction_detail.pk |intcomma}}#}
+{#                {% endfor %}#}
+{##}
+{##}
+{##}
+{#            </ul>#}
+
+
+            <form action="{% url "master_data_handler" %}" method="post">
+                {% csrf_token %}
+{#                 <table class="table table-condensed table-bordered">#}
+            <table class="align-left">
+                    <thead>
+                    <tr>
+                    </tr>
+                <tbody>
+            {% for files in list_sizedir %}
+                     {% if auction_detail.active %}
+                            <tr class="bg-success">
+                                {% else %}
+                            <tr>
+                        {% endif %}
+
+                        <td class="text-left">
+                            {{ forloop.counter|rjust:"10"}}
+                            <input type="checkbox" name="q" value="{{ files.0 }}"
+                        {% if auction_detail.active %}
+                               checked
+                            {% endif %}>
+                       <b>{{ files.0 }}</b>    ({{ files.1 }})
+                    </td>
+                 {% endfor %}
+
+                </tbody>
+                 </table>
+{#                <input type="submit" name="load_pg" value="load all pg_db_data"/>#}
+                <button class="alert-danger" name="load_selected_pg" value="{{ files }}">db load selected (!overwrite!)</button>
+                <button class="alert-danger" name="load_pg" value="TRUE">db load all (!overwrite!)</button>
+{#            <br><br>#}
+{#            <button class="alert-warning" name="populate_uid" value="TRUE">populate uid</button>#}
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+</div>

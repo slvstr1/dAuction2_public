@@ -1,0 +1,19 @@
+{% extends "master/base_master.html" %}{% load staticfiles %}
+{% block title %}Master{% endblock %}
+
+{% block main_content %}
+
+    <div>
+        {% if master_man.view == master_man.PARAMETERS %}
+            {% include 'master/master_parameters.html' %}
+        {% elif master_man.view == master_man.DATA %}
+            {% include 'master/master_data.html' %}
+        {% elif master_man.view == master_man.SHOW_EARNINGS %}
+            {% include 'master_earn/master_earnings.html' %}
+        {% elif master_man.view == master_man.SANL %}
+
+            {% include 'master/master_sanl.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+

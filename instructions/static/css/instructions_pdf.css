@@ -1,0 +1,60 @@
+ body {font-family: Verdana;}
+    .pr { position: absolute; top: 5%; right: 1%; left: 1%; float:none}
+     #instr_box {background-color: lightyellow;width: 900px;padding: 10px;border: 10px solid; margin:10px auto;}
+
+ table.cost, th.cost, td.cost {
+   border: 3px solid black;
+    vertical-align:top;
+    padding:0
+}
+
+img {
+   max-width: 100% !important;
+}
+table .OO {width:400px}
+th {text-align: center;
+    height: 10px!important;
+    padding:0!important;}
+td .OO {width:397px}
+.down {vertical-align:bottom;
+width:397px;}
+button.link {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+     border-bottom:1px solid #444;
+     cursor: pointer;
+}
+
+    img{
+border: 2px solid black;
+}
+    #footer {
+    position:fixed;
+    bottom:0;
+}
+
+        div.page-break {
+    zoom: 24%;
+
+        page-break-inside: avoid;
+
+        font-family: "Times New Roman";
+        max-font-size: 16;
+        font-size: smaller;
+
+    }
+@media print {
+    div.page-break {
+        page-break-inside: avoid;
+        font-family: "Times New Roman";
+        max-font-size: 16;
+        font-size: smaller;
+        zoom: 24%;
+    }
+    @page {
+        size: A4;
+    }
+}

@@ -1,0 +1,40 @@
+{% load templatetags %}
+
+<div class="row container-fluid">
+<div class="col-xs-7">
+    <h3>Figure 23: Distribution Demand and Production cost</h3>
+{#    <img class="img-responsive" src="/staticfiles/images/instructions_fig_19.png"#}
+{#         alt="If you do not see the picture, please alert the experimenter">#}
+{#</div>#}
+
+    <img class="img-responsive" src="{{ src_file19 }}" alt="If you do not see the picture, please alert the experimenter">
+</div>
+
+
+    <div class="col-xs-5">
+            <h3>
+                To get a better feel for the probability of the outcomes of the total number of “MARKET UNITS DEMANDED” and
+                “lowest possible price”, you yourself have to experiment with creating random draws from the distribution at
+            the experimental session by pressing “CLICK HERE to make x more draws”.
+            <br><br>
+            Each time you press “CLICK HERE to make x more draws”, the program generates ten RANDOM DRAWS of the “MARKET UNITS DEMANDED” from the <strong>distribution of integer numbers between {{ treatment.uniform_min|floatformat }}
+            and {{ treatment.uniform_max|floatformat }}, with all integers having the same probability to be
+            chosen</strong>. You can watch how the distribution of your draws is converging to the given distribution
+            (in red). The outcomes are also shown in the graph. Figure 23 shows an example.
+            <br><br>
+            To remind you, the "UNITS DEMANDED" that a Retailer must buy each round are equal to the "MARKET UNITS
+            DEMANDED" divided by the number of Retailers in the experiment ({% wordify treatment.RE_per_group %}).
+            <br><br>
+            You are obliged to make {{ treatment.d_draws_needed }} draws. You may make more draws if you wish, within the
+            time.
+            <br><br>
+            <strong>This is the end of the instructions. Please make sure you understand them well.
+                {% if not treatment.educational %}
+                The contents of these instructions will be examined in the comprehension test that will determine if you are allowed to take part in the Trading Experiment.{% endif %}</strong>
+
+        </h3>
+    </div>
+
+
+</div>
+

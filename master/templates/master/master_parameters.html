@@ -1,0 +1,771 @@
+{% load templatetags %}
+{% load humanize %}
+
+<style>
+/*table {*/
+    /*counter-reset: rowNumber;*/
+/*}*/
+
+/*table tr {*/
+    /*counter-increment: rowNumber;*/
+/*}*/
+
+/*table tr td:first-child::before {*/
+    /*content: counter(rowNumber);*/
+    /*min-width: 1em;*/
+    /*margin-right: 0.5em;*/
+/*}*/
+/*td {*/
+  /*height: 120px;*/
+/*}*/
+</style>
+
+
+
+<div class="container-fluid" id="master_overview">
+    <input type="hidden" id="myVar" name="variable" value="{{ auction.time_refresh_data }}">
+    <div class="row">
+        <div class="col-lg-4">
+            <form id="master_subject_select_frm" action="{% url "master-subject_select" %}" method="post">
+                {% csrf_token %}
+                {% if master_man.show_table %}
+                    <table border="2" class="table table-bordered table-condensed" id="cent">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>U_pk</th>
+                            <th>ip</th>
+                            <th>pl.id</th>
+{#                            <th>player.page_url</th>#}
+                            <th>Slctd</th>
+                            <th>Auct</th>
+                            <th>Group</th>
+                            <th>Role</th>
+                            <th>t_err</th>
+                            <th>App</th>
+                            <th>State</th>
+                            <th>Page</th>
+                            <th>Ready</th>
+                            <th>LastA</th>
+                            <th>Rfrsh</th>
+                            <th>Payout</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for player in players %}
+                            {#             {% if not player in failed_users %}   #}
+                            <tr>
+                                <td></td>
+                                <td><input type="radio" name="q" value="{{ player.user_id }}"
+                                        {% if auction_detail.active %} checked {% endif %}
+                                           id="{{ player.user_id }}">{% if  player.user_id == None %}
+                                    <strong>N</strong>{% else %}{{ player.user_id }}{% endif %}</td>
+                                <td>{{ player.user.ip }}</td>
+                                <td>{{ player.id|subtract_auctionid:auction.id }}</td>
+
+                                <td>{{ player.selected }}</td>
+                            <td>{{ auction.id|intcomma }}</td>
+                            <td>{{ player.group_id|subtract_auctionid:auction.id }}</td>
+                                <td>{{ player.get_role_display }}</td>
+                                <td>{{ player.testing_errors }}</td>
+                                <td>{{ player.get_app_display }}</td>
+                                <td>{{ player.get_state_display }}</td>
+                                <td>{{ player.page }}</td>
+                                <td>{{ player.player_ready }}</td>
+                                {#                        <td>{{ player.last_alive }}</td>#}
+                                <td> {{ last_alive_list.2 }}</td>
+                                <td>{% if  player.page_need_refreshing %}<strong>!</strong>{% else %}-{% endif %}</td>
+                                <td> {{ player.payout_ECU }}</td>
+                                {#                        <td>{{ phase.period.idd }}</td>#}
+                                {#                        <td>{{ phase.idd }}</td>#}
+                                {#                        <td>{{ tt.seconds_left }}</td>#}
+                                {#                {% endif %}#}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <button name="name" value="logout">Logout&delete player</button>
+                {% endif %}
+                <button class="subject_select_elt" name="boolean_toggle" value="show_table">S/H table</button> {{ master_man.show_table|true_or_false }}
+                <button class="subject_select_elt" name="name" value="show_selection_toggle">S/H selection</button>{{ master_man.show_selection }}
+                auction: <b>{{ auction.id|intcomma }}</b>
+            </form>
+
+            <input type="submit" class="submitForm2" name="name" value="timer_toggle" value="Toggle Time"></input>
+            <input type="submit" class="submitForm2" name="name" value="timer_cut" value="cut Time to 0"></input>
+
+            <div id="Player_table">
+
+            </div>
+
+            {#***********************************************************************#}
+            {#***********************************************************************#}
+
+
+            {% if failed_users %}
+                <h4>The failed users are</h4>
+                <form action="{% url "master-subject_select" %}" method="post">
+                    {% csrf_token %}
+                    <table border="2" class="css-serial">
+                        <tr>
+                            <th></th>
+                            <th>U_pk</th>
+                            {#                <th>IP</th>#}
+                            <th>State</th>
+                            <th>LastA</th>
+                        </tr>
+                        {% for failed_user in failed_users %}
+                            <tr>
+                                <td></td>
+                                <td><input type="radio" name="q" value="{{ failed_user.pk }}"
+                                        {% if auction_detail.active %} checked {% endif %}
+                                           id="{{ failed_user.pk }}">{{ failed_user.pk }}</td>
+                                {#                        <td>{{ failed_user.ip}}</td>td#}
+                                <td>{{ failed_user.get_state_display }}</td>
+                                {#                    (now: {{auction.get_group_arrangements_display }})#}
+                                <td>{{ failed_user.last_alive }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    {#            <button name="select" >Select</button>#}
+                    <button name="name" value="logout">logout</button>
+                </form>
+                {#        <div id="player_table">#}
+            {% endif %}
+            {#    </div>#}
+            {#</div>#}
+
+        </div>
+        {#***********************************************************************#}
+        {#***********************************************************************#}
+        <div class="col-md-8">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <form id="master_parameters_setA"
+                              action="{% url "master-parameters_set" %}"
+                              method="post">
+                            {% csrf_token %}
+                            <table>
+
+
+{#                                {% for field in treatmentFormParameterValues %}#}
+{#                                    <tr> <th>      {{ field.label_tag }} {{ field }}</th></tr>#}
+{#                                {% endfor %}#}
+
+                                {{ treatmentFormParameterValues.as_table }}
+                            </table>
+                            <input class="submitFormA" type="submit" value="Submit"/>
+                        </form>
+                        <br>
+                    </div>
+                    <div class="col-md-3">
+                        <form id="master_parameters_setB"
+                              action="{% url "master-parameters_set" %}"
+                              method="post">
+                            {% csrf_token %}
+                            <table>
+                                {{ timerForm.as_table }}
+                            </table>
+                            <input class="submitFormB" type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        {#                <form id="master_parameters_setX" action="{% url "master-parameters_set" %}" method="post">#}
+                        {#                    {% csrf_token %}#}
+                        {#                    <table>#}
+                        {#                        {{ auctionForm.as_table }}#}
+                        {#                    </table>#}
+                        {##}
+                        {#                </form>#}
+                        {#            <br>#}
+
+                        <form id="" action="{% url "master-parameters_set" %}" method="post">
+                            {% csrf_token %}
+                            <table>
+                                {{ auctionFormTimeRefreshOnly.as_table }}
+                            </table>
+
+                            <input class="" type="submit" value="Submit"/>
+                        </form>
+                        <br>
+                        <form>
+                            <table>
+                                {{ auctionFormRealizedAndSampleValues.as_table }}
+                            </table>
+                        </form>
+                        <br>
+                        <form id="master_parameters_setD"
+                              action="{% url "master-parameters_set" %}"
+                              method="post">
+                            {% csrf_token %}
+                            <table>
+                                {{ treatmentFormTheoreticalValues.as_table }}
+                            </table>
+                            <input class="submitFormD" type="submit" value="Submit"/>
+
+                        </form>
+
+                    </div>
+                    <div class="col-md-3">
+                        <form id="master_set_state" action="{% url "master-set_state" %}" method="post">
+                            {% csrf_token %}
+                            <button class="bg-warning" name="name" value="create_group">Create new group</button>
+
+                                <button class="submitForm" name="name" value="only_spot_toggle">Only SPOT</button>{{treatment.only_spot|true_or_false}}<br>
+
+
+
+                            {% if not treatment.pay_one_random_period %}
+                                <button class="submitForm" name="name" value="pay_one_random_period_toggle">pay 1 round</button>now
+                                all
+                                <br>
+                            {% else %}
+                                <button class="submitForm" name="name" value="pay_one_random_period_toggle">pay all rounds</button>
+                                now 1
+                                <br>
+                            {% endif %}
+
+
+                                <button class="submitForm" name="name" value="automatic_login_toggle">Allow automatic login</button>
+                                {{treatment.allow_automatic_login|true_or_false}}<br>
+
+
+
+                                <button class="submitForm" name="name" value="allow_multiple_offers">Allow multiple offers</button>
+                                {{treatment.allow_multiple_offers|true_or_false}}
+                        <br>
+
+
+
+
+                                <button class="submitForm" name="name" value="test_mode">Allow test_mode</button> {{treatment.test_mode|true_or_false}}<br>
+
+
+
+
+
+                                <button class="submitForm" name="name" value="make_instruction_pdf">make_instruction_pdf</button>
+                                {{auction.make_instruction_pdf|true_or_false}}
+                                <br>
+
+
+
+
+                                <button class="submitForm" name="name" value="show_ids">show_ids</button>{{auction.show_ids|true_or_false}}<br>
+
+
+
+                                <button class="submitForm" name="name" value="test_players">test_players</button>{{treatment.test_players |true_or_false}}<br>
+
+
+                            <button class="submitForm" name="name" value="test_script">run test_script</button>
+                            <br>
+
+                            <button class="submitForm" name="name" value="remove_userless_players"> remove_userless_players</button>
+                        <br>
+                        <button class="bg-danger submitForm" name="name" value="toggle_eductional"> toggle_eductional</button>  <span {% if treatment.educational %}class="bg-danger"{% endif %}>{{ treatment.educational|true_or_false }}</span>
+
+
+                        {% if master_man.no_test %}
+                            <button class="bg-success submitForm" name="name" value="toggle_no_test">no test values</button> <span class="bg-success">OK</span>
+                        {% else %}
+                            <button class="bg-danger submitForm" name="name" value="toggle_no_test">TEST VALUES</button>  <span class="bg-danger">!!!</span>
+                        {% endif %}
+                        <br>
+
+                        {% if master_man.ip_login %}
+                            <button class="bg-success submitForm" name="name" value="toggle_ip_login">no ip_login</button> <span class="bg-warning">ip login</span>
+                        {% else %}
+                            <button class="bg-warning submitForm" name="name" value="toggle_ip_login">ip_login</button>  <span class="bg-success">no ip login</span>
+                        {% endif %}
+                        <br>
+                        <button class="bg-warning submitForm" name="name" value="flush_last_p_memory">flush_last_p_memory</button>  <span class="bg-success"></span>
+
+
+                        </form>
+                        <br><br>
+
+                        {# url: "{% url 'master-parameters_set' %}",#}
+                        <form id="" action="{% url "master-parameters_set" %}" method="post">
+                            {% csrf_token %}
+{#                            i show {{ 100|div:10 }}#}
+                            <!--Treatment now:<strong>{{ treatment|truncatechars:9|format_in_3 }}</strong>-->
+treatment
+                            <table>
+                                {{ treatmentFormInstanceOnly.as_table }}
+                            </table>
+                            <input class="" type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row" style="margin-left: 10px">
+                    <form id="master_set_state2" action="{% url "master-set_state2" %}" method="post">
+                        {% csrf_token %}
+                        {% if auction.auction_created %}
+                            <input type="text" size="5" value="auction +"
+                                   style="background-color:lightgoldenrodyellow;">
+                        {% endif %}
+                        {% if auction.distribution_auction_created %}
+                            <input type="text" size="5" value="distr +" style="background-color:lightgreen;">
+                        {% endif %}
+                        {% if auction.testing_questions_defined %}
+                            <input type="text" size="5" value="test Qs +" style="background-color:greenyellow;">
+                        {% endif %}
+
+                        {% if auction.player_stats_created %}
+                            <input type="text" size="5" value="p_stats +" style="background-color:orange;">
+                        {% endif %}
+                        <input type="text" size="9" value="src_file: {{ src_file_exists }}" style=
+                                {% if src_file_exists %}
+                                    "background-color:lightblue;"
+                                {% else %}
+                                    "background-color:red;"
+                                {% endif %} >
+                        {% if auction.demand_curtailment_warning %}
+                            <p class="submitForm"><strong>demand_curtailment_warning </strong></p>
+                        {% endif %}
+
+                <ul class="">
+                    <li>
+                        <button class="bg-danger" name="name" value="auction_create">Create auction with above parameters
+                            <strong>(!abortive!)</strong>
+                        </button>
+                        pa: (groups:{{ pa_group_num }})
+                        (RE_total:{{ pa_RE_total_num }})
+                        (PR_total:{{ pa_PR_total_num }})
+                        <button class="bg-danger" name="name" value="delete">Delete auction <strong>(!havoc!)</strong>
+                        </button>
+                        <button class="bg-danger" name="name" value="delete_treatments_keep_data">Recreate Treatments</button>
+                        <button class="bg-danger" name="name" value="delete_treatments">Recreate Treatments & <strong>flush DATA</strong></button>
+                    </li>
+                    <li>
+                        <button class="submitForm2" name="name" value="refresh_all_players">Refresh all players</button>
+                        <button class="submitForm2" name="name" value = "invalidate_caches">Invalidate caches</button>
+                    </li>
+
+                    <li><span class="bg-danger">Wipe data:</span>
+                        <button class="bg-success" name="name" value= "auction_create">Reset players
+                            <strong>(!abortive!)</strong>
+                        </button>
+                        {#                    <button class="bg-warning" name="recreate_players" >Recreate players <strong>(!HAVOC!)</strong></button>#}
+
+                        <button class="bg-danger" name="name" value="logout_all">Logout all USERS (retains players) <strong>(!abortive!)</strong>
+                        </button>
+
+
+                        {#                    <button class="bg-danger" name="logging_toggle"  >Turn off logging<strong>(!abortive!)</strong></button>#}
+                        {#                <button class="bg-danger" name="logout_all"  >Logout all USERS <strong>(!abortive!)</strong></button>#}
+                    </li>
+
+                    {% if not auction.distribution_auction_created %}
+                        {% if not auction.players_all_logged %}
+                            {% if not auction.logging_requirement_overruled %}
+                                <i>Create distribution (available once all players logged on)</i>
+                                {% if auction.players_one_logged %}
+                                    <button name="name" value="logging_requirement_overrule">logging_requirement_overrule
+                                    </button>
+                                {% endif %}
+                            {% else %}
+                                <p class="bg-danger"><strong>logging requirement overruled</strong>
+                                    <button name="name" value="logging_requirement_overrule"> - Reinstate logging requirement
+                                    </button>
+                                <li>
+                                    <button name="name" value="demand_draws_create"> - Create draws & vouchers (MUST RUN once
+                                        ALL
+                                        players registered!!)
+                                    </button>
+                                </li>
+                            {% endif %}
+
+                        {% else %}
+                            <li>
+                                <button name="name" value="demand_draws_create"> - Create distribution (MUST RUN once ALL
+                                    players
+                                    registered!!)
+                                </button>
+                            </li>
+                        {% endif %}
+                    {% else %}
+                        <li><strong>Draws & vouchers created - </strong>
+                            <button class="bg-danger" name="name" value="demand_draws_delete">Delete draws & vouchers<strong>(!abortive!)</strong>
+                            </button>
+                        </li>
+                    {% endif %}
+                </ul>
+
+                <ol class="">
+                    {% if not auction.app == auction.INSTR %}
+                        {% if not auction.distribution_auction_created %}
+
+                            <li><i>Start full instructions (Available once distr created</i></li>
+
+                            <li><i>Start summ instructions (Available once distr created</i></li>
+                            {#                        {% endif %}#}
+                        {% else %}
+
+                            <li>
+                                <button name="name" value="summ_instructions_start"><strong>Start summ instructions</strong>
+                                </button>
+                                <button name="name" value="full_instructions_start">Start full instructions</button>
+                            </li>
+                        {% endif %}
+                    {% else %}
+                        {% if auction.itype == 1 %}
+                            <li><strong>Full instructions Started - </strong>
+
+
+                                {% else %}
+                            <li><strong>Summ instructions Started {{ auction.itype }}- </strong>
+
+                        {% endif %}
+                        <button name="name" value="instructions_cancel">Cancel instructions</button>
+
+                    {% endif %}
+
+
+
+                    {% if not auction.players_all_logged and not auction.logging_requirement_overruled %}
+
+                        <li><i>Start DISTRIBUTION (Available once all players logged on and distr created</i>
+                        </li>
+                    {% elif not auction.distribution_auction_created %}
+                        <li><i>Start DISTRIBUTION (Available once distr created</i></li>
+                    {% elif not auction.app == auction.DISTR %}
+                        <li>
+                            <button name="name" value="distribution_start">Start DISTRIBUTION</button>
+                        </li>
+                    {% else %}
+                        <li><strong>Distribution Started - </strong>
+                            <button name="name" value="distribution_cancel">Cancel DISTRIBUTION</button>
+                        </li>
+                    {% endif %}
+
+                    {% if not auction.app == auction.TESTING %}
+                        <li>
+                            <button name="name" value="testing_start">Start testing</button>
+                            {% else %}
+                        <li><strong>testing Started
+                        - </strong>
+                        <button name="name" value="testing_cancel">Cancel testing</button>
+                        <button name="name" value="testing_delete">Delete testing</button>
+                        <br>
+                        <input type="submit" class="submitForm2" name="name" value="timer_restart" value="Restart Time">
+                        Toggle Time
+                        </input>
+                        <input type="submit" class="submitForm2" name="name" value="timer_toggle" value="Toggle Time">Toggle
+                        Time
+                        </input>
+                        <button class="submitForm2" name="name" value="timer_cut">End testing</button>
+                        {{ auction.app_testing_ended }}
+
+                    {% endif %}
+                    total test questions: {{ auction.testing_totalquestions }}</li>
+
+                    </li></strong>
+                    </ul>
+
+                    <li>rematch groups?
+                        <button class="submitForm2 bg-danger" name="name" value="strongest_together">strongest together</button>
+                        <button class="bg-danger" class="submitForm2" name="name" value="random_together">random</button>
+                        (now: {{ auction.get_group_arrangements_display }})
+                    </li>
+                    </strong></ul>
+
+
+                    <ul class="">
+                        <li><strong>Remove {{ treatment.shedding }} subjects with most errors?</strong>
+                            {% if treatment.shedding > 0 %}
+                                {% if auction.removing %}
+
+
+                                    {% if auction.kill_removed %}
+                                        <button name="name" value="revive_removed">Revive (needs manual refresh)</button>
+                                    {% else %}
+                                        <button class="bg-danger submitForm2" name="name" value="unremoving">UnRemove?</button>
+                                        <button name="name" value="kill_removed">Kill removed</button>
+
+                                    {% endif %}
+                                {% else %}
+                                    <button class="bg-danger submitForm2" name="name" value="removing">Remove</button>
+                                {% endif %}
+
+
+
+                            {% else %}
+                                no subjects to shed
+                            {% endif %}
+
+                            <br>
+                            {% if auction.player_stats_created %}
+                                <button class="bg-danger" name="name" value="delete_playerstats">delete playerstats</button>
+                            {% else %}
+                                <strong>
+                                    <button class="bg-success" name="name" value="playerstats_create">create playerstats &
+                                        periods
+                                    </button>
+                                </strong>
+                            {% endif %}</li>
+                    </ul>
+
+
+
+                    {% if not auction.app == auction.FS %}
+                        {% if not auction.players_all_logged and not auction.logging_requirement_overruled and not auction.player_stats_created %}
+                            <li><i>Start AUCTION (Available once all players logged on and distr created and
+                                playerstats
+                                created</i></li>
+                        {% elif not auction.distribution_auction_created %}
+                            <li><i>Start AUCTION (Available once distr created</i></li>
+                        {% elif not auction.player_stats_created %}
+                            <li><i>Start AUCTION (Available once player_stats created</i></li>
+                        {% elif not auction.auction_finished %}
+                            <li>
+                                <button name="name" value="auction_ready">Ready AUCTION</button>
+                            </li>
+                        {% elif not False %}
+                            <li>
+                                <button name="name" value="auction_ready">Ready AUCTION</button>
+                            </li>
+                        {% endif %}
+                    {% else %}
+                        {% if not auction.auction_started and not auction.auction_finished %}
+                            <li><strong>Auction Readied - </strong>
+                                <button name="name" value="auction_start">Start AUCTION</button>
+                                <button class="bg-warning" name="name" value="auction_abort">Abort auction</button>
+                                <button class="bg-danger" name="name" value="auction_clear">Clear auction</button>
+                            </li>
+                        {% elif auction.auction_started %}
+                            <li><strong>Auction Started - </strong>
+                                <button class="bg-warning" name="name" value="auction_abort">Abort auction</button>
+                                <button class="bg-danger" name="name" value="auction_clear">Clear auction</button>
+                            </li>
+                            <ul class="">
+                                <li><strong>Period: {{ phase.period.idd }}, Stage: {{ phase.idd }},
+                                    <div style="display: inline" id="Timer_table"></div>
+                                </strong></li>
+                                <input type="submit" class="submitForm2" name="name" value="timer_toggle"
+                                       value="Toggle Time">Toggle
+                                Time</input>
+                                {% if phase.end %}
+                                    <li>
+                                        <button class="submitForm2" name="name" value="timer_cut">Go to next period</button>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <button class="submitForm2" name="name" value="timer_cut">Go to next phase</button>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            <br/>
+                        {% endif %}
+                        {% if auction.auction_finished %}
+                            AUCTION has run (Clear to re-run in same session or create new session)
+                            <button class="bg-danger" name="name" value="auction_clear">Clear auction</button>
+                        {% endif %}
+                    {% endif %}
+                    {% if not auction.app == auction.QUEST %}
+                        <li>
+                            <button name="name" value="questionnaire_start">Start QUESTIONNAIRE</button>
+                        </li>
+                    {% else %}
+                        <li><strong>QUESTIONNAIRE Started - </strong>
+                            <button name="name" value="questionnaire_cancel">Cancel Questionnaire</button>
+                        </li>
+                    {% endif %}
+                    {% if not auction.player_stats_created %}
+                        <li>enable payout by creating player_stats first
+                            {% else %}
+                            {% if not auction.app == auction.PAYOUT %}
+                                <li>
+                                    <button name="name" value="payout_start">Start PAYOUT</button>
+                                    {% else %}
+                                <li><strong>PAYOUT Started - </strong>
+                                <button name="name" value="payout_cancel">Cancel Payout</button>
+                            {% endif %}
+                        <button name="name" value="unstuck_all_in_payout">unstuck_all_in_payout</button>
+                    {% endif %}
+{#                    {% if auction.auction_finished %}#}
+                    <li><button name="name" value="db_save">save db</button></li>
+{#                    {% endif %}#}
+
+                    </li>
+                </ol>
+
+                <br>
+                    </form>
+
+                    <br>
+
+                    <li><a href="/admin">View admin page</a></li>
+                    <!-- logout page link -->
+
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% if auction.pagerefresh_toggle %}
+    <meta http-equiv="refresh" content="10">
+{% endif %}
+{% load staticfiles %}
+
+
+<script type="text/javascript">
+    $('.submitForm2').click(function (e) {
+        e.preventDefault();
+        answerid = $(this).attr("name");
+        answeridValue = $(this).attr("value");
+
+        var frm = $("#master_set_state2");
+
+        frm = frm.serializeArray()
+
+        frm = frm.concat([{name: answerid, value: answeridValue}]);
+
+        $.ajax({
+            method: 'post',
+            url: "{% url 'master-set_state' %}",
+            data: frm,
+
+        });
+    });
+</script>
+
+
+
+<script type="text/javascript">
+    $('.subject_select_elt').click(function (e) {
+        e.preventDefault();
+        name = $(this).attr("name");
+        value = $(this).attr("value");
+
+        var frm = $("#master_subject_select_frm");
+
+        frm = frm.serializeArray()
+
+        frm = frm.concat([{name: name, value: value}]);
+
+        $.ajax({
+            method: 'post',
+            url: "{% url 'master-subject_select' %}",
+            data: frm,
+
+        });
+    });
+</script>
+
+<!--{#<script type="text/javascript">#}-->
+<!--{#    $('.submitForm').click(function (e) {#}-->
+        <!--{#e.preventDefault();#}-->
+<!--{#        answerid = $(this).attr("name");#}-->
+<!--{#        answeridValue = $(this).attr("value");#}-->
+        <!--{#    alert(answerid);#}-->
+<!--{#        var frm = $("#master_set_state");#}-->
+        <!--{#    alert(frm);#}-->
+<!--{#        frm = frm.serializeArray()#}-->
+        <!--{#    alert(frm);#}-->
+<!--{#        frm = frm.concat([{name: answerid, value: answeridValue}]);#}-->
+        <!--{#    alert(frm);#}-->
+<!--{#        $.ajax({#}-->
+<!--{#            method: 'post',#}-->
+<!--{#            url: "{% url 'master-set_state' %}",#}-->
+<!--{#            data: frm,#}-->
+            <!--{#        success: alert("yes")#}-->
+<!--{#        });#}-->
+<!--{#    });#}-->
+<!--{#</script>#}-->
+
+
+
+<!--{#<script type="text/javascript">#}-->
+<!--{#    $('.submitFormA').click(function (e) {#}-->
+        <!--{#e.preventDefault();#}-->
+<!--{#        answerid = $(this).attr("name");#}-->
+<!--{#        answeridValue = $(this).attr("value");#}-->
+        <!--{#    alert(answerid);#}-->
+<!--{#        var frm = $("#master_parameters_setA");#}-->
+        <!--{#    alert(frm);#}-->
+<!--{#        frm = frm.serializeArray()#}-->
+<!--{#        frm = frm.concat([{name: answerid, value: answeridValue}]);#}-->
+        <!--{#    alert(frm);#}-->
+        <!--{#    frm= frm.concat([{name: answerid, value: "True_Ajax"}]);#}-->
+        <!--{#    alert(frm);#}-->
+<!--{#        $.ajax({#}-->
+<!--{#            method: 'post',#}-->
+<!--{#            url: "{% url 'master-parameters_set' %}",#}-->
+<!--{#            data: frm,#}-->
+            <!--{#        success: alert("yes")#}-->
+<!--{#        });#}-->
+<!--{#    });#}-->
+<!--{#</script>#}-->
+
+<!--{#<script type="text/javascript">#}-->
+<!--{#    $('.submitFormB').click(function (e) {#}-->
+        <!--{#e.preventDefault();#}-->
+<!--{#        answerid = $(this).attr("name");#}-->
+<!--{#        answeridValue = $(this).attr("value");#}-->
+<!--{#        var frm = $("#master_parameters_setB");#}-->
+<!--{#        frm = frm.serializeArray()#}-->
+<!--{#        frm = frm.concat([{name: answerid, value: answeridValue}]);#}-->
+<!--{#        $.ajax({#}-->
+<!--{#            method: 'post',#}-->
+<!--{#            url: "{% url 'master-parameters_set' %}",#}-->
+<!--{#            data: frm,#}-->
+            <!--{#        success: alert("yes")#}-->
+<!--{#        });#}-->
+<!--{#    });#}-->
+<!--{#</script>#}-->
+
+<!--{#<script type="text/javascript">#}-->
+<!--{#    $('.submitFormC').click(function (e) {#}-->
+        <!--{#e.preventDefault();#}-->
+<!--{#        answerid = $(this).attr("name");#}-->
+<!--{#        answeridValue = $(this).attr("value");#}-->
+<!--{#        var frm = $("#master_parameters_setC");#}-->
+<!--{##}-->
+<!--{#        frm = frm.serializeArray()#}-->
+<!--{#        frm = frm.concat([{name: answerid, value: answeridValue}]);#}-->
+<!--{#        $.ajax({#}-->
+<!--{#            method: 'post',#}-->
+<!--{#            url: "{% url 'master-parameters_set' %}",#}-->
+<!--{#            data: frm,#}-->
+            <!--{#        success: alert("yes")#}-->
+<!--{#        });#}-->
+<!--{#    });#}-->
+<!--{#</script>#}-->
+
+<!--{#<script type="text/javascript">#}-->
+<!--{#    $('.submitFormD').click(function (e) {#}-->
+        <!--{#e.preventDefault();#}-->
+<!--{#        answerid = $(this).attr("name");#}-->
+<!--{#        answeridValue = $(this).attr("value");#}-->
+<!--{#        var frm = $("#master_parameters_setD");#}-->
+<!--{#        frm = frm.serializeArray()#}-->
+<!--{#        frm = frm.concat([{name: answerid, value: answeridValue}]);#}-->
+<!--{#        $.ajax({#}-->
+<!--{#            method: 'post',#}-->
+<!--{#            url: "{% url 'master-parameters_set' %}",#}-->
+<!--{#            data: frm,#}-->
+            <!--{#        success: alert("yes")#}-->
+<!--{#        });#}-->
+<!--{#    });#}-->
+<!--{#</script>#}-->
+
+<!--Hi Honza, the script below makes the numbering-->
+<script>
+  var table = document.getElementsByTagName('table')[0],
+  rows = table.getElementsByTagName('tr'),
+  text = 'textContent' in document ? 'textContent' : 'innerText';
+
+for (var i = 0, len = rows.length; i < len; i++) {
+  rows[i].children[0][text] = i  + rows[i].children[0][text];
+}
+
+</script>
+
+</div>

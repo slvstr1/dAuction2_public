@@ -1,0 +1,176 @@
+{% extends "testing/base2.html" %}
+{% load templatetags %}
+
+
+{% block title %}Testing{% endblock %}
+{% block main_content %}
+
+    <script src="/staticfiles/js/plotly-latest.min.js"></script>
+    <script scr="/staticfiles/bootstrap/js/bootstrap.js"></script>
+    <script src="/staticfiles/js/react.js"></script>
+    <script src="/staticfiles/js/react-dom.min.js"></script>
+    <script src="/staticfiles/js/browser.js"></script>
+    <script type="text/babel" src="/staticfiles/js/timer.js"></script>
+    <script type="text/babel" src="/staticfiles/js/plots/all_c_table.js"></script>
+    <script type="text/babel" src="/staticfiles/js/plots/vouchers_basic.js"></script>
+    <script type="text/babel" src="/staticfiles/js/plots/vouchers_negat.js"></script>
+    <script src="/staticfiles/js/gaussian.js"></script>
+
+
+    <div style="padding-bottom: 7%">
+        {% if player.testing_finished %}
+            <h2 class="bg-success">You have finished answering the test-questions.</h2>
+            <h3>Please wait for the experiment to continue. In the meantime, you can still review the questions</h3>
+        {% endif %}
+        <div>
+            <div class="row container-fluid">
+                <div class="col-lg-2 container-fluid" >
+                    <div style="background-color: whitesmoke; margin-right: 10%">
+                        <h4 style="color:red;padding:12px">Answer all {{ auction.testing_totalquestions }} questions carefully and <u>within the time</u>! </h4>
+                        <p style="padding-left:10px">Choose the best answer, based on your understanding of the
+                            instructions.</p>
+                        <p style="padding-left:10px">For each question, until you have chosen the correct answer, every
+                            incorrect answer is counted as an error.</p>
+                        <p style="padding-left:10px"><strong>Make sure you finish the test in time!</strong></p>
+                        <h4 style="padding:10px;color:red">Total number of errors: {{ player.testing_errors }}</h4>
+                        <h4 style="padding-left:10px; padding-bottom: 10px;color:red">
+                            <div id="Test_timer"></div>
+                        </h4>
+                    </div>
+                    <div style="background-color: whitesmoke; margin-right: 10%">
+                        <p style="padding:10px">Once you have submitted the correct answer, a NEXT button appears
+                            below on the screen and you may proceed to the next question by pressing it.</p>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div>
+                        <h2>Question {{ player_question.question.id|subtract_auctionid:auction.id }}/{{ auction.testing_totalquestions }}</h2>
+                        <h3>{{ player_question.question.question_text }}</h3>
+                        {% if option_list %}
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    {% if player_question.question.js2 %}
+                                        <div id="content1"></div>
+                                        <div id="content2"></div>
+                                        <script type="text/babel"
+                                                src="/staticfiles/js/t{{ player_question.question.id|subtract_auctionid:auction.id }}.js"></script>
+                                    {% elif player_question.question.url %}
+                                        <img src="/{{ player_question.question.url }}"
+                                             alt="If you do not see the picture, please alert the experimenter"
+                                             height={{ player_question.question.pic_height }} width= {{ player_question.question.pic_width }}>
+                                    {% endif %}
+                                </div>
+                                <div class="col-lg-5">
+                                    {% if player_question.finished and option_correct.url %}
+                                        <div style="background-color: lightyellow;padding: 2px;border: 5px solid; margin:1px auto;">
+                                            <h4>After I submitted the offer, the table will look like the one below.
+                                                Please make sure that you understand this. If you do not, raise your
+                                                hand.</h4>
+                                        </div>
+                                        <center>
+                                            {% if player_question.question.js2 %}
+                                                <div style="zoom: 0.85; justify-content: center;  align-items: center"
+                                                     id="content3"></div>
+                                                <div id="content4"></div>
+                                            {% else %}
+                                                <img src="/{{ option_correct.url }}"
+                                                     alt="If you do not see the picture, please alert the experimenter"
+                                                     height="{{ option_correct.pic_height }}"
+                                                     width="{{ option_correct.pic_width }}">
+                                            {% endif %}
+                                        </center>
+                                    {% else %}
+                                        <style>
+                                            div.hide_me {
+                                                visibility: hidden;
+                                                position: absolute;
+                                                left: -999em;
+                                            }
+                                        </style>
+                                        <div class="hide me" id="content3"></div>
+                                        <div class="hide_me" id="content4"></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <form action="{% url "testing-main" %}" method="get">
+                                <ol class="answers" type="a">
+                                    {% for pqo in pqo_list %}
+                                        <li>
+                                            <input type="radio" name="option_id" value=" {{ pqo.option.idd }}"
+                                                   id="{{ pqo.option.idd }}" {% if pqo.reveal %}
+                                                   disabled {% endif %}><label
+                                                for="{{ pqo.option.idd }}">  {{ pqo.option.option_text }}                  </label>
+                                            {% if pqo.reveal %}
+                                                {% if pqo.option.correct %}
+                                                    <p class="bg-success">
+                                                        {% else %}
+                                                    <p class="bg-danger">
+                                                {% endif %}
+                                            {{ pqo.option.correct }}
+                                            {{ pqo.option.explanation_text }}
+                                            {% if not pqo.option.correct %}
+                                                Try again
+                                            {% endif %}
+                                            </p>
+                                                </i>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+
+                                    <button name="submit" value="True">Submit</button>
+
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row container-fluid">
+            <div class="navbar navbar-fixed-bottom navbar-default">
+                <h3>
+                    <form action="{% url 'testing-main' %}" method="post">
+                        {% csrf_token %}
+                        {% if player_question.question.id|subtract_auctionid:auction.id  > 1 %}
+                            <button class="btn btn-default" name="Previous" value="True">PREVIOUS</button>
+                            {% else %}
+                            <button class="btn btn-default" name="Previous" value="True" disabled>PREVIOUS</button>
+                        {% endif %}
+                        <!--pq_list.0: {{ pq_list.0 }}-->
+                        {% for pq in pq_list %}
+                        <!--{{ pq.question.id|subtract_auctionid:auction.id }}-->
+                            {% if pq.question.id  != player_question.question.id %}
+                                <button class="link" name="value" value="{{ pq.question.id|subtract_auctionid:auction.id }}">
+                                <!--{{ pq.question.id|subtract_auctionid:auction.id }} notequal-->
+
+                                   {{pq.question.id|subtract_auctionid:auction.id}}
+
+
+                            {% else %}
+                                 <strong>&nbsp;
+                                    {{ pq.question.id|subtract_auctionid:auction.id }}  &nbsp; </strong>
+                            {% endif %}
+                        </button>
+                        {% endfor %}
+
+                        {% if player_question.finished %}
+                            {% if player_question.question.id|subtract_auctionid:auction.id  < auction.testing_totalquestions %}
+                                <button class="btn btn-default btn-warning" name="Next" value="True">NEXT</button>
+                            {% else %}
+                                {% if not player.testing_finished %}
+                                    <button class="btn btn-danger" name="Finish"> FINISH Testing</button>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </form>
+                </h3>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+<script src="/staticfiles/js/back_disable.js"></script>

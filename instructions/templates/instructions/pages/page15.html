@@ -1,0 +1,36 @@
+<div class="row container-fluid">
+
+    <div class="col-xs-6">
+        <div class="col-xs-7">
+            <div id="table15"></div>
+        </div>
+
+    </div>
+    <div class="col-xs-6">
+        <h3>
+            <strong>Figure 9.c: The Producer has sold 7 Units, and then bought 2 Units.</strong><br>
+            A Producer may also buy Units. Buying removes the "X" of Sold Units . Thus, if the Producer in the example
+            in Figure 9.b buys 2 Units, the "X" marks of Units 6 and 7 disappear. The column now looks as in Figure 9.c.
+            <br><br>
+            Units Number 6 and 7 now no longer contribute to the Total Cost. The total cost of the Producer is
+            now {{ vouchers_1.0.value |floatformat }}
+            + {{ vouchers_1.1.value|floatformat }} + {{ vouchers_1.2.value |floatformat }}
+            + {{ vouchers_1.3.value|floatformat }} + {{ vouchers_1.4.value|floatformat }} = {{ voucher_calc5 }}. Verify
+            this by inspecting Figure 9.c.
+            {#    You can see that, as a result, the Total Cost in Figure 5.c has been lowered to a total of 1.1 ECU.#}
+            <br><br>
+            If the Producer in Figure 9.c would now like to sell one more Unit, the cost of selling the Unit is
+            indicated by the Cost of Unit of the first Unit without "X", which is in this example Unit 6 with a Cost of
+            Unit
+            of {{ vouchers_1.5.value|floatformat }} ECU.
+            <br><br>
+            Please make sure that you understand this. {% if auction.itype == auction.SUMMARY_INSTR %}
+            If you do not, raise your hand.
+        {% endif %}
+
+        </h3>
+    </div>
+
+</div>
+
+<script type="text/babel" src="/staticfiles/js/f15.js"></script>

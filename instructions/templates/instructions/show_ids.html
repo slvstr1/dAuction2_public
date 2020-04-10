@@ -1,0 +1,7 @@
+{% load templatetags %}
+<div class="whitefont">
+        <strong>user {{ user.id}}</strong>, player_id <strong>{{ player.id|subtract_auctionid:auction.id }}</strong>, <strong>{{ player.group_id|subtract_auctionid:auction.id }}</strong>, role <strong>{{ player.role }}</strong>,
+{#    State: {this.props.phase.active_state}#}
+    State:{{ player.state }}
+    tr {{ treatment.idd }}
+</div>

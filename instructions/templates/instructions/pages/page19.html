@@ -1,0 +1,24 @@
+<div class="row container-fluid">
+    <h2>3.2 Trading rules for Retailers</h2>
+    <div class="col-xs-8">
+        <h3>Figure 12: The Trading Screen for Retailers in {{ spot_market }}</h3>
+        <img src="/staticfiles/images/instructions_fig_08.png"
+             alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+    </div>
+
+    <br>
+    <div class="col-xs-4">
+
+
+        <h3>
+            The Retailer sees a screen as in Figure 12.
+            <br><br>
+            {% if not treatment.only_spot %}
+            The screen for the Retailer is somewhat different in {{ forward_market }} and {{ spot_market }}.{% endif %} We will first focus on the screen
+            in {{ spot_market }}.
+        </h3>
+    </div>
+
+
+</div>
+{#<script type="text/babel" src="/staticfiles/js/f19.js"></script>#}

@@ -1,0 +1,129 @@
+{% extends "instructions/base.html" %}
+{% block main_content %}
+{% if not auction.app == auction.INSTR %}
+    <div>
+        <title>Waiting for all subjects to log in</title>
+        <br><br><br><br>
+        <h3>
+            <center>Please, wait until all subjects have logged in on their computer</center>
+        </h3>
+    </div>
+
+
+
+{#        header for printed, nonprinted#}
+{% else %}
+    {% if auction.make_instruction_pdf %}
+        <title>
+            {% if treatment.educational %}
+                {% if treatment.only_spot %}
+                    ETBG_ t_{{ treatment.idd }}_onlyspot, au_{{ auction }} Rendered on {% now "jS F Y H:i:s" %}
+                {% else %}
+                    ETBG_ t_{{ treatment.idd }}, au_{{ auction }} Rendered on {% now "jS F Y H:i:s" %}
+                {% endif %}
+            {% else %}
+                t_{{ treatment.idd }}, au_{{ auction }} Rendered on {% now "jS F Y H:i:s" %}
+            {% endif %}
+        </title>
+
+        {% for page_elt in all_pages_list %}
+            <div class="page-break">
+                <h3><i>
+                    Section {{ page_elt.0 }}
+                    {% if page_elt.0 == 1 %}
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp
+                            <i>{% if treatment.educational %}
+                                    {% if treatment.only_spot %}
+
+                                        ETBG_ t_{{ treatment.idd }}_onlyspot, au_{{ auction }} Rendered on {% now "jS F Y H:i:s" %}
+                                    {% else %}
+                                        ETBG_ t_{{ treatment.idd }}, au_{{ auction }} Rendered on {% now "jS F Y H:i:s" %}
+                                    {% endif %}
+        {% else %}
+            t_{{ treatment.idd }}, au_{{ auction }} Rendered on {% now "jS F Y H:i:s" %}
+        {% endif %}
+                                </i>
+                    {% endif %}
+                    </i></h3>
+
+                    {% if page_elt.0 == 35 %}
+                        {% include page_elt.1 %}
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{#                     ToDo: Solve HACK! Without the <br> the last pay will not be saved as pdf!!!#}
+                    {% else %}
+                        {% include page_elt.1 %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+
+
+
+
+
+
+{#        Not pdf printing!#}
+        {% else %}
+
+
+            <div id="i_content"  class="container-fluid row" style="padding-bottom: 70px">
+                {% if player.state == 3 %}
+                    {#             player.FINISHED #}
+                    <h3 class="bg-success" style="zoom: 0.8">You have finished the instructions. Please wait for the experiment to
+                        continue. In the meantime, you can still review the instructions</h3>
+                {% endif %}
+
+
+                {% include pageurl.1 %}
+
+                <!--thispage: {{ thispage }}-->
+              <script src="/staticfiles/js/zooming.js"></script>
+            </div>
+        {% endif %}
+        {% if not auction.make_instruction_pdf %}
+
+            <title>Instructions</title>
+
+
+            <div id="i_footer" class="footer navbar navbar-fixed-bottom navbar-default">
+            <div class="container-fluid row">
+                <h3>
+                    <form action="{% url 'instructions-page' %}" method="get">
+                        {% if pageurl.0 > 1 %}
+                            <button class="btn btn-default" name="Previous" value="True">PREVIOUS</button>
+                    {% else %}
+                    <button class="btn btn-default" name="" value="True" disabled>PREVIOUS</button>
+                        {% endif %}
+                        {% for page_elt in all_pages_list %}
+                                {% if pageurl.0 != page_elt.0 %}
+
+                                <button class="link" name="value" value="{{ page_elt.0 }}">
+                                {{ page }}
+                                    {{ page_elt.0 }}
+                            {% else %}
+                                <strong>&nbsp; {{ page_elt.0 }} &nbsp; </strong>
+                            {% endif %}
+                        </button>
+                        {% endfor %}
+                        {% if pageurl.0 < instruction_totalPages %}
+                            <button class="btn btn-default" name="Next" value="True">NEXT</button>
+                        {% elif pageurl.0  == instruction_totalPages %}
+                            {% if player.state != 3 %}
+
+                                <button class="btn btn-danger" name="FINISH"> FINISH instructions</button>
+                            {% else %}
+                                <button class="btn btn-default" name="Next" value="True" disabled>NEXT</button>
+
+                            {% endif %}
+                        {% endif %}
+                    </form>
+                </h3>
+            </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

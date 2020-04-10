@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+    <script src="/staticfiles/js/jquery-2.1.4.js"></script>
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+
+    <style>
+        #instr_box {
+            background-color: lightyellow;
+            padding: 10px;
+            border: 10px solid;
+            margin: 10px auto;
+        }
+
+        button.link {
+            background: none !important;
+            border: none;
+            padding: 0 !important;
+            font: inherit;
+            /*border is optional*/
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+
+    </style>
+</head>
+
+{% include 'instructions/navigate_bar.html' %}
+<body>
+{% block main_content %}
+{% endblock %}
+</body>
+</html>
+{% include 'instructions/ids_in_hidden_fields.html' %}
+{% include 'instructions/auction_parameters_hidden_fields.html' %}
+{% include 'instructions/refreshCheck.html' %}
+{% include 'instructions/data_to_js.html' %}
+
+<script src="/staticfiles/js/back_disable.js"></script>

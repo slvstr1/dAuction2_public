@@ -1,0 +1,21 @@
+__author__ = 'MSIS'
+
+from django import forms
+from django.forms import NumberInput
+from .models import Offer
+
+
+class OfferForm(forms.ModelForm):
+    # An inline class to provide additional information on the form.
+    class Meta:
+        # Provide an association between the ModelForm and a model
+        model = Offer
+        fields = ('unitsOriginal', 'priceOriginal')
+        widgets = {
+            'unitsOriginal': NumberInput(attrs={'style':'width:75px; height:25px'}),
+            'priceOriginal': NumberInput(attrs={'style':'width:75px; height:25px'}),
+                 }
+        labels = {
+            'unitsOriginal': ('Number of.Units'),
+            'priceOriginal': ('Price per Unit'),
+        }

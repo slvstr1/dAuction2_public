@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Master</title>
+
+    <script src="/staticfiles/js/jquery-2.2.0.js"></script>
+    <link href="/staticfiles/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/staticfiles/dauction/css/datatables.css" rel="stylesheet">
+    <script src="/staticfiles/bootstrap/js/bootstrap.js"></script>
+    <script src="/staticfiles/js/react.js"></script>
+    <script src="/staticfiles/js/react-dom.js"></script>
+    <script src="/staticfiles/js/browser.js"></script>
+    <script src="/staticfiles/js/datatables.js"></script>
+    <script type="text/babel" src="/staticfiles/js/admin_table.js"></script>
+
+    <script>
+        setTimeout(function () {
+            $(document).ready(function () {
+                $('#ajax_table').DataTable(
+                        {
+                            paging: false,
+                            searching: false,
+                            bInfo: false
+                        }
+                );
+                $('#payoff_table').DataTable(
+                        {
+                            paging: false,
+                            searching: false,
+                            bInfo: false
+                        }
+                );
+            });
+        }, 700);
+    </script>
+    <style>
+        .table-condensed > thead > tr > th,
+        .table-condensed > tbody > tr > th,
+        .table-condensed > tfoot > tr > th,
+        .table-condensed > thead > tr > td,
+        .table-condensed > tbody > tr > td,
+        .table-condensed > tfoot > tr > td {
+            padding: 1.3px;
+        }
+
+        .css-serial {
+            counter-reset: serial-number; /* Set the serial number counter to 0 */
+        }
+
+        .css-serial td:first-child:before {
+            counter-increment: serial-number; /* Increment the serial number counter */
+            content: counter(serial-number); /* Display the counter */
+        }
+        td, tr {
+            text-align: center;
+        }
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 979px) {
+            body {
+                padding-top: 0px;
+            }
+        }
+
+        body {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+<div class=" row container-fluid navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-lg-6 text-center" style="margin-top: 5px">
+                        <form action="/master_screen_select/" method="post">
+                            <input type='hidden' name='csrfmiddlewaretoken' value='3Kn5qeiYmEfVNZ9bzbZnl4sDArCPqiK0gz3mzCsxFQQXqZ5e13m6YKiwRJzuc9zY' />
+                            <button class="btn btn-success" name="PARAMETERS" value="True">PARAMETERS</button>
+                            <button class="btn btn-success" name="DATA" value="True">DATA</button>
+                            <button class="btn btn-success" name="show_earnings" value="True">SHOW earnings</button>
+                            <button class="btn btn-success" name="ANL" value="True">ANL</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div>
+
+
+<div id="master_overview" class="container">
+    <input type="hidden" id="myVar" name="variable" value="1200">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <form action="/subject_select/" method="post">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='3Kn5qeiYmEfVNZ9bzbZnl4sDArCPqiK0gz3mzCsxFQQXqZ5e13m6YKiwRJzuc9zY' />
+
+                        <table id="payoff_table" class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>U_pk</th>
+                                <th>IP</th>
+                                <th>Selected</th>
+                                <th>Auct</th>
+                                <th>Group</th>
+                                <th>Role</th>
+                                <th>t_err</th>
+                                <th>App</th>
+                                <th>State</th>
+                                <th>Period</th>
+                                <th>Ready</th>
+                                <th>LastA</th>
+                                <th>Rfrsh</th>
+                                <th>Name first</th>
+                                <th>Name last</th>
+                                <th>Payout in CZK corr</th>
+                                <th>Payout in CZK</th>
+                                <th>Payout trade</th>
+                                <th>Cumulative earning</th>
+                                <th>earning qs</th>
+                                <th>Period to pay tr</th>
+                                <th>Period to pay qs</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td></td>
+                                    <td><input type="radio" name="q" value="1"
+
+                                               id="1">1</td>
+                                    <td>0.4</td>
+                                    <td>True</td>
+                                    <td>570001</td>
+                                    <td>23</td>
+                                    <td>RE</td>
+                                    <td>0</td>
+                                    <td>FS</td>
+                                    <td>WORK</td>
+                                    <td>1</td>
+                                    <td>True</td>
+                                    <td> </td>
+                                    <td>-
+                                    </td>
+                                    <td>  </td>
+                                    <td><strong></strong></td>
+                                    <td><strong>0</strong></td>
+                                    <td><strong>0</strong></td>
+                                    <td> 0</td>
+                                    <td> 0.0 </td>
+                                    <td> 0 </td>
+                                    <td> 8</td>
+                                    <td> 5</td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td><input type="radio" name="q" value="2"
+
+                                               id="2">2</td>
+                                    <td>0.4</td>
+                                    <td>True</td>
+                                    <td>570001</td>
+                                    <td>23</td>
+                                    <td>PR</td>
+                                    <td>0</td>
+                                    <td>FS</td>
+                                    <td>WORK</td>
+                                    <td>1</td>
+                                    <td>True</td>
+                                    <td> </td>
+                                    <td>-
+                                    </td>
+                                    <td>  </td>
+                                    <td><strong></strong></td>
+                                    <td><strong>0</strong></td>
+                                    <td><strong>0</strong></td>
+                                    <td> 0</td>
+                                    <td> 0.0 </td>
+                                    <td> 0 </td>
+                                    <td> 2</td>
+                                    <td> 1</td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td><input type="radio" name="q" value="3"
+
+                                               id="3">3</td>
+                                    <td>0.4</td>
+                                    <td>False</td>
+                                    <td>570001</td>
+                                    <td>23</td>
+                                    <td>PR</td>
+                                    <td>0</td>
+                                    <td>QUEST</td>
+                                    <td>WORK</td>
+                                    <td>1</td>
+                                    <td>False</td>
+                                    <td> </td>
+                                    <td>-
+                                    </td>
+                                    <td>  </td>
+                                    <td><strong></strong></td>
+                                    <td><strong>0</strong></td>
+                                    <td><strong>0</strong></td>
+                                    <td> 0</td>
+                                    <td> 0.0 </td>
+                                    <td> 0 </td>
+                                    <td> 0</td>
+                                    <td> 0</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <button name="logout">Logout</button>
+
+                    <button name="sh_toggle_table">S/H table</button>
+                    <button name="sh_toggle_unselected">S/H unselected</button>
+                    auction: <b>570,001</b>
+                </form>
+            </div>
+
+
+
+
+
+            <br>
+            <table id="payoff_table" class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Average paid</th>
+                                <th>Average paid PR</th>
+                                <th>Average paid RE</th>
+
+                                <th>Minimum paid</th>
+                                <th>Minimum paid PR</th>
+                                <th>Minimum paid RE</th>
+
+                                <th>Maximum paid</th>
+                                <th>Maximum paid PR</th>
+                                <th>Maximum paid RE </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-1.0</td>
+                                    <td>-1</td>
+                                    <td>-1</td>
+
+
+
+                                    <td>-1</td>
+                                    <td>-1</td>
+                                    <td>-1</td>
+
+
+                                    <td>-1</td>
+                                    <td>-1</td>
+                                    <td>-1</td>
+                                </tr>
+                                <tr>
+                                    <td>-1.0</td>
+                                    <td>-1</td>
+                                    <td>-1</td>
+
+                                    <td>-1</td>
+                                    <td>-1</td>
+                                    <td>-1</td>
+
+                                    <td>-1</td>
+                                    <td>-1</td>
+                                    <td>-1</td>
+                                </tr>
+                            </tbody>
+            </table>
+            <form id="master_payment_data_handle" action="/payment_data_handle/" method="post">
+                <input type='hidden' name='csrfmiddlewaretoken' value='3Kn5qeiYmEfVNZ9bzbZnl4sDArCPqiK0gz3mzCsxFQQXqZ5e13m6YKiwRJzuc9zY' />
+            <tr><th><label for="id_multiplier">Multiplier:</label></th><td><input type="number" name="multiplier" value="1.0" step="any" style="width:50px; height:22px" required id="id_multiplier" /></td></tr>
+<tr><th><label for="id_multiplier_PR">Multiplier PR:</label></th><td><input type="number" name="multiplier_PR" value="1.0" step="any" style="width:50px; height:22px" required id="id_multiplier_PR" /></td></tr>
+<tr><th><label for="id_multiplier_RE">Multiplier RE:</label></th><td><input type="number" name="multiplier_RE" value="1.0" step="any" style="width:50px; height:22px" required id="id_multiplier_RE" /></td></tr>
+<tr><th><label for="id_fixed_uplift">Fixed uplift:</label></th><td><input type="number" name="fixed_uplift" value="0" style="width:50px; height:22px" required id="id_fixed_uplift" /></td></tr>
+<tr><th><label for="id_fixed_uplift_PR">Fixed uplift PR:</label></th><td><input type="number" name="fixed_uplift_PR" value="0" style="width:50px; height:22px" required id="id_fixed_uplift_PR" /></td></tr>
+<tr><th><label for="id_fixed_uplift_RE">Fixed uplift RE:</label></th><td><input type="number" name="fixed_uplift_RE" value="0" style="width:50px; height:22px" required id="id_fixed_uplift_RE" /></td></tr>
+                <button name="recalculate">Recalculate</button>
+                <br><br>
+                <button name="export_payment_file">Export payment file</button>
+                <br><br>
+                <button name="export_payment_file_all">Export payment files of all auctions</button>
+            </form>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    $('.submitForm').click(function (e) {
+        e.preventDefault();
+        answerid = $(this).attr("name");
+
+        var frm = $("#master_set_state");
+
+        frm = frm.serializeArray()
+
+        frm = frm.concat([{name: answerid, value: "True_Ajax"}]);
+
+        $.ajax({
+            method: 'post',
+            url: "/set_state/",
+            data: frm,
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('.submitForm2').click(function (e) {
+        e.preventDefault();
+        answerid = $(this).attr("name");
+
+        var frm = $("#master_set_state2");
+
+        frm = frm.serializeArray()
+
+        frm = frm.concat([{name: answerid, value: "True_Ajax"}]);
+
+        $.ajax({
+            method: 'post',
+            url: "/set_state/",
+            data: frm,
+
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $('.submitFormA').click(function (e) {
+        e.preventDefault();
+        answerid = $(this).attr("name");
+
+        var frm = $("#master_parameters_setA");
+
+        frm = frm.serializeArray()
+
+
+
+        $.ajax({
+            method: 'post',
+            url: "/parameters_set/",
+            data: frm,
+
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $('.submitFormB').click(function (e) {
+        e.preventDefault();
+        answerid = $(this).attr("name");
+        var frm = $("#master_parameters_setB");
+        frm = frm.serializeArray()
+        $.ajax({
+            method: 'post',
+            url: "/parameters_set/",
+            data: frm,
+
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $('.submitFormC').click(function (e) {
+        e.preventDefault();
+        answerid = $(this).attr("name");
+        var frm = $("#master_parameters_setC");
+        frm = frm.serializeArray()
+        $.ajax({
+            method: 'post',
+            url: "/parameters_set/",
+            data: frm,
+
+        });
+    });
+</script>
+
+    </div>
+
+
+
+</body>
+
+
+</html>
+

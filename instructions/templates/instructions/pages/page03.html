@@ -1,0 +1,57 @@
+{% load templatetags %}
+<div class="row container-fluid">
+    <h1>2. Explanation of the {% if treatment.educational %}Business Simulation{% else %}Trading Experiment{% endif %}</h1>
+    <h2>2.1 Basic information</h2>
+
+    <div class="col-md-6">
+        <div class="row container-fluid">
+            <h3>Figure 1: Rounds {% if treatment.educational %}in the Business Simulation{% else %}and stages in the Trading Experiment{% endif %}</h3>
+            <img class="img-responsive"
+                 src="/staticfiles/images/educational_instructions_fig_01.png"
+                 alt="If you do not see the picture, please alert the experimenter" height="730" width="820">
+
+            <!--src="/staticfles/images/{% if treatment.educational %}educational_{% if treatment.only_spot %}only_spot_{% endif %}{% endif %}instructions_fig_01{% if not treatment.require_units_demanded_on_PR %}_no_penalty_PR{% endif %}.png"-->
+
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>You will be a member of a group. Including you, there will be <strong>
+            {% wordify treatment.get_total_players %} participants in your group</strong>. Group membership is assigned
+            randomly. You will not know who is in the group with you and none of your group members will know that you
+            are in his or her group. In other words, group membership is anonymous. You will not interact with members
+            of other groups. Your group membership stays fixed for the experiment.
+            <br>
+            <br>
+            In the
+            {% if treatment.educational %}Business Simulation{% else %}Trading Experiment{% endif %}, each member of the group will make decisions in a market. There will
+            be {{ treatment.total_periods }} rounds in total.
+            {% if treatment.pay_one_random_period %}
+                {% if treatment.educational %}
+                    One of the rounds will be selected at random and the earnings of this round will be paid to you at the end of the Business Game.
+                {% else %}
+                    One of the rounds will be selected at random and the earnings of this round will be paid to you at the end of the experiment.
+            {% endif %}
+
+            {% else %}
+                Your earnings over all rounds will be added up and the total will be paid to you in the end of the
+                experiment.
+            {% endif %}
+            <br>
+            <br>
+              In each round there will be
+            {% if treatment.only_spot %}a spot market.{% else %}
+            two market stages, first {{ forward_market }} and then {{ spot_market }}.{% endif %}
+
+            The time in a {% if treatment.educational %}market{% else %}stage{% endif %} can be extended by a <b>CONDITIONAL TIME PERIOD</b> and{% if not treatment.only_spot %}, in
+            {{ spot_market }}, {% endif %} by a <b>PENALTY TIME PERIOD</b>.
+
+
+            We explain the extending time periods in detail below.
+            <br><br>
+            Figure 1 gives an overview of how each round will transpire; please study this figure now before proceeding.
+        </h3>
+    </div>
+</div>
+
+

@@ -1,0 +1,33 @@
+<div class="row container-fluid">
+    <h2>6.2 Offers and Transactions Graph</h2>
+
+    <div class="col-xs-7">
+        <h3>Figure 21: Offers and Transactions Graph for a specific example</h3>
+        <img src="/staticfiles/images/instructions_fig_17.png"
+             alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+    </div>
+
+    <div class="col-xs-5">
+        <br>
+        <h3>
+            All the transactions made and the active offers are also shown in the graph, see Figure 21. The thin
+            (upwards edging) lines in
+            red show SELL offers, while the thin (downwards edging) lines in blue show BUY offers. The thick black line
+            shows transactions.
+        </h3>
+        <br>
+        {% if auction.itype == FULL_INSTR %}
+            <h3>
+                Compare the Offer Overview in Figure 21b) with the Offer and Transactions Graph in Figure 21a) and
+                verify that the Offer and Transactions Graph shows the same information on the outstanding offers as the
+                Offer Overview.
+                <br><br>
+                Of course, the Offer and Transactions Graph shows in addition information on the realized transactions.
+                In this case, first 2 Units were sold for a Price of 3 ECU and then 1 Unit was sold for a Price of 4
+                ECU.
+            </h3>
+        {% endif %}
+    </div>
+
+
+</div>

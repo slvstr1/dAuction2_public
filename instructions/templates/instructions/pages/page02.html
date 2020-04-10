@@ -1,0 +1,63 @@
+{% load templatetags %}
+<div class="row container-fluid">
+    <div class="col-xs-6">
+        <h3>The {% if not treatment.educational %} experimental {% endif %} session consists of five parts, as listed in Table 1.</h3>
+        <br>
+        <div id="instr_box">
+            <h2>Table 1</h2>
+            <h3>
+                <table>
+                    <ol>
+                        <li>Summary instructions</li>
+                        <li>Distribution information</li>
+                        <li>Comprehension test</li>
+                        <li>{% if treatment.educational %}Business Simulation{% else %}Trading Experiment{% endif %}</li>
+                        <li>Questionnaire</li>
+                    </ol>
+                </table>
+            </h3>
+        </div>
+        <br><br>
+    </div>
+
+    <div class="col-xs-6">
+
+        <h3>
+            In part 1, "Summary instructions", we will give you
+            {{ treatment.time_for_instructions|div:60|floatformat}} minutes to read a summary of the rules for part 4, the
+            {% if treatment.educational %}
+                "Electricity Trading Business Simulation"
+            {% else %}
+                "Trading Experiment".
+            {% endif %}
+            The full instructions are contained in the present document.
+            <br><br>
+            In part 2, "Distribution information", we will give you information regarding the distribution of the {% if treatment.educational %} SPOT {% endif %} MARKET UNITS DEMANDED on the computer screen.
+            <br><br>
+            {% if treatment.educational %}
+            In part 3, "Comprehension test", we will test your understanding of the instructions {% if False %}and so determine if you
+            will be eligible to participate in the competition for the prize allowed to continue with the Trading Experiment {% endif %}.
+        {% else %}
+            In part 3, "Comprehension test", we will test your understanding of the instructions and so determine if you
+            will be allowed to continue with the Trading Experiment.
+        {% endif %}
+            <br><br>
+            In part 4, "{% if treatment.educational %}Business Simulation{% else %}Trading Experiment{% endif %}", you will make decisions in a
+            {% if treatment.educational %}electricity{% else %}laboratory{% endif %} market context
+            {% if treatment.educational %}.{% else %}and earn money in
+            Experimental Currency Units (abbreviated ECU).{% endif %}
+
+            <br><br>
+            In part 5, "Questionnaire", we ask you to answer some demographic questions.
+            <br><br>
+            {% if treatment.educational %}
+            {% if False %}At the end of the Business Game, the Producer and Retailer that passed the test with the most ECUs will win the prize.{%  endif %}
+            {% else %}
+            <strong> At the end of the experiment, ECUs will be converted into cash.</strong>
+            {% endif %}
+        </h3>
+    </div>
+
+</div>
+
+

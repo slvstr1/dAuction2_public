@@ -1,0 +1,43 @@
+<div class="row container-fluid">
+    <h1>6 Offers Overview and Graph</h1>
+
+    <div class="col-xs-6">
+        <h2>Figure 20.a: Offers Overview for a specific example</h2>
+        <br>
+        <img src="/staticfiles/images/instructions_fig_16a.png"
+             alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+    </div>
+
+
+    <div class="col-xs-6">
+
+
+        <h2>6.1 Offers Overview</h2>
+        <h3>
+            In the box labeled “Offers Overview” you can see all the outstanding offers by you and your group members.
+            Figure 20.a shows the “Offers Overview” box for a specific example with fictitious offers. The offers are
+            ordered by Price from high to low. The column "Number of Unit" shows the number of Units that are on offer
+            for that Price.
+            <br><br>
+            Thus, if you want to buy Units, you need to look at the SELL offers.
+            {% if auction.itype == FULL_INSTR %}
+                As you can see in Figure 20.a, the best (cheapest) SELL offer is in the last (third) row with a Price of
+                4 ECU. Presently, there is 1 Unit offered for this Price. The next-best SELL offer is in the second-last
+                (second) row with a Price of 5 ECU. There are 3 Units offered for this Price. The worst SELL offer is in
+                the first row with a Price of 7 ECU. There are 2 Units  offered for this Price.
+            {% endif %}
+            <br><br>
+            If you want to sell Units, you need to look at the BUY offers.
+
+            {% if auction.itype == FULL_INSTR %}
+                As you can see in Figure  20.a, the best (most expensive) BUY offer is in the first row with a Price of
+                3 ECU. Presently, there is 1 Unit asked for this Price. The next-best BUY offer is in the second row
+                with a Price of 2 ECU. There is 1 Unit asked for this Price. The worst BUY offer is in the last (third)
+                row with a Price of 1 ECU. There are 2 Units asked for this Price.
+            {% endif %}
+
+        </h3>
+
+    </div>
+
+</div>

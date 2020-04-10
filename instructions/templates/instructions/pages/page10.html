@@ -1,0 +1,81 @@
+{#{% load templatetags %}#}
+{#{% wordify auction.get_total_players %}#}
+<style>
+    td {
+        text-align: center;
+    }
+
+    #l_align {
+        text-align: left;
+        width: 30%;
+    }
+
+</style>
+<div class="container-fluid row">
+    <div class="col-xs-11">
+        <h3><u>2.2.2 The additional penalty at the end of {{ spot_market }}</u></h3>
+        <h3>
+
+            <strong>If, at the end of the Penalty Time in {{ spot_market }}, Retailers still have less units than UNITS DEMANDED,
+                they receive an additional penalty for each unit that they are missing.
+                {% if treatment.require_units_demanded_on_PR %}
+                In the case there is at least
+                one Retailer with less units than UNITS DEMANDED, Producers that have sold less units than the UNITS
+                DEMANDED will receive the same penalty per unit.{% endif %}</strong>
+            <br><br>
+            The algorithm to calculate the additional penalty is somewhat complicated. Simply said, we designed the
+            algorithm in such a way that, together with
+            the {% widthratio treatment.time_for_spot_3 treatment.time_conditional 1 %} penalties in the PENALTY TIME
+            PERIOD, it is always best for the profits of a participant to buy (in the role of a Retailer)
+            {% if treatment.require_units_demanded_on_PR %}
+            or sell (in the role of a Producer)
+            {% endif %}
+            all UNITS DEMANDED.
+            <br><br>
+            Studying the details of the algorithm of the additional penalty is optional: There will be no questions
+            about the algorithm in the comprehension test. For completeness, we describe the algorithm in detail below,
+            so that you can verify our claim yourself if you wish so.
+            <br><br>
+        </h3>
+        <h3>
+            <u>
+                2.2.3 Detailed description of the algorithm to calculate the additional penalty at the end of {{ spot_market }}
+            </u>
+        </h3>
+
+
+        <h3>
+            To calculate the penalty, we first define the term <i>YourMissingUnits</i> as UNITS DEMANDED minus the
+            number of units the Retailer has.
+            <br><br>
+            We also define the term <i>AggregateMissingUnits</i> as UNITS DEMANDED for all Retailers together minus the
+            number of units all Retailers in your group together have. We use this to calculate the <i>MarginalCostOfAggregateMissingUnits</i>.
+            We explain in the next section how the <i>MarginalCostOfAggregateMissingUnits</i> is calculated.
+            <br><br>
+
+
+            The financial penalty for a Retailer is then calculated as <i>YourMissingUnits</i> times <i>MarginalCostOfAggregateMissingUnits</i>
+            times 1.5.
+            <br><br>
+            {% if treatment.require_units_demanded_on_PR %}
+            For Producers, we define <i>YourMissingUnits</i> as UNITS DEMANDED minus the number of units the Producer
+            sold. The financial penalty for a Producer is then also calculated as <i>YourMissingUnits</i> times <i>MarginalCostOfAggregateMissingUnits</i>
+            times 1.5.
+            <br><br>
+            {% endif %}
+        </h3>
+    </div>
+
+    <div class="col-xs-6">
+
+        <div id="Figure">
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+

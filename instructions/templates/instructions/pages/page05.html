@@ -1,0 +1,94 @@
+{% load templatetags %}
+<div class="row container-fluid">
+    <div class="col-xs-6">
+        <div id="Figure">
+            <h3>
+
+                {% if not treatment.only_spot %}
+                Figure 3: the CONDITIONAL TIME PERIOD indication in {{ forward_market }}
+
+                <img src="/staticfiles/images/extra_pic_01.png"
+                     alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+                <br><br><br><br><br>
+                {% endif %}
+                Figure 4: the CONDITIONAL TIME PERIOD indication{% if not treatment.only_spot %} in {{ spot_market }}{% endif %}
+
+                <img src="/staticfiles/images/extra_pic_02.png"
+                     alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+                <br><br><br><br><br>
+
+                Figure 5: the PENALTY TIME PERIOD indication{% if not treatment.only_spot %} in {{ spot_market }}{% endif %}
+
+                <img src="/staticfiles/images/extra_pic_03.png"
+                     alt="If you do not see the picture, please alert the experimenter" class="img-responsive">
+            </h3>
+        </div>
+    </div>
+
+
+    <div class="col-xs-6">
+
+        {% if not treatment.only_spot %}
+        <h2>
+
+            <strong>
+                {{ Forward_market }}
+            </strong>
+        </h2>
+        <h3>
+
+            {{ Forward_market }} starts with a fixed-time phase that lasts {{ treatment.time_for_forward_1 }} seconds. When the time has expired, the market is extended by a <strong>"CONDITIONAL TIME PERIOD"</strong> for maximally {{ treatment.time_for_forward_2 }} seconds.<strong> However, within {{ treatment.time_conditional }} seconds
+            at least one new transaction must be made by some participants</strong>, otherwise the CONDITIONAL TIME
+            PERIOD ends.
+            <br><br>
+            It will always be clearly indicated in the middle on the top of your screen how much time you
+            have left.
+
+
+
+
+            Figure 3 shows an example in {{ forward_market }} of the indication on the top of your screen for the CONDITIONAL TIME PERIOD.
+
+        <br><br>
+        When the CONDITIONAL TIME PERIOD in the {{ forward_market }} has ended, Participants have a short break of {{ treatment.time_for_forward_waiting }} seconds to review their choices.
+
+        </h3>
+
+
+
+
+            <br><br>
+        {% endif %}
+
+        <h2>
+            <strong>
+                {{ Spot_market  }}
+            </strong>
+        </h2>
+        <h3>
+            {{ Spot_market }} {% if not treatment.only_spot %}also {% endif %}starts with a fixed-time phase that lasts {{ treatment.time_for_forward_1 }} seconds. When the time has expired, the market is {% if not treatment.only_spot %}also {% endif %}extended by a <strong>"CONDITIONAL TIME PERIOD"</strong> for maximally {{ treatment.time_for_forward_2 }} seconds<strong>. {% if not treatment.only_spot %}Again{% else %}However{% endif %}, every {{ treatment.time_conditional }} seconds at least one new transaction must be made by some participants</strong>, otherwise the CONDITIONAL TIME PERIOD ends.
+
+
+            It will always be clearly indicated in the middle on the top of your screen how much time you have left.<br><br>
+
+            Figure 4 shows an example of this indication in {{ spot_market }} for the case that the participant is a Retailer who bought 24 units less than the UNITS DEMANDED.
+            <br><br>
+
+
+            When the CONDITIONAL TIME PERIOD in the {{ spot_market }} ends, and not all Retailers in the group have bought a number of units equal or larger than UNITS DEMANDED, the market trading is still further extended by a <strong>"PENALTY TIME PERIOD"</strong> for a maximum of {{ treatment.time_for_spot_3 }} seconds. We describe the rules of the PENALTY TIME PERIODs in detail in the next sections. Once all Retailers have bought a number of units equal or larger than UNITS DEMANDED, or if the time has expired, {{  spot_market }} finishes.
+            <br><br>
+
+            {% if not treatment.only_spot %}
+            Figure 5 shows an example in {{ forward_market }} of the indication on the top of the screen for a Retailer who bought 24 units less than the UNITS DEMANDED.
+            {% endif %}
+            {% if treatment.require_units_demanded_on_PR %}
+            Producers can see a likewise indication if they have sold less units than the UNITS DEMANDED.
+            {% else %}
+            Producers see no special indication during this time period.
+            {% endif %}
+            <br><br>
+            Details regarding UNITS DEMANDED are explained in the next section.
+        </h3>
+    </div>
+
+</div>

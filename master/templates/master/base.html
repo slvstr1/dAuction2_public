@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Le styles -->
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+{#    <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">#}
+
+{#    {% if user.username == "admin" %}#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'dauction/css/style_subject.css' %}" />#}
+{#        {% else %}#}
+{#        <link rel="stylesheet" type="text/css" href="{% static 'dauction/css/style_subject.css' %}" />#}
+{#    {% endif %}#}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'dauction/css/style.css' %}" />#}
+
+    {% block styles %}{% endblock %}
+
+  </head>
+
+
+
+{#    <div class="navbar navbar-inverse navbar-fixed-top">#}
+{#      <div class="navbar-inner">#}
+{#        <div class="container">#}
+{#           <ul class="nav navbar-nav">#}
+{#               <li><a href="{% url "master-PARAMETERS" %}">PARAMETERS</a></li>#}
+{#               <li><a href="{% url "master-DATA" %}">DATA</a></li>#}
+{#               <li><a href="{% url "master-AUCTION" %}">AUCTION</a></li>#}
+{#          </ul>#}
+{#        </li>#}
+{#      </ul>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+  <body>
+<div style="position: absolute; top: 5%; right: 1%; left: 1%;">
+
+        {% block main_content %}
+
+    {% endblock %} </div>
+
+    <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+    {% block scripts %}
+
+    {% endblock %}
+    {% block page_scripts %}{% endblock %}
+
+  </body>
+</html>
+

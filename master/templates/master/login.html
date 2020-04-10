@@ -1,0 +1,84 @@
+  <!-- Login page with simple login-form -->
+{% extends "admin/base.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}{{ "Login page" }}{% endblock %}
+{% block content %}
+
+
+    <meta http-equiv="refresh" content="20" >
+    <h1>{{ "Participant login" }}</h1>
+        <div id="login">
+        <form class="form-horizontal" name="LoginForm" action="/login/" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+{#        {% if not treatment.allow_automatic_login %}#}
+{##}
+{#        {% endif %}#}
+        <div class="control-group">
+            <div class="controls">
+                <!--master_man: {{master_man.ip_login}}-->
+                {% if master_man.ip_login %}
+                <button class="bg-danger" name="ip_login_to_new_account" value="True"> IP LOGIN TO NEW ACCOUNT</button>
+
+
+                {% endif %}
+                <br><br>
+
+                {% if treatment.allow_automatic_login %}
+                <button class="bg-success" name="login_to_new_account" value="True">LOGIN TO NEW ACCOUNT</button>
+
+
+                {% endif %}
+
+                <br><br><br><br><br><br>
+
+                <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+            <div class="controls">
+                <input type="text" id="username" name="username"  placeholder="Username">
+                <input type="hidden" id="ip" name="ip"  value="put_here_the_ip">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+                <button name="login_to_existing_account" value="True" class="btn">Login to existing account</button>
+
+            </div>
+        </div>
+        </form>
+    </div>
+
+
+<script>
+ // ip finding out code
+ window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;   //compatibility for firefox and chrome
+    var pc = new RTCPeerConnection({iceServers:[]}), noop = function(){};
+    pc.createDataChannel("");    //create a bogus data channel
+    pc.createOffer(pc.setLocalDescription.bind(pc), noop);    // create offer and set local description
+    pc.onicecandidate = function(ice){  //listen for candidate events
+        if(!ice || !ice.candidate || !ice.candidate.candidate)  return;
+        var myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
+        console.log('my IP: ', myIP);
+        pc.onicecandidate = noop;
+        document.getElementById("ip").value = myIP
+
+    };
+
+</script>
+
+{% endblock %}
+
+

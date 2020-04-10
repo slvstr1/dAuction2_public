@@ -1,0 +1,198 @@
+div.navbar-outer {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 95%;
+}
+
+.plotdiv  {
+    height:100px;
+    width:100px;}
+
+.setOfferTable{background: white;}
+.btnSell {
+    background-color:#fba0a0;
+    cursor:pointer;font-weight: 900; font-size: 110%;
+}
+
+.btnBuy {
+    background-color:#c6effb;
+    cursor:pointer;font-weight: 900; font-size: 110%;
+}
+
+.unitAndPriceInput {
+    width: 90px;
+}
+
+.messages{
+    margin:0;
+}
+
+#header {
+    width: 100%;
+    background-color: red;
+    height: 30px;
+}
+
+#my_vouchers {
+    /*width: 400px;*/
+    /*float: left;*/
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    font-size: 100%;
+}
+
+#all_transactions_graph {
+    /*width: 400px;*/
+    /*float: left;*/
+    /*height: 475px;*/
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    font-size: 90%;
+}
+
+.distribution:hover {
+    color: black !important;
+}
+.modal-body {
+    max-height: 800px;
+}
+
+.modal-dialog{
+  width: 95% !important;
+    height: 95% !important;
+}
+
+.whitefont {
+    /*width: 400px;*/
+    /*float: right;*/
+    /*background-color: WhiteSmoke;*/
+    color: white;
+    font-size: 90%;
+}
+#all_transactions_text {
+    /*width: 300px;*/
+    /*float: left;*/
+   /* height: 100%;*/
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    font-size: 100%;
+}
+
+#set_offer {
+    /*width: 100%;*/
+    /*float: left;*/
+    /*height: 55%;*/
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    font-size: 100%;
+
+}
+
+#my_standing_offer {
+    /*width: 100%;*/
+    /*float: left;*/
+    /*height: 100%;*/
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    font-size: 100%;
+}
+
+#all_standing_market_offers {
+    /*width: 300px;*/
+    /*float: left;*/
+    /*height: 297px;*/
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    font-size: 100%;
+}
+
+#clear {
+    clear: both;
+}
+
+html, body, form, fieldset, table, tr, td, img .btnSell {}
+
+.title {font-weight: 900;text-align: center; width:inherit;}
+.mybold {font-weight: 900;text-align: left; width:inherit;}
+.SELL {background-color: #fba0a0;text-align: center;}
+.BUY {background-color: #c6effb;text-align: center;}
+.cSELL {background-color: #fba0a0;text-align: center;font-style: italic;font-weight: 900;font-size: 110%;}
+.cBUY {background-color: #c6effb;text-align: center;font-style: italic;font-weight: 900;font-size: 110%;}
+.SELLb {background-color: #fba0a0;text-align: center;font-weight: 900;font-size: 110%;}
+.BUYb {background-color: #c6effb;text-align: center;font-weight: 900;font-size: 110%;}
+.theoretical_predictions_button {background-color: orange;text-align: center;font-weight: 900;font-size: 100%;}
+.stop_button {background-color: red;text-align: center;font-weight: 900; font-size: 100%;}
+
+.units {background-color:inherit;text-align: right;}
+
+.scrolltable {
+    height:200px;
+    width:296px;
+    position:relative;
+    overflow: scroll;
+    overflow: auto;
+    margin: 0;
+    padding: 5px;  }
+
+
+body { padding-top: 52px; }
+
+.auction_indicator_running_head {
+    color: red;
+    font-weight: 800;
+    font-size: 200%;
+    line-height: 1;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.auction_indicator_running_sub {
+    color: red;
+    font-weight: 200;
+    font-size: 150%;
+    line-height: .6;
+    text-align: center;
+    padding-top: 5px;
+}
+.auction_indicator_finished_head {
+    color: green;
+    font-weight: 800;
+    font-size: 200%;
+    line-height: 1;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.auction_indicator_finished_sub {
+    color: green;
+    font-weight: 200;
+    font-size: 150%;
+    line-height: .6;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.setOfferTable{background: white;}
+
+#master_overview {
+    /*width: 400px;*/
+    /*float: left;*/
+    height: 850px;
+    background-color: WhiteSmoke;
+    padding: 0px;
+    /*border-style: solid;*/
+    font-size: 120%;
+    line-height: 1;
+}

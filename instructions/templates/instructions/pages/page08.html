@@ -1,0 +1,45 @@
+{% load templatetags %}
+<style>
+    td {
+        text-align: center;
+    }
+
+    #wide {
+        width: 60%;
+    }
+
+    table {
+        font-size: 20px
+    }
+
+</style>
+<div class="container-fluid row">
+
+    <div class="col-xs-1"></div>
+    <div class="col-xs-6">
+        <div id="table08"></div>
+    </div>
+
+    {#<div class="col-xs-6">#}
+    <br>
+    <h3>
+        {% if treatment.require_units_demanded_on_PR %}
+        At the end of each round, Producers will be asked to have sold a number of units equal to the "<strong>UNITS
+        DEMANDED</strong>".{% endif %}
+        Every round, Producers can produce units at a cost and sell these units. The more units a Producer produces and
+        sells, the higher the cost of a unit. The costs are identical for all Producers. See Table 3 for the Producers'
+        production costs.
+
+        <br><br>
+        As you can see, selling the 3rd Unit costs {{ vouchers_1.2.value |floatformat }} ECU, the 4th
+        Unit {{ vouchers_1.3.value|floatformat }} ECU, the 5th Unit {{ vouchers_1.4.value|floatformat }} ECU, and so on.
+
+        <br><br>
+        Producers also are allowed to trade: they may sell but also buy units. At the end of the round, Producers will
+        be credited the net trading revenues minus the cost of production which will be shown in Experimental Currency
+        Units (ECUs){% if not treatment.only_spot %} as calculated over {{ forward_market }} and {{ spot_market }}{% endif %}.
+    </h3>
+
+
+</div>
+<script type="text/babel" src="/staticfiles/js/f08.js"></script>

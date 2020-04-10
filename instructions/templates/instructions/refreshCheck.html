@@ -1,0 +1,34 @@
+<script>
+ // define refresh function
+ function RefreshCheck() {
+     // call to api if page should be refreshed
+     var user_id = parseInt($('#user_id').text());
+
+        $.ajax({
+        type: "POST",
+        url: "/api/refresh/",
+        data: {
+          'user_id': user_id,
+          'refreshed': '0'
+
+            },
+        success: function(data,status) {
+            if (data == true) {
+                $.post("/api/refresh/", {"refreshed": '1', 'user_id': user_id});
+                location.reload();
+
+
+
+            }
+        }
+        })
+ }
+ // run the function when page loads
+ RefreshCheck();
+ // run the function every xs
+ setInterval(function () {RefreshCheck()}, {% if treatment.time_refresh_check %}
+{{ treatment.time_refresh_check }}
+{% else %}
+2500
+{% endif %})
+</script>

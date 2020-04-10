@@ -1,0 +1,104 @@
+<div class="row container-fluid">
+    <div class="col-xs-6">
+
+        {% if treatment.test_mode %}
+            <br>
+            <h1 style="font-size:30px;"><strong>
+                <center><span style="background-color:lightsalmon;">PLEASE HIGHLIGHT THE SECTIONS OR SENTENCES IN THIS DOCUMENT THAT ARE UNCLEAR TO YOU.</span>
+                </center>
+            </strong>
+                <br>
+            </h1>
+        {% endif %}
+
+<!--treatment.educational: {{treatment.educational}}-->
+        <h1>INSTRUCTIONS</h1>
+
+        {% if treatment.educational %}
+                <h3>These are the instructions for the Electricity Trading Business Game. Study the following instructions carefully before the session.
+                    {% if False %}
+                        The two best performers that passed the comprehension test will receive a prize. The comprehension test is based on these instructions.
+                        {%  endif %}
+                        </h3>
+        {% else %}
+
+        <h3>Soon the experimental session for which you signed up will take place. It will feature a Trading Experiment
+            involving advanced trading software. If you study the following instructions carefully before you come to
+            the experimental session, you can earn a substantial amount of money. Your participation in the Trading
+            Experiment is conditional on you passing a comprehension test based on these instructions.</h3>
+        {% endif %}
+
+        <br>
+        <h2>1. Introduction</h2>
+
+        <h3>We will first explain to you your expected earnings. </h3>
+
+        <h3>At the start of the experimental session, you will take a comprehension test with {{ auction.testing_totalquestions }} questions on the trading rules as described in these instructions. You will have {% widthratio treatment.time_for_testing 60 1 %} minutes for this test.</h3>
+        {% if treatment.educational %}
+            {%  if FALSE %}
+            <h3>
+                <strong>
+                    If you manage to finish the test in time and make not more than {{ treatment.error_max }} errors, you are eligible for the competition of the prize. If you do not finish the test in time, or you make more than {{ treatment.error_max }} errors in the test, you are still allowed to participate in the Business Game, but you are not eligible for the prize.
+                </strong>
+            </h3>
+            <br><br><br><br>
+            {%  endif %}
+            <h3>
+                The Electricity Trading Business Game captures a basic concept of electricity trading between power producers and power retailers in a stylized setup with a cash (spot){% if not treatment.only_spot %} and financial (forward) market. In addition, it {% else %} market and {% endif %} captures the basic logic of market trading on an exchange platform.
+                <br><br>
+                The stylized setup and the distinctive visualizations of the market interactions help the Business Game participants to develop an thorough understanding the relative complicated mechanisms at play.
+            </h3>
+
+        {% else %}
+            <h3>
+                When you are selected for the Trading Experiment, your average expected earnings are about CZK {{ treatment.promised_avg_earnings }} (including the show-up fee of CZK {{ treatment.showupfee_fixed }}) for a session of two hours and for studying the instructions before the session. When you are not selected for the Trading Experiment, you will receive the show-up fee of CZK {{ treatment.showupfee_desel }} for taking the test and studying the instructions at home.
+            </h3>
+
+            <h3><strong>
+                However, if you make more than {{ treatment.error_max }} errors in the test or if you do not finish the test within the time, we will assume that you did not study the instructions before the session and pay you only a small show-up fee of CZK {{ treatment.showupfee_desel_error_max }}.
+            </strong></h3>
+
+
+            {% if auction.itype == auction.FULL_INSTR %}
+           <h3><strong>
+            Note that reviewing studying the instructions for about 60 minutes will make it highly unlikely that you would make more than {{ treatment.error_max }} errors in the test.
+            </strong></h3>
+
+                <h3>
+                    Once you have been selected for participation in the experimental session, your earnings will depend on your choices, the choices of the participants you will be paired with, and the randomly drawn values of UNITS DEMANDED. A good understanding of the detailed experimental instructions that follow below will help you to be able to make profitable choices.
+                    <br><br>
+                    <strong>
+                        Your earnings will be paid to you in cash at the end of the experimental session.
+                    </strong>
+                </h3>
+                <br><br><br>
+            {% endif %}
+        {% endif %}
+    </div>
+
+        {% if not treatment.educational %}
+    <div class="col-xs-6">
+        <div id="instr_box">
+
+            <center><h2><strong>Textbox 1: General rules at the experimental session</strong></h2></center>
+
+            <h3>If you have a question, raise your hand and one of the experimenters will come to your desk to answer
+                it.
+                <br><br>
+                You are not allowed to communicate with other participants during the experiment. If you violate this rule, you will be asked to leave the experiment and will not be paid (not even your show-up fee).
+                <br><br>
+                {% if treatment.start_capital_in_CZK %}
+                In addition to the show-up fee of CZK {{ treatment.showupfee_fixed }} you will receive a start capital equal to CZK {{ treatment.start_capital_in_CZK }} for the experiment.
+                {% endif %}
+                It is possible to make losses and even to go bankrupt (lose you show-up fee) when making decisions that are
+                poorly thought through. Please note that there are strategies that, if used, guarantee that you will not go bankrupt and, instead,
+                increase your start capital.
+                <br><br>
+                <strong>You are allowed to write on the instructions, or on the blank piece of paper provided.</strong>
+            </h3></u>
+        </div>
+
+    </div>
+{% endif %}
+</div>
+

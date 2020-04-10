@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/staticfiles/js/jquery-2.1.4.js"></script>
+    <script src="/staticfiles/bootstrap/js/bootstrap.js"></script>
+    <meta charset="UTF-8">
+    <title>{% block title %} Error name {% endblock %}</title>
+</head>
+<body>
+{% include 'instructions/refreshCheck.html' %}
+{% include 'instructions/navigate_bar.html' %}
+{% include 'instructions/ids_in_hidden_fields.html' %}
+<b>
+{% block content %}
+{% endblock %}
+</b>
+<p>Error has occurred and has been noted by the experimenter.</p>
+</body>
+</html>

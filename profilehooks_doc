@@ -1,0 +1,125 @@
+FUNCTIONS
+    coverage(fn)
+        Mark `fn` for line coverage analysis.
+
+        Results will be printed to sys.stdout on program termination.
+
+        Usage::
+
+            def fn(...):
+                ...
+            fn = coverage(fn)
+
+        If you are using Python 2.4, you should be able to use the decorator
+        syntax::
+
+
+           @coverage
+            def fn(...):
+                ...
+
+    coverage_with_hotshot(fn)
+        Mark `fn` for line coverage analysis.
+
+        Uses the 'hotshot' module for fast coverage analysis.
+
+        BUG: Produces inaccurate results.
+
+        See the docstring of `coverage` for usage examples.
+
+profile(fn=None, skip=0, filename=None, immediate=False, dirs=False, sort=None, entries=40, profiler=('cProfile', 'profile', 'hotshot'), stdout=True)
+    Mark `fn` for profiling.
+
+    If `skip` is > 0, first `skip` calls to `fn` will not be profiled.
+
+    If `immediate` is False, profiling results will be printed to
+    sys.stdout on program termination.  Otherwise results will be printed
+    after each call.  (If you don't want this, set stdout=False and specify a
+    `filename` to store profile data.)
+
+    If `dirs` is False only the name of the file will be printed.
+    Otherwise the full path is used.
+
+    `sort` can be a list of sort keys (defaulting to ['cumulative',
+    'time', 'calls']).  The following ones are recognized::
+
+        'calls'      -- call count
+        'cumulative' -- cumulative time
+        'file'       -- file name
+        'line'       -- line number
+        'module'     -- file name
+        'name'       -- function name
+        'nfl'        -- name/file/line
+        'pcalls'     -- call count
+        'stdname'    -- standard name
+        'time'       -- internal time
+
+        `entries` limits the output to the first N entries.
+
+    `profiler` can be used to select the preferred profiler, or specify a
+    sequence of them, in order of preference.  The default is ('cProfile'.
+    'profile', 'hotshot').
+
+    If `filename` is specified, the profile stats will be stored in the
+    named file.  You can load them with pstats.Stats(filename) or use a
+    visualization tool like RunSnakeRun.
+
+    Usage::
+
+        def fn(...):
+            ...
+        fn = profile(fn, skip=1)
+
+
+        If you are using Python 2.4, you should be able to use the decorator
+        syntax::
+
+            @profile(skip=3)
+            def fn(...):
+                ...
+
+        or just ::
+
+            @profile
+            def fn(...):
+                ...
+
+    timecall(fn=None, immediate=True, timer=None)
+        Wrap `fn` and print its execution time.
+
+        Example::
+
+            @timecall
+            def somefunc(x, y):
+                time.sleep(x * y)
+
+            somefunc(2, 3)
+
+    will print the time taken by somefunc on every call.  If you want just
+    a summary at program termination, use
+
+        @timecall(immediate=False)
+
+    You can also choose a timing method other than the default ``time.time()``,
+        e.g.:
+
+            @timecall(timer=time.clock)
+
+DATA
+    __all__ = ['coverage', 'coverage_with_hotshot', 'profile', 'timecall']
+    __copyright__ = 'Copyright 2004-2015 Marius Gedminas and contributors'
+    __license__ = 'MIT'
+
+VERSION
+    1.8.1
+
+DATE
+    2015-11-21
+
+AUTHOR
+    Marius Gedminas <marius@gedmin.as>
+
+FILE
+    /home/vagrant/venv/lib/python3.4/site-packages/profilehooks.py
+
+(END)

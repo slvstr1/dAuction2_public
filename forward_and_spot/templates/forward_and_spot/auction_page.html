@@ -1,0 +1,266 @@
+{% load staticfiles %}
+
+<head>
+<title>Trading</title>
+</head>
+{% block main_content %}
+<!-- load static files -->
+<link href="/staticfiles/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/staticfiles/dauction/css/style.css" rel="stylesheet">
+
+
+<script src="/staticfiles/js/react_old.min.js"></script>
+<script src="/staticfiles/js/react-old_dom.min.js"></script>
+<script src="/staticfiles/js/browser.js"></script>
+<script src="/staticfiles/js/jquery-2.1.4.js"></script>
+<script src="/staticfiles/js/plotly-latest.min.js"></script>
+<script src="/staticfiles/bootstrap/js/react-bootstrap.js"></script>
+
+{#    import auction interface and its elements#}
+<script type="text/babel" src="/staticfiles/js/auct_elements/market_info.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/market_plot.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/my_offer_display.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/player_stats.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/submit_offer.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/tr_overview.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/voucher_table1.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/voucher_table2.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/questions_endround.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/trading_account.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/history_table.js"></script>
+<script type="text/babel" src="/staticfiles/js/auct_elements/toolbar.js"></script>
+<script type="text/babel" src="/staticfiles/js/auction_interface.js"></script>
+
+
+    <script>
+       function zoom() {
+        var zoomlevel = "100%";
+        var width = screen.width;
+        var height = screen.height;
+
+        // lab square
+        if (width == 1280 && height == 1024) {
+             var zoomlevel = "80%";
+        }
+        else if (width == 1920 && height == 1080) {
+             var zoomlevel = "85%";
+        }
+        // lab wide
+        else if (width == 1680 && height == 1050) {
+            var zoomlevel = "95%";
+        }
+        document.body.style.zoom = zoomlevel;
+        console.log(width, height, zoomlevel)
+
+    };
+    $(document).ready(function () {
+        console.log("ready!");
+        zoom();
+    });
+
+                 $(document).keypress(
+    function(event){
+     if (event.which == '13') {
+        event.preventDefault();
+      }
+
+
+});
+
+</script>
+
+<body>
+    {% include 'instructions/ids_in_hidden_fields.html' %}
+{#<div id="auction_id">{{ auction.id }}</div>#}
+{#<div id="user_id">{{ user.id }}</div>#}
+{#<div id="player_id">{{ player.id }}</div>#}
+{#<div id="group_id">{{ group.id }}</div>#}
+{#<div id="refresh_time">{{ auction.time_refresh_data }}</div>#}
+
+    <div class="container" id ="containerMain">
+    <h1> Loading user interface.........</h1>
+    </div>
+<style>
+
+    .close {display: none;}
+.pmodal-content {
+  position: absolute;
+  left: 0;
+  right: 75%;
+  top: 70%;
+  bottom: 5%;
+}
+.pmodal-open {
+  overflow: hidden;
+}
+
+.pmodal {
+  position: absolute;
+  left: 50%;
+  right: 30%;
+  top: 42%;
+  bot, in auction_data
+    data[pagerefresh_now]=pagerefresh_now
+TypeError: 'NoneType' object does not suptom: 20%;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+
+.pmodal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+.pmodal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: grey;
+}
+
+.pmodal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.pmodal-backdrop.in {
+  filter: alpha(opacity=40);
+  opacity: 0.2;
+}
+.pmodal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.pmodal-header .close {
+  margin-top: -2px;
+}
+.pmodal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.pmodal-body {
+  position: relative;
+  padding: 15px;
+}
+
+
+.pemodal-content {
+  position: absolute;
+  left: 0;
+  right: 75%;
+  top: 70%;
+  bottom: 5%;
+}
+.pemodal-open {
+  overflow: hidden;
+}
+
+.pemodal {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 10%;
+  bot, in auction_data
+    data[pagerefresh_now]=pagerefresh_now
+TypeError: 'NoneType' object does not suptom: 20%;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.pemodal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+.pemodal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: grey;
+}
+
+.pemodal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.pemodal-backdrop.in {
+  filter: alpha(opacity=40);
+  opacity: 0.2;
+}
+.pemodal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.pemodal-header .close {
+  margin-top: -2px;
+}
+.pemodal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.pemodal-body {
+  position: relative;
+  padding: 15px;
+}
+body {
+    background-color: black;
+}
+            </style>
+
+
+
+{% endblock %}
+
+<!--{#{% include 'instructions/refreshCheck.html' %}#}-->
+
+<!--{#<script>#}-->
+<!--{# // define refresh function#}-->
+<!--{# function RefreshCheck() {#}-->
+<!--{#     // call to api if page should be refreshed#}-->
+<!--{#      $.get("/api/refresh/", function (result) {#}-->
+<!--{#         var refresh_condition = result.pagerefresh_now#}-->
+<!--{#          var refresh_condition = result#}-->
+<!--{#         // if false, do nothing#}-->
+<!--{#         if (refresh_condition == false) {#}-->
+<!--{#             //console.log("false, no refresh!")#}-->
+<!--{#         }#}-->
+<!--{#         if (refresh_condition == true) {#}-->
+<!--{#             //console.log("true!, refresh")#}-->
+<!--{#             // set post request to change refresh variable in db#}-->
+<!--{#             $.post("/api/refresh/", {"refresh_status": "toberefreshed"});#}-->
+<!--{#             // reload the page#}-->
+<!--{#             location.reload();#}-->
+<!--{#         }#}-->
+<!--{#     })#}-->
+<!--{# }#}-->
+<!--{# // run the function when page loads#}-->
+<!--{# RefreshCheck();#}-->
+<!--{# // run the function every 2s#}-->
+<!--{# setInterval(function () {RefreshCheck()}, {{ auction.time_refresh_check }})#}-->
+<!--{#</script>#}-->
+
+<script src="/staticfiles/js/back_disable.js"></script>

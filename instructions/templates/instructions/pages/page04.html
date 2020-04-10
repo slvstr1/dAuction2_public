@@ -1,0 +1,32 @@
+{% load templatetags %}
+<div class="row container-fluid">
+    <div class="col-md-12">
+        <h3>
+            Every {% wordify treatment.qp_every %} rounds, before a round starts, you are asked to answer three questions.
+            A screen like the one in
+            Figure 2 below will be projected on top of your screen. Please answer the questions as well as you can and
+            within {{ treatment.time_for_question_page }} seconds.
+        </h3>
+
+
+        {% if treatment.educational %}
+        {% else %}
+
+        <h3>We will select one of the rounds with questions at random. We will make sure that this will be a different round than the round selected to pay your other earnings. We then select one of your answers of this round at random and then calculate your accuracy as a percentage.
+            <b>We then add the percentage accuracy times  {{ treatment.qp_accuracy_fee }} CZK to your earnings.</b>
+        </h3>
+        {% endif %}
+        <br>
+
+    </div>
+</div>
+<div class="row container-fluid">
+    <div class="col-md-12">
+        <h3>Figure 2: Questions before each round is about to start</h3>
+        <img class="img-responsive"
+             src="/staticfiles/images/{% if treatment.educational %}educational_{% endif %}instructions_fig_02.png"
+
+             alt="If you do not see the picture, please alert the experimenter">
+    </div>
+
+</div>

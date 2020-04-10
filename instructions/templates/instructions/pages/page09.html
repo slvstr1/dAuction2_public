@@ -1,0 +1,81 @@
+<style>
+    td {
+        text-align: center;
+    }
+
+    #l_align {
+        text-align: left;
+        width: 30%;
+    }
+
+</style>
+
+<div class="container-fluid row">
+    <h2>2.2 Penalties for buying (Retailer){% if treatment.require_units_demanded_on_PR %}or selling (Producer){% endif %} less than UNITS DEMANDED</h2>
+    <h3><u>2.2.1 Penalties in the PENALTY TIME PERIOD of {{ spot_market }}</u></h3>
+
+
+    <div class="col-xs-6">
+
+        <div id="Figure">
+
+            <div id="instr_box">
+                <center><h2><strong>Textbox 3: Calculating the penalty in the PENALTY TIME PERIOD</strong></h2></center>
+                <h3> Example 1. If UNITS DEMANDED is equal to 17, and a Retailer has bought only 10 units, he is missing
+                    7 units. In the PENALTY TIME PERIOD, the Retailer will thus get a penalty equal to 7
+                    x {{ treatment.penalty_perunit }} ECU = {% widthratio 7 1 treatment.penalty_perunit %} ECU
+                    every {{ treatment.time_conditional }} seconds as long as (s)he doesn't buy the missing 7 units.
+                    <br><br>
+                    Suppose the Retailer manages within the {{ treatment.time_conditional }} seconds to buy 5 units. He or
+                    she then has only 2 missing units and pays 2 x {{ treatment.penalty_perunit }} ECU
+                    = {% widthratio 2 1 treatment.penalty_perunit %} ECU.
+                    <br><br><br>
+
+                    {% if treatment.require_units_demanded_on_PR %}
+                    Example 2. If UNITS DEMANDED is equal to 13, and a Producer has sold only 10 units, (s)he is missing 3
+                    units. In the PENALTY TIME PERIOD, the Producer will thus get a penalty equal to 3
+                    x {{ treatment.penalty_perunit }} ECU = {% widthratio 3 1 treatment.penalty_perunit %} ECU
+                    every {{ treatment.time_conditional }} seconds as long as (s)he doesn't sell the missing 3 units.
+                    <br><br>
+                    {% endif %}
+
+                </h3>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="col-xs-6">
+
+        <h3>
+            If, at the end of the CONDITIONAL TIME PERIOD of {{ spot_market }}, Retailers have less units than UNITS DEMANDED,
+            {{ spot_market }} is
+            further extended by the PENALTY TIME PERIOD.
+            <br><br>
+            Every {{ treatment.time_conditional }} seconds, Retailers that bought
+            {% if treatment.require_units_demanded_on_PR %}and Producers that sold{% endif %}
+            less units than
+            UNITS DEMANDED receive a penalty of {{ treatment.penalty_perunit }} ECU for each unit they are missing. The
+            PENALTY TIME PERIOD lasts maximally {{ treatment.time_for_spot_3 }} seconds, and a participant can thus
+            receive a
+            penalty {% widthratio treatment.time_for_spot_3 treatment.time_conditional 1 %} times if (s)he does not buy (in
+            the role of Retailer) {% if treatment.require_units_demanded_on_PR %}or sell (in the role of Producer){% endif %} the missing units. The last penalty is calculated
+            differently. We explain the calculation of the last penalty below.
+            <br><br>
+
+
+            Notice that, as a result of these penalties, it is very costly to have missing units during the Penalty time period. We strongly recommend to avoid receiving penalties in the PENALTY TIME PERIOD. Also, if you have the role of Retailer, holding more units than necessary is costly. Thus make sure that, before the end of the CONDITIONAL TIME PERIOD in {{ spot_market }}, if you have the role of Retailer, you have bought a total of number of units EXACTLY equal to the NUMBER DEMANDED{% if treatment.require_units_demanded_on_PR %}
+            or, if you have the role of Producer, you have sold a total of number of units equal or larger than the NUMBER DEMANDED{% endif %}.
+            <br><br>
+            See Textbox 3 for an example
+            <br><br>
+
+            Once no Retailers have missing units anymore or time has run out, {{ spot_market }} ends and participants have a short
+            break of {{ treatment.time_for_spot_waiting }} seconds to review their choices and results.
+        </h3>
+
+    </div>
+</div>
+
+
+

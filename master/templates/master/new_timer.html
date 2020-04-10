@@ -1,0 +1,55 @@
+<style>
+    .heading_time {font-size: larger; text-align: center}
+    .my_bold {font-weight: bold;}
+    .warning {background-color: yellow}
+    .danger {background-color: coral}
+</style>
+
+<div class="heading_time">
+<br><br>#this is for stage 1 and stage 2, state 1 (INITIAL)<br><br>
+<div class="timer_INITIAL">Time remaining: <span class="my_bold">{{ tt.seconds_left }}s</span></div>
+<br>
+
+
+<br><br>#this is for stage 1 state 2 (CONDITIONAL)<br><br>
+<div class="timer_CONDITIONAL"><span class="warning"><span class="my_bold">CONDITIONAL TIME PERIOD</span> - Time remaining: <span class="my_bold">{{ tt.short_seconds_left }}s</span> (Make a transaction to reset the clock to {{ treatment.time_conditional }}s)</span><br>
+    Maximum time remaining: {{ tt.seconds_left }}s</div>
+<br>
+
+
+<br><br>#this is for stage 2 state 2 (CONDITIONAL)<br><br>
+<div class="timer_CONDITIONAL"><span class="warning"><span class="my_bold">CONDITIONAL TIME PERIOD</span> - Time remaining till PENALTY TIME PERIOD: <span class="my_bold">{{ tt.short_seconds_left }}s</span> (Make a transaction to reset the clock to {{ treatment.time_conditional }}s)</span>
+    <br>
+{#    player_stats.0.units_missing:{{ player_stats.0.units_missing }}#}
+{#    player_stats: {{ player_stats }}#}
+    {% if player_stats.0.units_missing > 0 %}
+        <span class="danger">
+        <span class="my_bold">
+            {% if player_stats.0.role == Player_stats.RE %}Buy
+            {% else %}Sell
+            {% endif %}
+            another {{ player_stats.0.units_missing }} units</span> to avoid a penalty of {{ player_stats.0.units_missing }} x {{ treatment.penalty_perunit }} ECU =
+            {% widthratio player_stats.0.units_missing 1 treatment.penalty_perunit %} ECU!
+        </span>
+    {% endif %}
+    <br>Maximum time remaining {{ tt.seconds_left }}s </div>
+
+
+
+<br><br>#this is for stage 2 state 3 (PENALTY)<br><br>
+<div class="timer_PENALTY">
+    {% if player_stats.0.units_missing > 0 %}
+        <span class="danger">
+            <span class="my_bold">PENALTY TIME PERIOD</span>- You have <span class="my_bold">{{ tt.short_seconds_left }}s</span> to
+            <span class="my_bold">
+            {% if player_stats.0.role == Player_stats.RE %}buy
+            {% else %}sell
+            {% endif %}
+                another {{ player_stats.0.units_missing }} units</span> to avoid a penalty of {{ player_stats.0.units_missing }} x {{ treatment.penalty_perunit }} ECU =
+            {% widthratio player_stats.0.units_missing 1 treatment.penalty_perunit %} ECU!
+        </span>
+    {% else %}
+        PENALTY TIME PERIOD
+    {% endif %}
+    <br>Maximum time remaining {{ tt.seconds_left }}s (Will end when nobody has missing units)</div>
+</div>

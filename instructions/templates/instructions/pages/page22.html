@@ -1,0 +1,30 @@
+<div class="row container-fluid">
+    <div class="col-xs-6">
+        <div id="table22"></div>
+    </div>
+    <br>
+    <div class="col-xs-6">
+        <h3>
+            <strong>Figure 14.c: The Retailer has bought 7 Units, and then sold 2 Units.</strong><br>
+            A Retailer may also sell Units. Selling removes the "X" of Bought Units. Thus, if the Retailer in the
+            example
+            in Figure 14.b sells 2 Units, the "X" marks of Units 6 and 7 disappear. The
+            column now looks as in Figure 14.c.
+            <br><br>
+            Units 6 and 7 now no longer contribute to the total earnings. The total earnings of the Retailer are now 5
+            x {{ treatment.retail_price }} =
+            <strong>{% widthratio treatment.retail_price 1 5 %}</strong> ECU. Verify this by inspecting Figure 14.c.
+            <br><br><br>
+            If the Retailer in Figure 14.b would now like to buy one more Unit, the Earnings are indicated by the
+            Earn(ings)
+            per Unit of the first unused Unit, which is in this example Unit 8 with Earn(ings) per Unit
+            of {{ treatment.retail_price }} ECU.
+            <br><br><br>
+            Please make sure that you understand this. {% if auction.itype == auction.SUMMARY_INSTR %}
+            If you do not, raise your hand.
+        {% endif %}
+        </h3>
+    </div>
+
+</div>
+<script type="text/babel" src="/staticfiles/js/f22.js"></script>

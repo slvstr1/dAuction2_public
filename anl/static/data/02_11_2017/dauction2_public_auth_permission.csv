@@ -1,0 +1,73 @@
+id,name,content_type_id,codename
+1,Can add permission,1,add_permission
+2,Can change permission,1,change_permission
+3,Can delete permission,1,delete_permission
+4,Can add group,2,add_group
+5,Can change group,2,change_group
+6,Can delete group,2,delete_group
+7,Can add content type,3,add_contenttype
+8,Can change content type,3,change_contenttype
+9,Can delete content type,3,delete_contenttype
+10,Can add user,4,add_user
+11,Can change user,4,change_user
+12,Can delete user,4,delete_user
+13,Can add treatment,5,add_treatment
+14,Can change treatment,5,change_treatment
+15,Can delete treatment,5,delete_treatment
+16,Can add auction,6,add_auction
+17,Can change auction,6,change_auction
+18,Can delete auction,6,delete_auction
+19,Can add group,7,add_group
+20,Can change group,7,change_group
+21,Can delete group,7,delete_group
+22,Can add period,8,add_period
+23,Can change period,8,change_period
+24,Can delete period,8,delete_period
+25,Can add player,9,add_player
+26,Can change player,9,change_player
+27,Can delete player,9,delete_player
+28,Can add page,10,add_page
+29,Can change page,10,change_page
+30,Can delete page,10,delete_page
+31,Can add distribution,11,add_distribution
+32,Can change distribution,11,change_distribution
+33,Can delete distribution,11,delete_distribution
+34,Can add player_stats,12,add_player_stats
+35,Can change player_stats,12,change_player_stats
+36,Can delete player_stats,12,delete_player_stats
+37,Can add voucher,13,add_voucher
+38,Can change voucher,13,change_voucher
+39,Can delete voucher,13,delete_voucher
+40,Can add voucher re,14,add_voucherre
+41,Can change voucher re,14,change_voucherre
+42,Can delete voucher re,14,delete_voucherre
+43,Can add phase,15,add_phase
+44,Can change phase,15,change_phase
+45,Can delete phase,15,delete_phase
+46,Can add timer,16,add_timer
+47,Can change timer,16,change_timer
+48,Can delete timer,16,delete_timer
+49,Can add offer,17,add_offer
+50,Can change offer,17,change_offer
+51,Can delete offer,17,delete_offer
+52,Can add penalty,18,add_penalty
+53,Can change penalty,18,change_penalty
+54,Can delete penalty,18,delete_penalty
+55,Can add question,19,add_question
+56,Can change question,19,change_question
+57,Can delete question,19,delete_question
+58,Can add option_mc,20,add_option_mc
+59,Can change option_mc,20,change_option_mc
+60,Can delete option_mc,20,delete_option_mc
+61,Can add player_ questions,21,add_player_questions
+62,Can change player_ questions,21,change_player_questions
+63,Can delete player_ questions,21,delete_player_questions
+64,Can add player_ question_ options,22,add_player_question_options
+65,Can change player_ question_ options,22,change_player_question_options
+66,Can delete player_ question_ options,22,delete_player_question_options
+67,Can add log entry,23,add_logentry
+68,Can change log entry,23,change_logentry
+69,Can delete log entry,23,delete_logentry
+70,Can add session,24,add_session
+71,Can change session,24,change_session
+72,Can delete session,24,delete_session

@@ -1,0 +1,20 @@
+{% extends "master/base.html" %}{% load staticfiles %}
+{% block title %}Failure to create player!!{% endblock %}
+
+{% block main_content %}
+    <div class="container-fluid">
+        <div class="row">
+
+                <h1><strong><center><p class="bg-danger" >failed to create player!</p></center></strong></h1>
+             {{ message|safe }}
+<br><br>
+            <h1><strong><center><p class="bg-danger" >Alert the experimenter!</p></center></strong></h1>
+
+        </div>
+    </div>
+
+<script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+{% include 'instructions/ids_in_hidden_fields.html' %}
+{% include 'instructions/refreshCheck.html' %}
+
+{% endblock %}

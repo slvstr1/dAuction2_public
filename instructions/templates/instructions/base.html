@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="/staticfiles/js/jquery-2.1.4.js"></script>
+    <script src="/staticfiles/js/plotly-latest.min.js"></script>
+    <script src="/staticfiles/bootstrap/js/bootstrap.js"></script>
+    <script src="/staticfiles/js/react.js"></script>
+    <script src="/staticfiles/js/react-dom.min.js"></script>
+    <script src="/staticfiles/js/browser.js"></script>
+    <script type="text/babel" src="/staticfiles/js/timer.js"></script>
+
+{% if not auction.make_instruction_pdf %}
+{#    {% if not auction.make_instruction_pdf %}#}
+        <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "css/instructions.css" %}" rel="stylesheet">
+    {% else %}
+        <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "css/instructions_pdf.css" %}" rel="stylesheet">
+        <link href="{% static "css/instructions.css" %}" rel="stylesheet">
+
+    {% endif %}
+
+</head>
+<body>
+<div class="container-fluid">
+    {% include 'instructions/ids_in_hidden_fields.html' %}
+    {% include 'instructions/refreshCheck.html' %}
+    {% include 'instructions/navigate_bar.html' %}
+
+    {% include 'instructions/data_to_js.html' %}
+
+{% block main_content %}
+{% endblock %}
+</div>
+
+</body>
+</html>
+<script src="/staticfiles/js/back_disable.js"></script>

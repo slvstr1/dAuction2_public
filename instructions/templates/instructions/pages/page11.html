@@ -1,0 +1,116 @@
+<style>
+    td {
+        text-align: center;
+    }
+
+    #l_align {
+        text-align: left;
+        width: 30%;
+    }
+
+</style>
+<div class="row container-fluid">
+    <div class="col-xs-6">
+
+        <h3>
+            The <i>MarginalCostOfAggregateMissingUnits</i> is calculated as follows. At the end of the round, the
+            aggregate total of missing units over all Retailers in the group is calculated. We then calculate the cost
+            of producing the last unit of the aggregate total of missing units if they were produced by the Producers in
+            your group.
+
+            <br><br>
+            In other words, we divide the aggregate total of missing units over the Producers such that the total
+            production of Producers is as equal as possible, keeping in mind the amount Producers already produced in
+            the round. We then look at the cost of producing the last unit of the aggregate total of missing units. This
+            cost we call the <i>MarginalCostOfAggregateMissingUnits</i>.
+        </h3>
+            <br><br>
+        <div id="instr_box">
+            <h3><strong>The financial penalty for Retailers {% if treatment.require_units_demanded_on_PR %}and Producers{% endif %} are thus very large but can be avoided by
+                buying {% if treatment.require_units_demanded_on_PR %}(in the role of Retailer) or selling (in the role of Producer){% endif %} a number of units equal to the
+                number of UNITS DEMANDED.
+            </strong></h3>
+        </div>
+
+    </div>
+
+    <div class="col-xs-6">
+
+        <div id="Figure">
+
+            <div id="instr_box">
+                <center><h2><strong>Textbox 4: Calculating the penalty</strong></h2></center>
+                <h3> For example, suppose there are two Retailers and two Producers, and the first Retailer misses 1
+                    unit and the second Retailer 2 units, then the aggregate total of missing units is 3.
+                    <br><br>
+                    Also, suppose that the first Producer produced 10 units and the second Producer 11 units. See Table
+                    4 below.
+                    <br><br>
+                    <table>
+                        <caption>Table 4: At the end of the round</caption>
+                        <tr>
+                            <th></th>
+                            <th>Missing Units</th>
+                            <th></th>
+                            <th>Produced</th>
+                        </tr>
+                        <tr>
+                            <td id="l_align">Retailer 1</td>
+                            <td>1</td>
+                            <td>Producer 1</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td id="l_align">Retailer 2</td>
+                            <td>2</td>
+                            <td>Producer 2</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+
+                            <td id="l_align"><strong>Aggregate total of missing units</strong></td>
+                            <td><strong>3</strong></td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+
+                    </table>
+                    <br>
+                    We then find the <i>MarginalCostOfAggregateMissingUnits</i> by adding the missing units to the
+                    number of units Producers have produced in a way such that their total production is as equal as
+                    possible. See Table 5 below
+                    <br><br>
+                    <table>
+                        <caption>Table 5: Adding the missing units to the production of Producers</caption>
+                        <tr>
+                            <th></th>
+                            <th>Produced plus the missing units</th>
+                        </tr>
+                        <tr>
+                            <td id="l_align">Producer 1</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td id="l_align">Producer 2</td>
+                            <td>12</td>
+                        </tr>
+                    </table>
+                    <br>
+                    We find the <i>MarginalCostOfAggregateMissingUnits</i> as the cost of the last unit that must be
+                    produced, which is unit number 12. We then look up the Producer's cost of unit 12 in a table such as
+                    Table 3. Using Table 3, verify that the Cost of Unit 12 is {{ vouchers_2.1.value|floatformat }} ECU.
+                    Thus, in this example, the <i>MarginalCostOfAggregateMissingUnits</i> is equal
+                    to {{ vouchers_2.1.value|floatformat }} ECU and the penalty per missing unit is 1.5
+                    x {{ vouchers_2.1.value|floatformat }} ECU
+                    = {% widthratio 1.5 1 vouchers_2.1.value|floatformat %}.
+                </h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

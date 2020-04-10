@@ -1,0 +1,14 @@
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (1, 'contenttypes', '0001_initial', '2017-11-02 17:06:12.960480');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (2, 'contenttypes', '0002_remove_content_type_name', '2017-11-02 17:06:13.091835');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (3, 'auth', '0001_initial', '2017-11-02 17:06:13.258172');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (4, 'auth', '0002_alter_permission_name_max_length', '2017-11-02 17:06:13.277062');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (5, 'auth', '0003_alter_user_email_max_length', '2017-11-02 17:06:13.294969');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (6, 'auth', '0004_alter_user_username_opts', '2017-11-02 17:06:13.310776');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (7, 'auth', '0005_alter_user_last_login_null', '2017-11-02 17:06:13.361734');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (8, 'auth', '0006_require_contenttypes_0002', '2017-11-02 17:06:13.363757');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (9, 'auth', '0007_alter_validators_add_error_messages', '2017-11-02 17:06:13.379721');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (10, 'auth', '0008_alter_user_username_max_length', '2017-11-02 17:06:13.395612');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (11, 'dAuction2', '0001_initial', '2017-11-02 17:06:19.513929');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (12, 'admin', '0001_initial', '2017-11-02 17:06:23.469864');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (13, 'admin', '0002_logentry_remove_auto_add', '2017-11-02 17:06:23.491555');
+INSERT INTO public.django_migrations (id, app, name, applied) VALUES (14, 'sessions', '0001_initial', '2017-11-02 17:06:23.504993');
