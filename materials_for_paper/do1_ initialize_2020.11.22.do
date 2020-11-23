@@ -1,9 +1,10 @@
 * replace the path below by the path to the folder in which you put the data files
-// cd "D:\_sss\_RPs\20_ Bessembinder & Lemmon\_WP1"
-cd "\\VBOXSVR\media\slvst\2TB\_sss\_RPs\20_ Bessembinder & Lemmon\Papert 2_ BL experiment\_Paper being written\_WP1"
+* for example on my computer this is:
+
+cd "Z:\slvst\Amaz\_sss\_RPs\20_ Bessembinder & Lemmon\Papert 2_ BL experiment\_Paper being written\2020.07_ EE\EE2\stata"
 
 * unzip the file and load the file and delete the file
-local dataf "data_multi_auction_2019-11-09T16_56_04.262916"
+local dataf "data_multi_auction_2019-04-16T20_26_11.178879_anonimized"
 cap unzipfile "`dataf'.zip"
 import delimited "`dataf'.csv", bindquote(strict)  clear
 rm "`dataf'.csv"
@@ -82,7 +83,6 @@ gen au_gr_id = int(au_id2) *1000 + gr_id*100  if au_is_part_experiment==1
 gen au_gr_id5 = int(au_id2) *1000 + gr_id*100  if au_is_part_experiment==1 & ps_period>5
 gen au_gr_pe_id = int(au_id2) *1000 + gr_id*100 + ps_period if au_is_part_experiment==1
 gen au_gr_pe_id2 = int(au_id2) *10000 + gr_id*1000 + ps_period *10 + ph_idd if au_is_part_experiment==1
-
 gen au_gr_pe_id5 = int(au_id2) *1000 + gr_id*100 + ps_period if au_is_part_experiment==1 & ps_period>5
 
 sort au_id2 gr_id ps_period pl_id
@@ -156,8 +156,8 @@ by ps_auction ps_period ph_idd, sort : gen wmean_price_a_gr_pe_ph = tot_expense_
 
 
 
-cap drop ps_sprice_implied_max 
-by ps_auction ps_period ps_group, sort : egen float ps_sprice_implied_max = max(ps_sprice_implied) if au_is_part_experiment==1 & ph_idd==2
+// cap drop ps_sprice_implied_max 
+// by ps_auction ps_period ps_group, sort : egen float ps_sprice_implied_max = max(ps_sprice_implied) if au_is_part_experiment==1 & ph_idd==2
 
 
 
@@ -173,20 +173,20 @@ sort ps_auction ps_group ps_period ph_idd
 by ps_auction ps_group ps_period, sort : summ wmean_price_a_gr_pe_ph if ph_idd==1 & of_offer_tiepe==0 & au_is_part_experiment==1
 by ps_auction ps_group ps_period, sort : summ wmean_price_a_gr_pe5_ph if ph_idd==1 & of_offer_tiepe==0 & ps_period > 5 & au_is_part_experiment==1
 
-by ps_auction ps_group ps_period, sort : summ ps_sprice_implied     if ph_idd==2 & of_offer_tiepe==0 & au_is_part_experiment==1
-by ps_auction ps_group ps_period, sort : summ  wmean_price_a_gr_pe_ph  ps_sprice_implied_max if ph_idd==2 & of_offer_tiepe==0 & au_is_part_experiment==1 & tag_per_auction_gr_pe_ph2==1
+// by ps_auction ps_group ps_period, sort : summ ps_sprice_implied     if ph_idd==2 & of_offer_tiepe==0 & au_is_part_experiment==1
+// by ps_auction ps_group ps_period, sort : summ  wmean_price_a_gr_pe_ph  ps_sprice_implied_max if ph_idd==2 & of_offer_tiepe==0 & au_is_part_experiment==1 & tag_per_auction_gr_pe_ph2==1
 // by ps_auction ps_group ps_period, sort : summ sprice_a_gr_pe  tag_per_auction_gr_pe_ph2 if ph_idd==2 & of_offer_tiepe==0 & au_is_part_experiment==1 & tag_per_auction_gr_pe_ph2==1
 
-reg wmean_price_a_gr_pe_ph ps_sprice_implied if tag_per_auction_gr_pe_ph2==1 , noc
-
-regress wmean_price_a_gr_pe_ph ps_sprice_implied if tag_per_auction_gr_pe_ph2==1, noconstant vce(cluster au_gr_id)
-regress wmean_price_a_gr_pe_ph ps_sprice_implied_max if tag_per_auction_gr_pe_ph2==1, noconstant vce(cluster au_gr_id)
-
-
-
-
-regress ps_sprice_implied_max ps_sprice_implied   if tag_per_auction_gr_pe_ph2==1, noconstant vce(cluster au_gr_id)
-by ps_auction ps_group ps_period, sort :  sum ps_player_demand ps_sprice_implied_max ps_sprice_implied   if tag_per_auction_gr_pe_ph2==1
+// reg wmean_price_a_gr_pe_ph ps_sprice_implied if tag_per_auction_gr_pe_ph2==1 , noc
+//
+// regress wmean_price_a_gr_pe_ph ps_sprice_implied if tag_per_auction_gr_pe_ph2==1, noconstant vce(cluster au_gr_id)
+// regress wmean_price_a_gr_pe_ph ps_sprice_implied_max if tag_per_auction_gr_pe_ph2==1, noconstant vce(cluster au_gr_id)
+//
+//
+//
+//
+// regress ps_sprice_implied_max ps_sprice_implied   if tag_per_auction_gr_pe_ph2==1, noconstant vce(cluster au_gr_id)
+// by ps_auction ps_group ps_period, sort :  sum ps_player_demand ps_sprice_implied_max ps_sprice_implied   if tag_per_auction_gr_pe_ph2==1
 
 * forward premium (absolute) per auction, group and period
 gen float fpremium_a_gr_pe = wmean_price_a_gr_pe_ph  - tr_price_avg_theory if of_cleared==1 & ph_idd==1 & of_offer_tiepe==0 & au_is_part_experiment==1
@@ -206,9 +206,9 @@ by ps_auction ps_group ps_period , sort : summ fpremium_rel_a_gr_pe if ph_idd==1
 by ps_auction ps_group ps_period , sort : summ fpremium_rel_a_gr_pe5 if ph_idd==1 & of_offer_tiepe==0 & ps_period > 5 & au_is_part_experiment==1
 
 // cap drop p_compPrice
-gen tp_compPrice = ps_player_demand
-recode tp_compPrice (1=0) (2=0.1) (3=0.3) (4=0.7) (5=1.7) (6=3) (7=4.9) (8=7.5) (9=11) (10=14.8) (11=21) (12=27) (13=35) (14=44) (15=54) (16=66) (17=80) (18=94) (19=115) (20=130) (21=155) (22=175) (23=205) (24=230) (25=260) (26/44=9999), gen(p_compPrice)
-drop tp_compPrice 
+// gen tp_compPrice = ps_player_demand
+// recode tp_compPrice (1=0) (2=0.1) (3=0.3) (4=0.7) (5=1.7) (6=3) (7=4.9) (8=7.5) (9=11) (10=14.8) (11=21) (12=27) (13=35) (14=44) (15=54) (16=66) (17=80) (18=94) (19=115) (20=130) (21=155) (22=175) (23=205) (24=230) (25=260) (26/44=9999), gen(p_compPrice)
+// drop tp_compPrice 
 
 * forward premium (absolute) per auction and group (averaged over all periods within a group)
 by ps_auction ps_group, sort : egen float fpremium_a_gr = mean(fpremium_a_gr_pe) if of_cleared==1 & of_offer_tiepe==0 & au_is_part_experiment==1
@@ -218,14 +218,15 @@ label variable fpremium_a_gr5 "fpremium_auction_group5"
 label variable ps_period "period"
 
 
+
 by ps_auction ps_group ps_period, sort : egen float sprice_a_gr_pe = mean(wmean_price_a_gr_pe_ph) if of_cleared==1 & of_offer_tiepe==0 & au_is_part_experiment==1 & ph_idd==2
 
 by ps_auction ps_group, sort : egen float sprice_a_gr = mean(wmean_price_a_gr_pe_ph) if of_cleared==1 & of_offer_tiepe==0 & au_is_part_experiment
 
 sum tag_per_auction_gr_pe_ph2 tag_per_auction_gr_pe_ph
 
-reg ps_sprice_implied sprice_a_gr if tag_per_auction_gr_pe_ph2, noc
-reg ps_sprice_implied sprice_a_gr if tag_per_auction_gr, noc
+// reg ps_sprice_implied sprice_a_gr if tag_per_auction_gr_pe_ph2, noc
+// reg ps_sprice_implied sprice_a_gr if tag_per_auction_gr, noc
 
 cap drop RA_implied 
 gen RA_implied = (fpremium_a_gr/ fpremium_theory005) * 0.005
@@ -293,7 +294,7 @@ gen tr1= tr_sorted==1
 gen tr2= tr_sorted==2
 gen tr3= tr_sorted==3
 label var tr1 "T1: 55-65"
-label var tr2 "T2: 40-80" 
+label var tr2 "T2: 40-80"
 label var tr3 "T3: 20-100" 
 
 tab tr1 if tag_per_auction==1
@@ -448,6 +449,7 @@ bysort tr_sorted :gen fpos_a_gr5_lb95  = fpos_a_gr5_mean - 1.96* fpos_a_gr5_se i
 *********************************************************
 
 egen float total_demand = total(ps_player_demand) if tag_per_player_period ==1 & tr_sorted!=. ,by(au_gr_pe_id pl_role ps_group) 
+egen float max_demand = max(ps_player_demand) if tag_per_player_period ==1 & tr_sorted!=. ,by(au_gr_pe_id pl_role ps_group) 
 egen float total_n_per_group = count(pl_id) if tag_per_player_period ==1 & tr_sorted!=.,by(au_gr_pe_id pl_role ps_group) 
 summ total_demand total_n_per_group 
 
@@ -475,8 +477,41 @@ gen fpos_a_gr5_tr2 = fpos_a_gr5 if tr_sorted==2 &  tag_per_auction_gr_ph5==1 & a
 gen fpos_a_gr5_tr3 = fpos_a_gr5 if tr_sorted==3 &  tag_per_auction_gr_ph5==1 & au_is_part_experiment==1
 
 tab tr_sorted if tag_per_auction_gr==1
+tab ps_player_demand
+
+tab ps_player_demand if tr_sorted==1
+tab ps_player_demand if tr_sorted==2
+tab ps_player_demand if tr_sorted==3
+****
+* implied  sprice_a_gr
+cap drop sprice_implied
+
+cap drop player_demand_max
+by au_gr_pe_id, sort :  egen player_demand_max = max(ps_player_demand) if au_is_part_experiment==1 
+// tab player_demand_max if au_is_part_experiment==1 & ps_period==1 & tr_sorted==1
+// tab player_demand if au_is_part_experiment==1 & ps_period==1 & tr_sorted==1
+
+tab max_demand if  ps_period==8 & tr_sorted==1 & au_is_part_experiment==1 
+tab player_demand_max if  ps_period==8 & tr_sorted==1 & au_is_part_experiment==1 & pl_role==0
+tab player_demand_max if  tr_sorted==1 & au_is_part_experiment==1 & pl_role==0
+tab player_demand_max if  tr_sorted==1 &  pl_role==0
+tab max_demand if  tr_sorted==1 &  pl_role==0
 
 
+tab player_demand_max
+cap drop sprice_implied 
+gen sprice_implied = player_demand_max
+// tab sprice_implied 
+recode sprice_implied (1=0) (2=0.1) (3=0.3) (4=0.7) (5=1.7) (6=3) (7=4.9) (8=7.5) (9=11) (10=14.8) ///
+(11=21) (12=27) (13=35) (14=44) (15=54) (16=66) (17=80) (18=94) (19=115) (20=130) ///
+(21=155) (22=175) (23=205) (24=230) (25=260) (26=295) (27=330) (28=370) (29=415) (30=455) ///
+(31=500) (32=560) (33=610) (34=670) (35=730) 
+* check
+tab sprice_implied ps_player_demand
+tab sprice_implied ps_player_demand if tag_per_auction_gr_pe_ph2==1
+// case(tr_sorted==3,
+//
+// )
 
 
 * x = 1/(c-1) = 1/3
@@ -511,18 +546,30 @@ twoway (scatter RA_implied tr_sorted) (scatter RA_implied_mean tr_sorted) if tr_
 
 
 
-label variable ps_sprice_implied_max "spot_price_predicted"
+label variable sprice_implied "spot_price_predicted"
 label variable wmean_price_a_gr_pe_ph "spot_price"
+cap drop wmean_price_a_gr_pe_ph_mean 
+by sprice_implied tr_sorted, sort: egen  wmean_price_a_gr_pe_ph_mean = mean (wmean_price_a_gr_pe_ph)
 
-
-cap drop sprice_diff_rel 
-gen sprice_diff_rel_abs = (abs(wmean_price_a_gr_pe_ph - ps_sprice_implied_max )/ps_sprice_implied_max) if tag_per_auction_gr_pe_ph2==1
+// cap drop sprice_diff_rel 
+gen sprice_diff_rel_abs = (abs(wmean_price_a_gr_pe_ph - sprice_implied )/sprice_implied) if tag_per_auction_gr_pe_ph2==1
 label variable sprice_diff_rel_abs "spot_price_abs_error"
 
-gen sprice_diff_rel = ((wmean_price_a_gr_pe_ph - ps_sprice_implied_max )/ps_sprice_implied_max) if tag_per_auction_gr_pe_ph2==1
+
+
+
+gen sprice_diff_rel = ((wmean_price_a_gr_pe_ph - sprice_implied )/sprice_implied) if tag_per_auction_gr_pe_ph2==1
 label variable sprice_diff_rel "spot_price_error"
-gen sprice_fac_rel = ((wmean_price_a_gr_pe_ph )/ps_sprice_implied_max) if tag_per_auction_gr_pe_ph2==1
+gen sprice_fac_rel = ((wmean_price_a_gr_pe_ph )/sprice_implied) if tag_per_auction_gr_pe_ph2==1
 label variable sprice_fac_rel  "spot_price_factor"
+
+tab sprice_fac_rel  tag_per_auction_gr_pe_ph2
+tab sprice_fac_rel  if tag_per_auction_gr_pe_ph2==1
+tab wmean_price_a_gr_pe_ph tag_per_auction_gr_pe_ph2
+tab sprice_implied tag_per_auction_gr_pe_ph2
+corr (sprice_implied wmean_price_a_gr_pe_ph)
+
+// summ sprice_diff_rel if 
 
 gen byte ones=1
 

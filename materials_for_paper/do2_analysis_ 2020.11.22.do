@@ -1,33 +1,71 @@
 ********************************************************
-* First run do1_ initialize_2019.11.10.do
+* First run do1_ initialize_2020.11.22.do
 ********************************************************
 
 ************************************************************************
-* Table 6: Deviation from predicted spot price
-local name = "aa221.doc"
 
-* are the spotprice differences large?
-reg sprice_diff_rel_pe   ones if tag_per_auction_gr_pe_ph2==1 , noc vce(cluster au_gr_id)
-outreg2 using `name' ,  label //5
-reg sprice_diff_rel_pe   tr1 tr2 tr3 if tag_per_auction_gr_pe_ph2==1 , noc vce(cluster au_gr_id)
-outreg2 using `name' ,  label //6
-* are the spotprice differences large in the last 5 periods?
-reg sprice_diff_rel_pe   ones if tag_per_auction_gr_pe_ph2==1 & ps_period>5, noc vce(cluster au_gr_id)
-outreg2 using `name' ,  label //7
 
-reg sprice_diff_rel_pe   tr1 tr2 tr3 if tag_per_auction_gr_pe_ph2==1 & ps_period>5, noc vce(cluster au_gr_id)
-outreg2 using `name' ,  label //8
+twoway (scatteri 2 2 260 260, recast(line))  ///
+(lfitci wmean_price_a_gr_pe_ph sprice_implied if tr_sorted==3 & tag_per_auction_gr_pe_ph2==1, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ (lfitci wmean_price_a_gr_pe_ph sprice_implied if tr_sorted==2 & tag_per_auction_gr_pe_ph2==1, lcolor(black) clwidth(medthick) clpattern(longdash_dot) fcolor(gray%95) alcolor(%1)) ///
+ (lfitci wmean_price_a_gr_pe_ph sprice_implied if tr_sorted==1 & tag_per_auction_gr_pe_ph2==1, lcolor(black) clwidth(medthick) clpattern(solid) fcolor(gray%40) alcolor(%1)) ///
+ , xlabel(2 11 21 35 54 66 80 115 130 155 175 205 230 260, labsize(large)) legend(order(4 "55-65" 6 "40-80" 2 "20-100")  size(large) cols(1))
 
-* F-test, parametric test * are the spotprice deviations different over treatments?
-quietly reg sprice_diff_rel_pe   tr1 tr2 tr3 if tag_per_auction_gr_pe_ph2==1 , noc vce(cluster au_gr_id)
-test (tr1=tr2=tr3)
-quietly reg sprice_diff_rel_pe   tr1 tr2 tr3 if tag_per_auction_gr_pe_ph2==1 & ps_period>5, noc vce(cluster au_gr_id)
-test (tr1=tr2=tr3)
 
-* KW, non-parametric test * are the spotprice deviations different over treatments?
-kwallis sprice_diff_rel if tag_per_auction_gr_ph==1 , by(tr_sorted)  
-kwallis sprice_diff_rel5 if tag_per_auction_gr_ph5==1 , by(tr_sorted)  
+ 
+ 
 
+ 
+twoway  (scatteri 2 2 260 260, recast(line))  ///
+(qfitci wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ , xlabel(2 21 35 54 80 94 115 155 175 205 230 260, labsize(large)) ylabel(, labsize(large))  xtitle("predicted", size(vlarge)) ytitle("observed", size(huge))  ///
+ legend(order(3 2 1 "line of equality" ) size(large) cols(1)) legend(off)
+
+
+reg  wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1 & tr_sorted==1 , vce(cluster au_gr_id)
+ 
+ 
+ 
+ 
+ 
+ 
+* T1 
+twoway  (scatteri 44 44 80 80, recast(line))  ///
+(scatter wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1 & tr_sorted==1, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+(lfitci wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1 & tr_sorted==1, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ , xlabel(44 54 66 80, labsize(vlarge)) ylabel(, labsize(vlarge))  xtitle("T1: 55-65", size(huge)) ytitle("observed", size(vhuge)) title("   ", lcolor(black) size(vhuge) position(6)) ///
+ legend(order(3 2 1 "line of equality" ) size(large) cols(1)) legend(off)
+
+ 
+ 
+ * T2
+ twoway  (scatteri 21 21 130 130, recast(line))  ///
+(scatter wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1 & tr_sorted==2, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ (qfitci wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1 & tr_sorted==2, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ , xlabel(21 27 35 44 54 66 80 94 115 130, labsize(vlarge)) ylabel(, labsize(vlarge))  xtitle("T2: 40-80", size(huge)) ytitle("", size(vlarge)) title("predicted", color(black) size(vhuge) position(6)) ///
+ legend(order(3 2 1 "line of equality" ) size(large) cols(1)) legend(off)
+ 
+* T3
+ twoway  (scatteri 2 2 260 260, recast(line))  ///
+(scatter wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1& tr_sorted==3, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ (qfitci wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1& tr_sorted==3, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ , xlabel(2 21 35 54 80 94 115 155 175 205 230 260, labsize(vlarge)) ylabel(, labsize(vlarge))  xtitle("T3: 20-100", size(huge)) ytitle("", size(vlarge))  title("   ", lcolor(black) size(vhuge) position(6))  ///
+ legend(order(2 "spot price" 3 4 "Fitted" 1 "line of equality" ) size(large) cols(4)) legend(off)
+ 
+ * for legend
+  twoway  (scatteri 2 2 260 260, recast(line))  ///
+(scatter wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1& tr_sorted==3, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ (qfitci wmean_price_a_gr_pe_ph sprice_implied if  tag_per_auction_gr_pe_ph2==1& tr_sorted==3, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) ///
+ , xlabel(2 21 35 54 80 94 115 155 175 205 230 260, labsize(vlarge)) ylabel(, labsize(vlarge))  xtitle("T3: 20-100", size(huge)) ytitle("", size(vlarge))  title("   ", lcolor(black) size(vhuge) position(6))    xsize(20) ysize(12) ///
+ legend(order(2 "spot price" 4 "Fitted" 3 1 "line of equality" ) size(large) cols(4)) 
+ 
+
+ 
+ 
+twoway (scatter wmean_price_a_gr_pe_ph sprice_implied if tr_sorted==1, lcolor(black) clwidth(thick) clpattern(longdash_dot_dot) fcolor(gray%15) alcolor(%1)) 
+
+
+sum wmean_price_a_gr_pe_ph sprice_implied if tr_sorted==1 & tag_per_auction_gr_pe_ph2==1
 
 
 ************************************************************************
@@ -47,7 +85,29 @@ twoway 	(rbar fpremium_rel_a_gr_lb95 fpremium_rel_a_gr_ub95 tr_sorted if tr_sort
 		(scatter fpremium_rel_a_gr_mean tr_sorted if tr_sorted==3, msize(huge) mcolor(red)) , ytitle(Forward Premium (%)) ///
            ytitle(, size(vlarge)) ylabel(-.8(.2).4, labsize(large)) ymtick(, labsize(large)) xtitle(, size(vlarge)) ///
 		   xlabel(#3, labsize(large) valuelabel ticks) xmtick(, labsize(large) ) ///
-		   legend(order(1 "groups" 4 "treatments")  cols(2)  subtitle("Averaged over:")) legend(off)
+		   legend(order(7 "treatments" 4 "groups")  cols(1)  subtitle("Averaged over:")) legend(off)
+		   
+		   
+		   
+		   * Figure 4: The forward premium 
+* a) By treatment and by group
+twoway 	(rbar fpremium_rel_a_gr_lb95 fpremium_rel_a_gr_ub95 tr_sorted if tr_sorted==1  , sort  ///
+ 		 fcolor(black%20) fintensity(20) lcolor(none%50) lwidth(none)) ///
+		 (rbar fpremium_rel_a_gr_lb95 fpremium_rel_a_gr_ub95 tr_sorted if tr_sorted==2  , sort  ///
+ 		 fcolor(blue%20) fintensity(20) lcolor(none%50) lwidth(none)) ///
+		 (rbar fpremium_rel_a_gr_lb95 fpremium_rel_a_gr_ub95 tr_sorted if tr_sorted==3  , sort  ///
+ 		 fcolor(red%20) fintensity(20) lcolor(none%50) lwidth(none)) ///
+		(scatter fpremium_rel_a_gr tr_sorted if tr_sorted==1, sort ylabel(-.8(.2).4) mcolor(black)) ///
+		(scatter fpremium_rel_a_gr tr_sorted if tr_sorted==2, sort ylabel(-.8(.2).4) mcolor(blue)) ///
+		(scatter fpremium_rel_a_gr tr_sorted if tr_sorted==3, sort ylabel(-.8(.2).4) mcolor(red)) ///
+		(scatter fpremium_rel_a_gr_mean tr_sorted if tr_sorted==1, msize(huge) mcolor(black)) ///
+		(scatter fpremium_rel_a_gr_mean tr_sorted if tr_sorted==2, msize(huge) mcolor(blue)) ///
+		(scatter fpremium_rel_a_gr_mean tr_sorted if tr_sorted==3, msize(huge) mcolor(red)) , ytitle(Forward Premium (%)) ///
+           ytitle(, size(vlarge)) ylabel(-.8(.2).4, labsize(large)) ymtick(, labsize(large)) xtitle("", size(vlarge)) ///
+		   xlabel(#3, labsize(large) valuelabel ticks) xmtick(, labsize(large) ) ///
+		   legend(order(7 "treatments" 4 "groups")  cols(2)  subtitle("Averaged over:", size(large)) size(large)) 
+		   
+		   
 
 * b) By treatment and period
 sort ps_period
@@ -55,10 +115,10 @@ twoway 	(rarea fpremium_rel_a_gr_pe_lb95 fpremium_rel_a_gr_pe_ub95 ps_period if 
  		 fcolor(black%20) fintensity(100) lcolor(none%50) lwidth(none)) ///
 		 (rarea fpremium_rel_a_gr_pe_lb95 fpremium_rel_a_gr_pe_ub95 ps_period if tr_sorted==3 &tag_per_auction_gr_pe_ph ==1  , sort ylabel(-.8(.2).4)  ///
  		 fcolor(red%20) fintensity(100) lcolor(none%50) lwidth(none))  ///
-		(line fpremium_rel_a_gr_pe_mean   ps_period if tr_sorted==1 , sort ylabel(-.8(.2).4) lcolor(black) lwidth(thick)  ytitle(Forward Premium1) ) ///
+		(line fpremium_rel_a_gr_pe_mean   ps_period if tr_sorted==1 , sort ylabel(-.8(.2).4) lcolor(black) lwidth(thick)  ytitle(Forward Premium) ) ///
 		(line fpremium_rel_a_gr_pe_mean   ps_period if tr_sorted==2 , sort ylabel(-.8(.2).4) lcolor(blue) lwidth(thick)    ytitle(Forward Premium)) ///
-		(line fpremium_rel_a_gr_pe_mean    ps_period if tr_sorted==3, sort ylabel(-.8(.2).4)   lcolor(red) lwidth(thick)  ytitle(Forward Premium)) ///
-		, legend(order(3 "T1: 55-65" 4 "T2: 40-80" 5 "T3: 20-100") cols(1)) xlabel(1 (1) 10)
+		(line fpremium_rel_a_gr_pe_mean    ps_period if tr_sorted==3, sort ylabel(-.8(.2).4, labsize(large))  xtitle(, size(vlarge))  lcolor(red) lwidth(thick)  ytitle(Forward Premium (%) , size(vlarge))) ///
+		, legend(order(3 "T1: 55-65" 4 "T2: 40-80" 5 "T3: 20-100") size(large) cols(1)) xlabel(1 (1) 10, labsize(large))  
 
 		
 
